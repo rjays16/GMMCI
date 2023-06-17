@@ -1,0 +1,39 @@
+// Forms
+.form-horizontal
+    input, select, textarea, .uneditable-input, .input-prepend, .input-append
+        & + .help-block
+            font: 11px/12px
+            margin-top: 4px
+
+label
+    font-size: 13px
+
+.form-inline, form-horizontal, form-vertical
+    .help-block, .help-inline
+        &.error
+            color: #EEA4A3
+            font-size: 11px/11px
+            font-style: italic
+
+textarea, input[type="text"], input[type="password"], input[type="datetime"], input[type="datetime-local"], input[type="date"], input[type="month"], input[type="time"], input[type="week"], input[type="number"], input[type="email"], input[type="url"], input[type="search"], input[type="tel"], input[type="color"], .uneditable-input
+    color: #333
+    font-size: 13px
+    border-color: #BDBDBD
+    +border-radius(1px)
+    +box-shadow(none)
+    &:focus
+        +box-shadow(none)
+        border-color: #388dff
+        color: #444
+
+
+// Select2
+.select2-results
+    .select2-highlighted
+    background-color: #D7E1F1
+    color: #000
+
+.form-actions
+    padding: 10px
+    border-top: 1px solid rgba(0,0,0,.1)
+    background-color: rgba(248,248,248,.9)

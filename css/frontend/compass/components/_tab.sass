@@ -1,0 +1,40 @@
+// Tabs
+.nav-tabs
+    margin-bottom: 0
+    border:
+        top: 1px solid #ddd
+        right: 1px solid #ddd
+        left: 1px solid #ddd
+    >li
+        margin-bottom: -1px
+        > a
+            font-size: 14px
+            padding: 6px 10px
+            border: 1px solid #dadada
+                top: 0
+                bottom: 0
+            color: #888
+            position: relative
+            bottom: -1px
+            +border-radius(0)
+            +box-shadow(0 -2px 0 #ccc)
+            &:hover, &:focus
+                border-color: #dadada
+                color: #4d4d4d
+                background-color: #fff
+                +box-shadow(0 -2px 0 #999)
+        &.active > a
+            &, &:hover, &:focus
+                font-weight: bold
+                position: relative
+                bottom: -1px
+                +box-shadow(0 -2px 0 #45A6CE)
+    & > li:first-child > a
+        border-left: 0 !important
+
+.tab-content
+    padding: 10px!important
+    border: 1px solid #ddd
+    border-top: 0
+    &.tab-content-flex
+        overflow: visible

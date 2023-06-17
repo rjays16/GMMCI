@@ -1,0 +1,28 @@
+td.labelcell {
+    color: #000000;
+    font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+    font-size:140%;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align:center;
+}
+
+td.sublabel {
+    color: #000000;
+    font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+    font-size:100%;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align:right;
+}
+
+.grouptitle {
+    color: #000000;
+    font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+    font-size:140%;
+    font-weight: bold;
+    vertical-align: middle;
+    text-align:left;
+    margin-left:5px;
+    margin-top:8px;
+}

@@ -1,0 +1,97 @@
+/** Page header **/
+#header {
+	margin: 0;
+	padding: 0;
+	background-color: #252620;
+	color: #fff;
+
+	-moz-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 4px 4px 0 rgba(0,0,0,0.2);
+}
+
+
+/** Page logo **/
+#pageLogo {
+	position: relative;
+	top: 20px;
+	height: 250px;
+}
+
+
+#pageLogo h1 {
+	color: #fff;
+	font-family: 'Arial Narrow';
+	font-size: 22px;
+	font-weight: bold;
+	padding: 8px;
+}
+
+body {
+	background: #eeeeee;
+	color: #222;
+	font-family:'lucida grande',verdana,helvetica,arial,sans-serif;
+	font-size: 14px;
+	margin: 0;
+}
+
+
+/** Login form **/
+#loginForm {
+	display: inline-block;
+	position: relative;
+	top: -60px;
+
+	text-align: left;
+	position: relative;
+	width: 620px;
+	padding: 10px 2px;
+
+	background-color: #fff;
+	border: 0;
+	/*border-top: 3px solid #BAD3EA;*/
+
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+
+	-moz-box-shadow: 0 0 10px 0 rgba(0,0,0,0.2);
+	-webkit-box-shadow: 0 0 2px 0 rgba(0,0,0,0.5), inset 0 2px 1px #BAD3EA;
+}
+
+#loginForm div.wrapper {
+	padding: 10px;
+}
+
+#loginForm div.input {
+	padding: 0px;
+	margin: 0;
+	margin-top: 10px;
+}
+
+#loginForm div.submit {
+	margin: 0;
+	margin-top: 10px;
+	padding: 10px;
+	border-top: 1px solid #dedede;
+}
+
+#loginForm input[type=text], #loginForm input[type=password] {
+	padding: 1px;
+	font: bold 16px 'Arial Narrow';
+	width: 200px;
+	border:1px solid #1c5180;
+	-moz-border-radius: 4px;
+	-webkit-border-radius: 4px;
+}
+
+#loginForm input[type=text]:focus, #loginForm input[type=password]:focus {
+	outline-width: 0;
+	border: 1px solid #af995e;
+	-moz-box-shadow: 2px 2px 1px #5b90c8, -2px 2px 1px #5b90c8, 2px -2px 1px #5b90c8, -2px -2px 1px #5b90c8;
+	-webkit-box-shadow: 2px 2px 1px #5b90c8, -2px 2px 1px #5b90c8, 2px -2px 1px #5b90c8, -2px -2px 1px #5b90c8;
+}
+
+#loginForm label {
+	display: inline-block;
+	width: 80px;
+	font: bold 12px Arial;
+}

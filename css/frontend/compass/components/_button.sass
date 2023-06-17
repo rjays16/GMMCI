@@ -1,0 +1,19 @@
+// Buttons
+.btn
+    background-image: none
+    +box-shadow(none)
+    +border-radius(2px)
+    +single-transition(all, ease, 0.3s)
+    &:focus
+        background-position: 0
+    &[disabled]
+        color: #999
+        text-shadow: 0 1px #fff
+        background-color: #eee
+        border: 1px solid #ccc
+
+.btn-group
+    & > .btn:first-child
+        +border-left-radius(2px)
+    & >.btn:last-child, & >.dropdown-toggle
+        +border-right-radius(2px)

@@ -1,0 +1,28 @@
+// Modal
+.modal
+    +border-radius(0)
+    &.in
+        +animate(bounceInDown, 0.5s)
+
+    .modal-header
+        +box-shadow(inset 0 3px #83A2CF)
+        #{headings()}
+            font-size: 16px
+            font-weight: $font-weight-semibold
+        .close
+            margin-top: 10px
+            font-size: 24px
+
+    .modal-body
+        max-height: 290px
+
+    .modal-footer
+        padding: 10px
+    .modal-backdrop
+        +opacity(0.6)
+    &.modal-small
+        width: 200px
+        margin-left: -100px
+    &.modal-large
+        widthL 900px
+        margin-left: -450px

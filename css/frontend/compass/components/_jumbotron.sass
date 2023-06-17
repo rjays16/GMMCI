@@ -1,0 +1,28 @@
+.well
+    color: #fff
+    padding: 45px
+    margin: 15px
+    border: 1px solid #197208
+    +border-radius(0)
+    #{headings()}
+        letter-spacing: -1px
+        font-weight: $font-weight-bold
+        +text-shadow(0 -1px #226B1D)
+    p
+        border-top: 1px solid rgba(13, 83, 9, 0.16)
+        margin-top: 20px
+        padding: 10px
+        letter-spacing: -1px
+        font-size: 18px
+        font-weight: $font-weight-semibold
+    &.well-success
+        +background-with-css2-fallback(image-url("noise.png"), radial-gradient(color-stops(#36c333, #439d29), center 10%), #37c434)
+    &.well-error
+        background-color: #FFE9E4
+        border: 1px solid #EB7B7B
+            left-width: 8px
+        #{headings()}
+            color: #e43f3f
+
+
+

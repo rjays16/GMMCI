@@ -1,0 +1,67 @@
+@import compass/css3
+@import partials/animate
+
+
+// Font settings
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 400
+    src: url(fonts/OpenSans.eot)
+    src: local('Open Sans'), local('OpenSans'), url(fonts/OpenSans.eot) format('embedded-opentype'), url(fonts/OpenSans.woff) format('woff')
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 600
+    src: url(fonts/OpenSans-SemiBold.eot)
+    src: local('Open Sans Semibold'), local('OpenSans-Semibold'), url(fonts/OpenSans-SemiBold.eot) format('embedded-opentype'), url(fonts/OpenSans-SemiBold.woff) format('woff')
+
+@font-face
+    font-family: 'Open Sans'
+    font-style: normal
+    font-weight: 700
+    src: url(fonts/OpenSans-Bold.eot)
+    src: local('Open Sans Bold'), local('OpenSans-Bold'), url(fonts/OpenSans-Bold.eot) format('embedded-opentype'), url(fonts/OpenSans-Bold.woff) format('woff')
+
+$font-main: 'Open Sans', Arial,sans-serif
+$font-weight-normal: 400
+$font-weight-semibold: 600
+$font-weight-bold: 700
+
+$header-height: 50
+$footer-height: 80
+$brand-width: 157
+$brand-height: 40
+$navbar-link-height: 40
+
+
+// Appearance configuration
+// In theory the lightness and saturation values of corresponding colors should not change.
+// In reality, these values should be adjusted to create a more pleasant color combination.
+// There is not any mathematical formula for this, but you can use the lighten, darken,
+// saturate and desaturate functions to adjust your main colors.
+$base-color: #f8f8f8 !default
+$support-color: #45a6ce !default
+$accent-color : #45a6ce !default
+
+$dark-base-color    : darken($base-color, 10)
+$darker-base-color  : darken($base-color, 25)
+$darkest-base-color : darken($base-color, 50)
+$light-base-color   : lighten($base-color, 10)
+$lighter-base-color : lighten($base-color, 25)
+$lightest-base-color: lighten($base-color, 50)
+
+$dark-support-color    : darken($support-color, 10)
+$darker-support-color  : darken($support-color, 25)
+$darkest-support-color : darken($support-color, 50)
+$light-support-color   : lighten($support-color, 10)
+$lighter-support-color : lighten($support-color, 25)
+$lightest-support-color: lighten($support-color, 50)
+
+$dark-accent-color    : darken($accent-color, 10)
+$darker-accent-color  : darken($accent-color, 25)
+$darkest-accent-color : darken($accent-color, 50)
+$light-accent-color   : lighten($accent-color, 10)
+$lighter-accent-color : lighten($accent-color, 25)
+$lightest-accent-color: lighten($accent-color, 50)

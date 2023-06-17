@@ -1,0 +1,45 @@
+// Navbar
+.navbar
+    .navbar-inner
+        +box-sizing(border-box)
+        height: $header-height + px
+        position: relative
+        margin: 0
+        padding: 0
+        padding-top: 4px
+        border-bottom: 1px solid #C9C4C1
+        +background-with-css2-fallback(linear-gradient(top, #f8f8f8, #f2f2f2), #f8f8f8)
+        +box-shadow(inset 0 1px 1px #fff)
+    // Navbar divider
+    .divider-vertical
+        height: $navbar-link-height + px
+        margin: 0 9px
+        border-left: 1px dotted #ccc
+        border-right: 1px dotted #fff
+    // First level navbar link
+    .nav>li>a
+        font: 13px $font-weight-normal
+        float: none
+        padding: 10px
+        +box-sizing(border-box)
+        height: $navbar-link-height + px
+
+    .nav
+        li.dropdown
+            &.open, &.active, &.open.active
+                &>.dropdown-toggle
+                    +box-shadow(inset 0 0 8px rgba(0,0,0,0.3))
+
+    .divider-vertical
+        margin: 0 5px
+
+    .brand
+        font: 20px $font-weight-bold
+
+.dropdown-menu > li > a
+    &:hover, &:focus
+        +text-shadow(none)
+
+.dropdown-submenu:hover, .dropdown-submenu:focus
+    & > a
+        +text-shadow(none)

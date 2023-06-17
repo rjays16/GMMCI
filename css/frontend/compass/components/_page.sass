@@ -1,0 +1,40 @@
+// Sticky footer
+html, body
+    +box-sizing(border-box)
+    height: 100%
+
+
+#page
+    min-height: 100%
+    height: auto !important
+    height: 100%
+    margin: 0 auto -#{$footer-height}px
+
+#page-footer, .push
+    height: $footer-height + px
+
+
+// Page elements
+#page
+    padding-left: 0
+    padding-right: 0
+    .brand
+        background: image-url("logo.png") no-repeat
+        width: $brand-width + px
+        height: $brand-height + px
+        padding: 0
+        margin-left: 0px
+
+.page-title
+    font:
+        size: 22px
+        weight: normal
+    margin-bottom: 20px
+    letter-spacing: -1px
+    i
+        font-size: 20px
+        color: #4c4f53
+    small
+        font-size: 15px !important
+        color: #aaa
+        display: inline-block

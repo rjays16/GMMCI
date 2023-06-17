@@ -1,0 +1,56 @@
+// Box
+.bootstrap-widget-header
+    +box-sizing(border-box)
+    overflow: visible
+
+    // dimensions
+    height: 30px
+    padding:
+        left: 10px
+        right: 10px
+
+    // styling
+    color: #333
+    +text-shadow(0 1px 0 #FFF)
+    border: 1px solid #dadada
+    background: #fafafa
+    +background-with-css2-fallback(linear-gradient(top, #fafafa 0%, #efefef 100%), #efefef)
+
+    h3
+        font-weight: $font-weight-normal
+        line-height: 34px
+        margin: 0
+    > [class^="icon-"], > [class*=" icon-"]
+        margin-left: 0
+
+
+    // Fix for bootsrap widget + toolbar dropdown menu
+    .bootstrap-toolbar ul.dropdown-menu i
+        margin:
+            left: 0 !important
+            right: 0 !important
+
+.bootstrap-widget-content
+    +border-radius(0)
+    border: 1px solid #dfdfdf
+    border-bottom: 0
+
+    &:last-child
+        border-bottom: 2px solid #cfcfcf
+
+.bootstrap-widget-footer
+    border: 1px solid #dadada
+    display: block
+    min-height: 32px
+    vertical-align: middle
+    position: relative
+    background-color: #F8F7F7
+    padding: 5px
+    border-top: 1px solid #E4E4E4
+    border-bottom: 2px solid #cfcfcf
+
+    .form-actions
+        margin:
+            top: 0
+            bottom: 0
+        border: 0

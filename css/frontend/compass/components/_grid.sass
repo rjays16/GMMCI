@@ -1,0 +1,25 @@
+// Grids
+.grid-view
+    padding-top: 0 !important
+
+.table
+    +border-radius(0)
+    &.table-bordered
+        thead tr th
+            border-left: 1px solid #ddd
+            +border-radius(0 !important)
+        tbody tr
+            td, th
+                +border-radius(0 !important)
+    &.table-striped > tbody > tr:nth-child > td
+        background-color: #f9f9f9
+    &.table-hover > tbody > tr:hover > td
+        background-color: #ecf3f8
+    thead tr
+        +background-with-css2-fallback(linear-gradient(top, #fafafa, #f2f2f2), #f2f2f2)
+        th
+            font-size: 13px
+            font-weight: $font-weight-bold
+            color: #333
+    &.items tr.selected td
+        background: #FFFFD5

@@ -1,0 +1,96 @@
+
+/**
+ * Author: Jolly Caralos;
+ * Date: October 28, 2014;
+ */
+
+.m-files-container {
+    /*box-sizing: border-box;*/
+    min-height: 15em !important;
+    border: 1px solid #efefef;
+    transition: box-shadow .3s;
+
+    /* @todo: use media query; */
+    padding: 1em;
+    margin-bottom: 8px;
+}
+.m-files-container:hover {
+    /*box-shadow: 0 3px 2px 1px #efefef;*/
+    box-shadow: 0 3px 2px 1px #AEADAD;
+}
+.m-empty-files {
+    background-color: #999696;
+    min-height: 12em;
+    height: 100%;
+    width: 100%;
+}
+.m-empty-files > h3 {
+    text-align: center;
+    color: #505050;
+    font-family: sans-serif;
+    font-style: oblique;
+    letter-spacing: 5px;
+    padding: 2em;
+}
+
+ul.files {
+    min-height: 3em;
+    margin: 0 auto;
+    text-align: center;
+}
+ul.tmp-files {
+    margin: 10px auto;
+    text-align: center;
+    min-height: 6em;
+}
+li.template-upload, li.template-download {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 5px 1px #EBEBEB;
+    display: inline-block;
+    text-align: center;
+    padding: 9px;
+    max-width: 12.1em;
+    min-width: 12.1em;
+    vertical-align: text-top;
+
+    background-color: #272727;
+    color: #C6C6C6;
+    box-shadow: 2px 2px 5px 1px #737373;
+}
+li.template-upload > span, 
+li.template-download > span {
+    vertical-align: middle;
+    display: block;
+}
+span.name {
+    word-wrap: break-word;
+}
+
+.file-item-body {
+    min-height: 8em;
+}
+
+.files .progress {
+    width: initial !important; 
+}
+
+/* Folders */
+.m-files-container > div > .span4 {
+    min-height: 7em;
+    min-width: 3em;
+    border: 1px solid #D8D8D8;
+}
+.m-folder-span > header {
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    border-bottom: 1px solid #D8D8D8;
+    padding: 2px 0;
+}
+.ui-sortable-placeholder {
+    border: 3px dashed #D8D8D8 !important;
+    visibility: visible !important;
+    background-color: transparent !important;
+    box-shadow: none !important;
+}
