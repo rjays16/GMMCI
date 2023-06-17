@@ -1,0 +1,218 @@
+			<blockquote>
+			<!--
+		 	<div class="prompt">{{$LDOrDocs}}</div>
+			<TABLE cellSpacing=0  width=600 class="submenu_frame" cellpadding="0">
+			<TBODY>
+			<TR>
+				<TD>
+					<TABLE cellSpacing=1 cellPadding=3 width=600>
+					<TBODY class="submenu">
+						<TR>
+							<TD width="1%">{{$sOrDocumentIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDOrDocument}}</TD>
+							<TD>{{$LDOrDocumentTxt}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+						<TR>
+							<TD width="1%">{{$sQviewDocsIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDQviewDocs}}</TD>
+							<TD>{{$LDQviewTxtDocs}}</TD>
+						</TR>
+
+					</TBODY>
+					</TABLE>
+				</TD>
+			</TR>
+			
+			</TABLE>
+
+			<p>
+		 	</p>
+			-->
+			<!--<div class="prompt">{{$LDOrNursing}}</div>-->
+			<TABLE cellSpacing=0  width=600 class="submenu_frame" cellpadding="0">
+			<TBODY>
+			<TR>
+				<TD>
+					<TABLE cellSpacing=1 cellPadding=3 width=600>
+					<TBODY class="submenu">
+						<TR>
+							<TD class="submenu_title" colspan=3>Operation Requests</TD>
+						</TR>
+						<!--commented by VAN 01-28-08 -->
+						<!--
+						<TR>
+							<TD class="submenu_item" width="35%">{{$sgOprequest}} </TD>
+							<TD>test Or request</TD>							
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+						<TR>
+							<TD class="submenu_item" width=35%>{{$sgOrRequest}}</TD>
+							<TD>OR Request</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+						-->
+						<TR>
+							<TD width="1%">{{$sNewORRequestIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$segNewORRequest}}</TD>
+							<TD>Create new OR request</TD>
+						</TR>
+						
+                        {{include file="common/submenu_row_spacer.tpl"}}
+                        
+                        <tr>
+                          <td width="1%">{{$or_main_charges_icon}}</td>
+                          <td class="submenu_item" width="35%0">{{$or_main_charges_link}}</td>
+                          <td>Assign OR Charges to OR Request</td>
+                        </tr>
+                        
+                        {{include file="common/submenu_row_spacer.tpl"}}
+                        
+						<TR>
+							<TD width="1%">{{$sListORCasesIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$segListORCases}}</TD>
+							<TD>List of OR Cases</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+						<TR>
+							<TD width="1%">{{$sOrLogBookIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDOrLogBook}}</TD>
+							<TD>{{$LDOrLogBookTxt}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+						<!--
+						<TR>
+							<TD width="1%">{{$sORNOCQuickViewIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDORNOCQuickView}}</TD>
+							<TD>{{$LDQviewTxtNurse}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+
+						<TR>
+							<TD width="1%">{{$sORNOCSchedulerIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDORNOCScheduler}}</TD>
+							<TD>{{$LDDutyPlanTxt}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+
+						<TR>
+							<TD width="1%">{{$sOnCallDutyIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDOnCallDuty}}</TD>
+							<TD>{{$LDOnCallDutyTxt}}</TD>
+						</TR>
+							-->
+					</TBODY>
+					</TABLE>
+				</TD>
+			</TR>
+			
+			</TABLE>
+			<!--
+			<p>
+		 	</p><div class="prompt">{{$LDORAnesthesia}}</div>
+			<TABLE cellSpacing=0  width=600 class="submenu_frame" cellpadding="0">
+			<TBODY>
+			<TR>
+				<TD>
+					<TABLE cellSpacing=1 cellPadding=3 width=600>
+					<TBODY class="submenu">
+
+						<TR>
+							<TD width="1%">{{$sORAnaQuickViewIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDORAnaQuickView}}</TD>
+							<TD>{{$LDQviewTxtAna}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+
+						<TR>
+							<TD width="1%">{{$sORAnaNOCSchedulerIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDORAnaNOCScheduler}}</TD>
+							<TD>{{$LDDutyPlanTxt}}</TD>
+						</tr>
+
+					</TBODY>
+					</TABLE>
+				</TD>
+			</TR>
+			
+			</TABLE>
+			-->
+			<!--added by VAN 04-22-08-->
+			<p>
+		 	</p>
+			<!--<div class="prompt">{{$LDORServicesReportDiv}}</div>-->
+            
+            <table cellSpacing=0  width=600 class="submenu_frame" cellpadding="0">
+              <tbody>
+                <tr>
+                  <td>
+                    <table cellspacing="1" cellpadding="3" width="600" class="submenu_frame" cellpadding="0">
+                      <tbody class="submenu">
+                        <tr>
+                          <td class="submenu_title" colspan="3">OR Main Request</td>
+                        </tr>
+                        <tr>
+                          <td width="1%">{{$sListORMainIcon}}</td>
+                          <td class="submenu_item" width="35%0">{{$sListORMainLink}}</td>
+                          <td>Create new OR Main Request</td>  
+                        </tr>
+                        {{include file="common/submenu_row_spacer.tpl"}}
+                        <tr>
+                          <td width="1%">{{$or_main_list_icon}}</td>
+                          <td class="submenu_item" width="35%0">{{$or_main_list_link}}</td>
+                          <td>{{$or_main_list_desc}}</td>  
+                        </tr>
+                        {{include file="common/submenu_row_spacer.tpl"}}
+                        <tr>
+                          <td width="1%">{{$or_main_approve_icon}}</td>
+                          <td class="submenu_item" width="35%0">{{$or_main_approve_link}}</td>
+                          <td>{{$or_main_approve_desc}}</td>  
+                        </tr>
+                        {{include file="common/submenu_row_spacer.tpl"}}  
+                        <tr>
+                          <td width="1%">{{$or_main_schedule_icon}}</td>
+                          <td class="submenu_item" width="35%0">{{$or_main_schedule_link}}</td>
+                          <td>{{$or_main_schedule_desc}}</td>  
+                        </tr>
+                        {{include file="common/submenu_row_spacer.tpl"}}
+                        <tr>
+                          <td width="1%">{{$or_main_post_icon}}</td>
+                          <td class="submenu_item" width="35%0">{{$or_main_post_link}}</td>
+                          <td>{{$or_main_post_desc}}</td>  
+                        </tr>
+                        {{include file="common/submenu_row_spacer.tpl"}}    
+                      </tbody>
+                    </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <p></p>
+			<TABLE cellSpacing=0  width=600 class="submenu_frame" cellpadding="0">
+			<TBODY>
+			<TR>
+				<TD>
+					<TABLE cellSpacing=1 cellPadding=3 width=600>
+					<TBODY class="submenu">
+						<TR>
+							<TD class="submenu_title" colspan=3>Operation Service Management</TD>
+						</TR>
+						<TR>
+							<TD width="1%">{{$sORServicesReportIcon}}</TD>
+							<TD class="submenu_item" width=35%>{{$LDORServicesReport}}</TD>
+							<TD>{{$LDServicesReportTxt}}</TD>
+						</TR>
+						{{include file="common/submenu_row_spacer.tpl"}}
+					</TBODY>
+					</TABLE>
+				</TD>
+			</TR>
+			
+			</TABLE>
+			
+			{{$sOnHoverMenu}}
+
+			<p>
+			<a href="{{$breakfile}}"><img {{$gifClose2}} alt="{{$LDCloseAlt}}" {{$dhtml}} /></a>
+			</p><p>
+			</p></blockquote>

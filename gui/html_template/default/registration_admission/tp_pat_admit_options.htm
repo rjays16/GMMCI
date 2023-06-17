@@ -1,0 +1,341 @@
+<style type="text/css">
+    <!--
+    .style1 {
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        font-weight: bold;
+    }
+
+    -->
+</style><br/>
+
+<!--&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-->
+<FONT color='#cc0000'><span class="style1">$LDOptsForPatient</span> &nbsp;&nbsp;&nbsp;&nbsp;<a
+        href="javascript:gethelp('admission_options.php')"><img src='$TP_root_path/gui/img/common/default/frage.gif'
+                                                                border=0 align="absmiddle"/></a>
+    <TABLE cellSpacing=0 cellPadding=0 class="submenu_frame" border=0>
+        <TBODY>
+        <TR>
+            <TD>
+                <TABLE border=0 cellPadding=0 cellSpacing=0>
+                    <TBODY>
+
+                    <TR class="submenu">
+
+                        <td align=center bgcolor="#FFFFFF" height="14"><img
+                                src='$TP_root_path/gui/img/common/default/opt_tl.jpg' border=0/></td>
+                        <td colspan="2" align=center background='$TP_root_path/gui/img/common/default/opt_l.jpg'></td>
+                        <TD vAlign=top><img src='$TP_root_path/gui/img/common/default/opt_tr.jpg' border=0/></TD>
+                    </TR>
+                    <!--only rowspan will be change -->
+                    <TR bgcolor="#FFFFFF">
+                        <!--change the rowspan -->
+                        <td rowspan="43" align=center background='$TP_root_path/gui/img/common/default/opt_r.jpg'>
+                            &nbsp;
+                        </td>
+                        <td width="50" align=center>$TP_iconPost</td>
+                        <TD vAlign=top> $TP_SICKCONFIRM</TD>
+                        <TD width="5" rowspan="43" vAlign=top
+                            background='$TP_root_path/gui/img/common/default/opt_t.jpg'>&nbsp;
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconFolder</td>
+                        <TD vAlign=top>
+                            <nobr> $TP_CHARTSFOLDER</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconBubble</td>
+                        <TD vAlign=top> $TP_DIAGXRESULTS</TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconTalk</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_MEDOCS</nobr>
+                        </TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconEye</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_DRG</nobr>
+                        </TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconOGuy</td>
+                        <TD vAlign=top>
+                            <nobr> $TP_PRESCRIPTIONS</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconHeads</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_NOTESREPORTS</nobr>
+                        </TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconWGuy</td>
+                        <TD width=159 vAlign=top> $TP_IMMUNIZATION</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconWGuy</td>
+                        <TD width=159 vAlign=top> $TP_MSRMNTS</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPreg</td>
+                        <TD width=159 vAlign=top>$TP_preg_BLK</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <!--<td align=center>$TP_iconIDCard</td>-->
+                        <td align=center>$TP_iconBirth</td>
+                        <TD width=159 vAlign=top> $TP_BIRTHDX</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconGTeen</td>
+                        <TD width=159 vAlign=top> $TP_PATREGSHOW</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconCrossTeen</td>
+                        <TD width=159 vAlign=top>$TP_PATREGUPDATE</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconIDCard</td>
+                        <TD width=159 vAlign=top> $TP_HISTORY</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconWTorso</td>
+                        <TD width=159 vAlign=top> $TP_PRINT_PDFDOC</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPDF</td>
+                        <TD width=159 vAlign=top> $TP_SHOW_COVERSHEET</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPDFMedicalCertificate</td>
+                        <TD vAlign=top>$TP_SHOW_MEDICAL_CERT</TD>
+                    </TR>
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconDeathCert</td>
+                        <TD vAlign=top>$TP_SHOW_DEATH_CERT</TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconBirthCert</td>
+                        <TD vAlign=top>$TP_SHOW_BIRTH_CERT</TD>
+                    </TR>
+
+                    <!--added by BRYAN 02-07-09-->
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconVital</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_VITAL_SIGNS</nobr>
+                        </TD>
+                    </TR>
+
+                    <!-- added by VAN 07-28-08 -->
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconLabRes</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_LabRes</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconBloodRes</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_BloodRes</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconRadioRes</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_RadioRes</nobr>
+                        </TD>
+                    </TR>
+                    <!-- -->
+
+                    <!--added by VAN -->
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconLab</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Lab</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconBlood</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Blood</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconRadio</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Radio</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconSpecialLab</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_SpecialLab</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPharma</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Pharma</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPharma2</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Pharma2</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconPharma3</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Pharma3</nobr>
+                        </TD>
+                    </TR>
+                    <!--<tr bgcolor="#FFFFFF">
+                    <td align="center">$other_charges_icon2</td>
+                    <td valign="top">$other_charges_link2</td>
+                </tr> -->
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconRT</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_RT</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconRO</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_RO</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconOR</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_OR</nobr>
+                        </TD>
+                    </TR>
+
+                    <!-- added by Cherry 08-12-10-->
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_update_details_icon</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_update_details_link</nobr>
+                        </TD>
+                    </TR>
+                    <!-- end Cherry -->
+
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconBilling</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Billing</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconAdmit</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Admit</nobr>
+                        </TD>
+                    </TR>
+                    <!-- -->
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconXPaper</td>
+                        <TD vAlign=top>
+                            <nobr> $TP_xenc_BLK</nobr>
+                        </TD>
+                    </TR>
+
+                    <!--
+                    <TR bgcolor="#FFFFFF" >
+                                    <td align=center>$TP_iconXPaper</td>
+                                    <TD vAlign=top >
+                     $TP_xenc_BLK
+                        </TD>
+                                    </TR>
+                    -->
+
+                    <!-- added by omick April 26, 2009 -->
+                    <tr bgcolor="#FFFFFF">
+                        <td align="center">$clinical_chart_icon</td>
+                        <td valign="top">$clinical_chart_link</td>
+                    </tr>
+                    <!-- end -->
+                    <!-- added by omick October 02, 2009 -->
+                    <tr bgcolor="#FFFFFF">
+                        <td align="center">$other_charges_icon</td>
+                        <td valign="top">$other_charges_link</td>
+                    </tr>
+                    <!-- end -->
+
+                    <!-- added by cha May 1, 2010 (source: hiscgh by bryan 012810) -->
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$view_request_history_icon</td>
+                        <TD vAlign=top>$view_request_history_link</TD>
+                    </TR>
+                    <!-- end -->
+
+                    <!-- Added by Jan Chris Ogel 7/3/2019 CF4-->
+                    <tr bgcolor="#FFFFFF">
+                        <td align=center>$cf4_gen_icon</td>
+                        <td vAlign=top>$cf4_gen</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                        <td align=center>$cf4pdf_icon</td>
+                        <td vAlign=top>$cf4pdf</td>
+                    </tr>
+                    <tr bgcolor="#FFFFFF">
+                        <td align=center>$cf3pdf_icon</td>
+                        <td vAlign=top>$cf3pdf</td>
+                    </tr>
+                    <!-- end Ogel -->
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconConsult</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_Consultation</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center>$TP_iconConsultList</td>
+                        <TD vAlign=top>
+                            <nobr>$TP_SHOW_ConsultationList</nobr>
+                        </TD>
+                    </TR>
+
+                    <TR bgcolor="#FFFFFF">
+                        <td align=center background='$TP_root_path/gui/img/common/default/opt_lb.jpg'>&nbsp;</td>
+                        <td colspan="2" align=center background='$TP_root_path/gui/img/common/default/opt_b.jpg'>
+                            &nbsp;
+                        </td>
+                        <TD vAlign=top background='$TP_root_path/gui/img/common/default/opt_rb.jpg'>&nbsp;</TD>
+                    </TR>
+
+                    </TBODY>
+                </TABLE>
+                $TP_YH_OPTIONS
+            </td>
+        </tr>
+        </TBODY>
+    </TABLE>
+</font>

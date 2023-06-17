@@ -1,0 +1,187 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+<title></title>
+{{$check_date_string}}
+{{$or_main_css}}
+{{foreach from=$javascript_array item=js}}
+    {{$js}}
+{{/foreach}}
+<script>
+ 
+
+</script>   
+</head>
+<body>
+
+<div id="approve_or_main_request" align="left">
+  <div class="header"><span style="float:left">Approve OR Main Request</span>{{$close_approve}}<br style="clear:both" /></div>
+  
+  <div class="body">
+    This request cannot be approved unless a reason for approval is provided.
+    After approval, this request can be scheduled.<br/>
+    {{$form_approve}}
+    {{$approve_reason_label}}
+    {{$error_msg}}
+    
+    {{$approve_reason}}
+    
+    {{$or_approve_submit}}
+    {{$or_approve_cancel}}
+    {{$submitted}}
+    {{$or_main_refno}}
+    {{$mode}}
+    {{$patient_pid}}
+  {{$encounter_nr}}
+  {{$hospital_number}}
+  {{$mode}}
+  {{$submitted}}
+  {{$dept_nr}}
+  {{$op_room}}
+  {{$op_nr}}
+  {{$refno}}
+  {{$or_request_nr}}
+    {{$form_end}}
+    <br style="clear:both" />
+    
+  </div>
+</div>
+
+<div id="disapprove_or_main_request" align="left">
+  <div class="header"><span style="float:left">Disapprove OR Main Request</span>{{$close_disapprove}}<br style="clear:both" /></div>
+  
+  <div class="body">
+    This request cannot be disapproved unless a reason for disapproval is provided. <br/>
+    
+    {{$form_disapprove}}
+    {{$disapprove_reason_label}}
+    {{$error_msg}}
+    {{$disapprove_reason}}
+    
+    {{$or_disapprove_submit}}
+    {{$or_disapprove_cancel}}
+    {{$submitted}}
+    {{$or_main_refno}}
+    {{$mode}}
+    {{$patient_pid}}
+  {{$encounter_nr}}
+  {{$hospital_number}}
+  {{$mode}}
+  {{$submitted}}
+  {{$dept_nr}}
+  {{$op_room}}
+  {{$op_nr}}
+  {{$refno}}
+  {{$or_request_nr}}
+    {{$form_end}}
+    <br style="clear:both" />
+    
+  </div>
+</div>
+
+<div id="or_main_approve_request" align="left">
+  {{$form_start}}
+  
+  
+  <fieldset>                           
+    <legend>Request Details</legend>
+  <table>
+    <tr>
+      <td>Department</td>
+      <td>:</td>
+      <td><span class="value">{{$or_request_department}}</span></td>      
+    </tr>
+    <tr>
+      <td>Operating Room</td>
+      <td>:</td>
+      <td><span class="value">{{$or_op_room}}</span></td>
+    </tr>
+    <tr>
+      <td>Transaction</td>
+      <td>:</td>
+      <td><span class="value">{{$or_transaction_type}}</span></td>
+    </tr>
+    <tr>
+      <td>Priority</td>
+      <td>:</td>
+      <td><span class="value">{{$or_request_priority}}</span></td>
+    </tr>
+    <tr>
+      <td>Date Requested</td>
+      <td>:</td>
+      <td><span class="value">{{$or_request_date}}</span></td>
+    </tr>
+    <tr>
+      <td>Consent Signed</td>
+      <td>:</td>
+      <td><span class="value">{{$or_consent_signed}}</span></td>
+    </tr>                           
+    <tr>
+      <td>Case</td>
+      <td>:</td>
+      <td><span class="value">{{$or_request_case}}</span></td>
+    </tr>                           
+    <tr>
+      <td>Patient Name</td>
+      <td>:</td>
+      <td><span class="value">{{$patient_name}}</span></td>
+    </tr>
+    <tr>
+      <td>Patient Gender</td>
+      <td>:</td>
+      <td><span class="value">{{$patient_gender}}</span></td>
+    </tr>
+    <tr>
+      <td>Patient Age</td>
+      <td>:</td>
+      <td><span class="value">{{$patient_age}}</span></td>
+    </tr>
+    <tr>
+      <td>Patient Address</td>
+      <td>:</td>
+      <td><span class="value">{{$patient_address}}</span></td>
+    </tr>                                              
+    <tr>
+      <td>Date and time of operation</td>
+      <td>:</td>
+      <td><span class="value">{{$or_operation_date}}</span></td>
+    </tr>
+    <tr>
+      <td>Estimated length of operation</td>
+      <td>:</td>
+      <td><span class="value">{{$or_est_op_length}}</span></td>
+    </tr>  
+    <tr>
+      <td>Case classification</td>
+      <td>:</td>
+      <td><span class="value">{{$or_case_classification}}</span></td>
+    </tr>
+    <tr>
+      <td>Pre-operative diagnosis</td>
+      <td>:</td>
+      <td><span class="value">{{$pre_operative_diagnosis}}</span></td> 
+    </tr>
+    <tr>
+      <td>Operation procedure</td>
+      <td>:</td>
+      <td><span class="value">{{$operation_procedure}}</span></td>    
+    </tr>
+    <tr>
+      <td>Special requirements</td>
+      <td>:</td>
+      <td><span class="value">{{$or_special_requirements}}</span></td>    
+    </tr>
+  </table>
+  </fieldset>
+
+
+  {{$or_main_approve}}
+  {{$or_main_disapprove}}
+  {{$or_main_cancel}}
+  
+  
+  {{$form_end}}
+</div>
+
+</body>
+</html>
