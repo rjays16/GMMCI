@@ -1,0 +1,40 @@
+<!DOCTYPE eCLAIMS SYSTEM "eClaimsDef_1.7.3.dtd">
+<eCLAIMS pUserName="" pUserPassword="" pHospitalCode="950102" pHospitalEmail="dmcenter01@yahoo.com">
+    <eTRANSMITTAL pHospitalTransmittalNo="xcxcxc" pTotalClaims="3">
+        <CLAIM pClaimNumber="2015500149" pTrackingNumber="" pPhilhealthClaimType="ALL-CASE-RATE" pPatientType="I" pIsEmergency="N">
+            <CF1 pMemberPIN="13651151" pMemberLastName="BANDOY1NTILDE" pMemberFirstName="TIMOTEO, JR.1Ñ" pMemberSuffix="." pMemberMiddleName="ABAYA1Ñ" pMemberBirthDate="11-07-1966" pMemberShipType="S" pEmployerName="11" pPEN="e1" pPatientIs="M" pMailingAddress="B/LUNGSOD12?ACACIA, DAVAO CITY 8000 DAVAO DEL SUR" pZipCode="8000" pMemberSex="M" pLandlineNo="0" pMobileNo="0" pEmailAddress="sample@email.com" pPatientPIN="13651151" pPatientLastName="BANDOY1Ñ" pPatientFirstName="TIMOTEO, JR.1?" pPatientSuffix="." pPatientMiddleName="ABAYA1?" pPatientBirthDate="July 11, 1966" pPatientSex="M"/>
+            <CF2 pPatientReferred="N" pReferredIHCPAccreCode="0" pAdmissionDate="03-02-2015" pAdmissionTime="06:15:00PM" pDischargeDate="03-02-2015" pDischargeTime="06:15:34PM" pDisposition="I" pExpiredDate="" pExpiredTime="" pReferralIHCPAccreCode="" pReferralReasons="" pAccommodationType="N">
+                <DIAGNOSIS pAdmissionDiagnosis="">
+                    <DISCHARGE pDischargeDiagnosis="NONE">
+                        <ICDCODE pICDCode="T51.2"/>
+                    </DISCHARGE>
+                    <DISCHARGE pDischargeDiagnosis="NONE">
+                        <RVSCODES pRVSCode="11000" pRelatedProcedure="DEBRIDEMENT OF EXTENSIVE ECZEMATOUS OR INFECTED SKIN" pProcedureDate="03-02-2015" pLaterality="N"/>
+                    </DISCHARGE>
+                </DIAGNOSIS>
+                <SPECIAL>
+                    <PROCEDURES>
+                        <DEBRIDEMENT>
+                            <SESSIONS pSessionDate="03-02-2015"/>
+                        </DEBRIDEMENT>
+                    </PROCEDURES>
+                </SPECIAL>
+                <PROFESSIONALS pDoctorAccreCode="NONE" pDoctorLastName="NONE" pDoctorFirstName="NONE" pDoctorMiddleName="NONE" pDoctorSuffix="NONE" pWithCoPay="N" pDoctorCoPay="0.00" pDoctorSignDate="NONE"/>
+                <CONSUMPTION pEnoughBenefits="Y">
+                    <BENEFITS pTotalHCIFees="5300" pTotalProfFees="0.00" pGrandTotal="5300.00"/>
+                </CONSUMPTION>
+            </CF2>
+            <ALLCASERATE>
+                <CASERATE pCaseRateCode="CR1368" pICDCode="" pRVSCode="11000" pCaseRateAmount="10540.00"/>
+            </ALLCASERATE>
+            <DOCUMENTS>
+                <DOCUMENT pDocumentType="CAB" pDocumentURL="NONE"/>
+            </DOCUMENTS>
+        </CLAIM>
+        <CLAIM pClaimNumber="2015000305" pTrackingNumber="" pPhilhealthClaimType="ALL-CASE-RATE" pPatientType="I" pIsEmergency="N">
+            <CF1 pMemberPIN="13651151" pMemberLastName="BANDOY1&amp;NTILDE" pMemberFirstName="TIMOTEO, JR.1&amp;NTILDE" pMemberSuffix="." pMemberMiddleName="ABAYA1&amp;NTILDE" pMemberBirthDate="11-07-1966" pMemberShipType="S" pEmployerName="11" pPEN="e1" pPatientIs="M" pMailingAddress="B/LUNGSOD12?ACACIA, DAVAO CITY 8000 DAVAO DEL SUR" pZipCode="8000" pMemberSex="M" pLandlineNo="0" pMobileNo="0" pEmailAddress="sample@email.com" pPatientPIN="13651151" pPatientLastName="BANDOY1&amp;NTILDE" pPatientFirstName="TIMOTEO, JR.1?" pPatientSuffix="." pPatientMiddleName="ABAYA1?" pPatientBirthDate="July 11, 1966" pPatientSex="M"/>
+        </CLAIM>
+        <CLAIM pClaimNumber="2015000304" pTrackingNumber="" pPhilhealthClaimType="ALL-CASE-RATE" pPatientType="I" pIsEmergency="N"/>
+        <CLAIM pClaimNumber="2015000304" pTrackingNumber="" pPhilhealthClaimType="ALL-CASE-RATE" pPatientType="I" pIsEmergency="N"/>
+    </eTRANSMITTAL>
+</eCLAIMS>
