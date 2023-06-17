@@ -1,0 +1,2 @@
+<input id="{$options.id}" name="{$name}"  type="hidden" value="{$value}"/>
+<input id="{$options.id|cat:"_option"}" class="input" type="checkbox" {if $value!=0}checked="checked"{/if} onclick="$('{$options.id}').value=this.checked?1:0"/>

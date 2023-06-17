@@ -1,0 +1,46 @@
+@CHARSET "UTF-8";
+
+.olbg {
+	background-image:url("<?= $root_path ?>images/bar_05.gif");
+	background-color:#0000ff;
+	border:1px solid #4d4d4d;
+}
+.olcg {
+	background-color:#aa00aa; 
+	background-image:url("<?= $root_path ?>images/bar_05.gif");
+	text-align:center;
+}
+.olcgif {background-color:#333399; text-align:center;}
+.olfg {
+	background-color:#ffffcc; 
+	text-align:center;
+}
+.olfgif {background-color:#bbddff; text-align:center;}
+.olcap {
+	font-family:Arial; font-size:13px; 
+	font-weight:bold; 
+	color:#708088;
+}
+a.olclo {font-family:Verdana; font-size:11px; font-weight:bold; color:#ddddff;}
+a.olclo:hover {color:#ffffff;}
+.oltxt {font-family:Arial; font-size:12px; color:#000000;}
+
+a {color:#338855;font-weight:bold;}
+a:hover {color:#FF00FF;}
+.text12 {font-family:Verdana,Arial,sans-serif; font-size:12px;}
+.text14 {font-family:Verdana,Arial,sans-serif; font-size:14px;}
+.text16 {font-family:Verdana,Arial,sans-serif; font-size:16px;}
+.text18 {font-family:Verdana,Arial,sans-serif; font-size:18px;}
+
+.myHeader {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:22px;}
+.mySubHead {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:18px;}
+.mySpacer {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:4px;}
+.myText {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:13px;color:#000000;}
+.snip {font-family:Verdana,Arial,Helvetica;font-size:10px;}
+.purple14 {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:14px;color:purple;
+ font-weight:bold;}
+.purple18 {font-family:Verdana,Arial,Helvetica,sans-serif;font-size:18px;color:purple;
+ font-weight:bold;font-style:italic;}
+.yellow {color:#ffff00;}
+.red {color:#cc0000;}
+.blue {color:#0000cc;}

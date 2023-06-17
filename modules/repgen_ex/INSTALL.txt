@@ -1,0 +1,34 @@
+Installation Instruction
+========================
+
+1. Install the Web Server Apache.
+2. Install PHP > 4.01. Control, that in the file 'php.ini' the include-path has the entry './;'.
+3. Install a Database System (Mysl, Postgresql, Access with ODBC ..) with the permissions to read and
+   write tables for the user, which the Webserver is using(e.g. wwwrun).
+4. With 'tar -zxvf repgen_044.tgz' copy all Files in a subdirectory (e.g. repgen) of the Apache directory 'htdocs'.
+   (With a MS-Windows system you may use Winzip to uncompress repgen.)
+   A Subdirectory 'fonts' and 'tmp' has been created in the directory. In these subdirectories the Web Server should
+   have rights to write. Change the constant 'REPGENDIR' in the file 'repgen_def.inc' to the 
+   subdirectory, where the PHP-Sources are stored.Change also the value for the constant 'DBDRIVER'
+   in the file 'repgen_def.inc'. Then copy the language file 'repgen_const_<language>.inc' over
+   the file repgen_const.inc.
+5. Run 'reports.sql' to create the table reports and schuessel in the database. A sample report will be 
+   installed. If you are using Postgresql, don't forget to give create, update, insert, delete rights
+   on the tables 'reports' and 'schluessel' for the host 'localhost' in the file 'pg_hba.conf'
+
+
+6. On a Linux-System 
+       - go to the installation directory (e.g. htdocs/repgen)
+       - write:   chown <user>:nogroup . -R    (don't forget the dot!)
+       - write:   chmod oa+r . -R
+       - write:   chmod oa+w fonts
+                  chmod oa+w tmp
+
+7. In the file php.ini the variable 'register_global' should be set to 'On', because the php-files
+   for the definition of a report use sessions! 
+
+8. Change the variables '$database,$host,$user,$password' and 'require' in the file 'sample-mysql.php'
+   (or the others) and test the application 'http://<yourserver>/repgen/sample-mysql.php' from your 
+   browser with an Acrobat Reader plug-in.
+
+My E-Mail: werner_bauer@aon.at

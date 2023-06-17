@@ -1,0 +1,7 @@
+<?php
+	//require_once ($root"../../xajax.inc.php");
+	require_once($root_path.'classes/xajax/xajax.inc.php');
+	$xajax = new xajax($root_path."modules/pharmacy/ajax/retail-new.server.php");
+	//$xajax->registerFunction("populateProductList");
+	$xajax->registerFunction("multiply");
+?>

@@ -1,0 +1,535 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.79 [de] (X11; U; Linux 2.4.18-4GB i686) [Netscape]">
+   <title>untitled</title>
+</head>
+<body bgcolor="#CCFFCC">
+<form ACTION="default.cgi" METHOD="POST" ENCTYPE="application/x-www-form-urlencoded">
+<center>
+<h1>
+<b>Report Generator REPGEN</b></h1></center>
+
+<center>
+<h3>
+Version 0.44</h3></center>
+
+<p><br><a href="#General">1. General</a>
+<p><a href="#Databases">2. Databases</a>
+<p><a href="#Elements">3. Elements</a>
+<blockquote><a href="#Report">3.1 Report Definition</a>
+<p><a href="#FunctionDef">3.2 Function Defintion</a>
+<p><a href="#BlockDef">3.3 Block Definition</a>
+<p><a href="#Items">3.4 Items</a>
+<blockquote><a href="#String">3.4.1 String</a>
+<p><a href="#DBField">3.4.2 Database Field</a>
+<p><a href="#Block">3.4.3 Block</a>
+<p><a href="#Function">3.4.4 Term</a>
+<p><a href="#Textarea">3.4.5 Textarea</a>
+<p><a href="#Line">3.4.6 Line</a>
+<p><a href="#Rectangle">3.4.7 Rectangle</a></blockquote>
+</blockquote>
+<a href="#StrucRep">4.Structure of a Report</a>
+<blockquote><a href="#Tables">4.1 Tables</a>
+<p><a href="#StrucAttr">4.2 Structure of an Attribut of an Item</a></blockquote>
+<a href="#Repgen">5. Repgen, the Generator</a>
+<p><a href="#Sample">6. Sample</a>
+<p><a href="#Functions">7. Functions</a>
+<h2>
+<a NAME="General"></a>1. General</h2>
+Repgen is written with PHP Version 4.01 or higher and helps to generate
+a library of report-definitions. Repgen is designed for use with a browser
+in the Internet.
+<p>Repgen creates automatic an PDF-Report from a declaration, which is
+stored in an SQL Table. To generate a PDF-report you need only one call
+of a PHP-function.
+<p>You can create reports printing the result set of one select statement:
+<ul>
+<li>
+a group change, with a new group value on a new page</li>
+
+<li>
+a group change without change to a new page</li>
+
+<li>
+a report with one page/record of the result set of the SQL Statement</li>
+
+<li>
+a report with one line/record</li>
+</ul>
+This program consists of two parts:
+<blockquote>- A part to define a report with an HTML-Interface and to store
+this definition in a SQL-table called 'reports'.
+<p>- A second part, to create an PDF-File out of the stored definition.</blockquote>
+A report is completely stored in the table 'reports' and you can therefore
+print a PDF-File without any manual ineraction. The PDF-File is created
+in the memory(without an intermediate file creation) and sent to your web-browser,
+where your Acrobat Reader - plugin can store or print the record. To create
+a PDF-File you have only to include the file 'repgen.inc' and to call the
+function 'create_page($database, $host, $user, $password, $id)'. $id is
+the Id-number of the report-definition, the other values are used to connect
+to the database (you will get them from your database administrator).
+<p>The report definition ist based on the stored SQL-statement, which creates
+a result set. Every record of this resultset can create a whole page or
+can only create a line in the report. If the value in one specified database
+field changes, you can define a new Group Header or Group Footer. For every
+page there is a Page Header and a Page Foot declared. In every section
+of the page (Page Header, Group Header, Detail, Group Foot and Page Foot)
+you can define a String, a DB-Field or one of the predeclared functions
+with the predefined fonts and fontsizes.
+<h2>
+<a NAME="Databases"></a>2. Databases</h2>
+You can use Repgen with a various set of databases. Repgen is tested with
+Mysql, Postgresql and ODBC. Because of the use of the database-drivers
+of phplib, you can easily adopt other databases. A change in the file 'repgen_def.inc'
+will do it.
+<h2>
+<a NAME="Elements"></a>3. Elements</h2>
+A report-definition is defined with some elements, which are stored in
+the table 'reports' in the database.
+<p>The elements are:
+<ul>
+<li>
+Common Data of the report</li>
+
+<li>
+Select Statement</li>
+
+<li>
+predefined Item</li>
+
+<li>
+Block</li>
+
+<li>
+Function</li>
+</ul>
+
+<blockquote>
+<h3>
+<a NAME="Report"></a>3.1 Report Definition</h3>
+All data of a report defintion is stored in the table 'reports' and has
+the same numeric id.
+<p>The Id of a report is created automatic. The short-name can be choosen
+from the user, but must be unique. You can give every report a long name,
+but the creation date is generated automaticly. You can choose the Paper
+Format(a3 = 842 x1190 points,a4 = 595 x 842, a5= 421 x 595 points) and
+the Paper Orientation(Landscape, Portrait).
+<p>With an SQL-Select Statement you can generate a set of data records
+for the report.
+<p>Every report consists of (at least one) paragraphs:
+<blockquote>
+<ul>
+<li>
+Report Header</li>
+<li>
+Page Header</li>
+
+<li>
+Group Header</li>
+
+<li>
+Detail (is a must)</li>
+
+<li>
+Group Footer</li>
+
+<li>
+Page Footer</li>
+<li>
+Report Footer</li>
+</ul>
+</blockquote>
+In each paragraph there is the origin of the coordinate-system at the left
+lower corner (this is altered since Version 0.1!). The sum of the y-values
+of all paragraphs in a page should not be greater than the height of the
+page.
+<p>In the Detail paragraph the view of on data record is declared. In an
+report with a Page/record there is only the Detail paragraph declared.
+In all other types of reports there are Page Header, Detail, Page Footer
+or Page Header, Group Header, Detail, Groupe Footer and Page Footer declared.
+The Detail paragraph can use mor than one line. If you use only one line,
+you can declare the order of the items in the line instead of their X/Y
+value pairs. If you use the order for an item as declaration, only the
+first item can have an x-value, but no item in the line can have an Y-value.
+You can use constant Strings, Fields of the data record or Functions as
+source in all items.
+<p>With <i>blocks</i> you can predefine a set of items and use them in
+several reports in the same manner. <i>Terms</i> are functions in PHP with
+one string as return value. With <i>Terms</i> you have a great flexibility,
+but it is possible to crash the system or to use to undermine the security
+of the web server. So be cautious in using <i>terms</i>.
+<p>In reports with a page/record and only <i>detail</i> paragraph you can
+use the Item <i>Textarea</i>.<i> Textarea</i> is like <i>term</i>, but
+you declare the x-value of the left, lower position and the width of this
+item. The text in the <i>textarea</i> is displayed in this boundary with
+wordwrap and may go over more than one line.
+<br>&nbsp;
+<p>There are three types of reports:
+<ul>
+<li>
+For every data record a page.</li>
+
+<li>
+In one report for every data record a line, with or without a grid or with
+a bar</li>
+
+<li>
+It is possible to declare a field in the data record as group field, with
+ordering the data records in the select-statement. After every change of
+the group field you have a group header and a group footer. You can choose,
+if the report with the new group value should be on a new page or continue
+on the same page.</li>
+</ul>
+If your report should be created with a group change, you can choose between
+the beginning of the new group on a new page or in the next line.
+<h3>
+<a NAME="FuncDef"></a>3.2 Term Definition</h3>
+A Term is an item based on a PHP-function. The id has an 'F' as first character
+and the function has to be declared before the first use. A <i>term </i>returns
+a string, which is displayed in the page. The function can be of the form
+f(), f($db) or f($db,$el). $db is a pointer to the Sql-Handle and you can
+use it as basis for your own SQL-selects.$el is a pointer to the report($this)
+and can be used to get the result of internal functions.
+<p>Example Code:
+<blockquote>Date-function<tt>:</tt> <tt>function datum() {return date("m-d-Y");}</tt>
+will return the string '02-12-2002'
+<p>With select statement included:
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote><tt>function id(<b>$dbf</b>){</tt>
+<p><tt><b>$dbf</b>->query("select * from reports where typ = 'info'");</tt>
+<p><tt><b>$dbf</b>->next_record(); // read first record</tt>
+<p><tt>return <b>$dbf</b>->f("id"); //read field 'id' from first record</tt>
+<p><tt>}</tt></blockquote>
+The sql-statements are in the the form of phplib.
+<br>&nbsp;</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+With $el to get the old group value after a change:
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote><tt>function oldgroup($db,$el){</tt>
+<p><tt>return $el->get_group_old();</tt>
+<p><tt>// $this->get_group_old() is a function of the object 'report',
+declared in repgen.inc'.</tt>
+<p><tt>}</tt></blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+The item <i>Textarea</i> has the same possibilities as <i>Term</i>.
+<h3>
+<a NAME="BlockDef"></a>3.3 Block Definition</h3>
+A <i>Block</i> is a sum of items in one paragraph. You can use it, to predefine
+some items in a paragraph and to use it in several reports in the same
+way. The creation of a lot of reports for a project is mor comfortable
+with <i>blocks.</i>
+<p>The id of an block begins with a capital 'B' and is created automaticly.
+The short name should be unique.You may change a block after usage in some
+reports and the change will be effective in all this reports.
+<h3>
+<a NAME="Items"></a>3.4 Items</h3>
+
+<blockquote>
+<h4>
+<a NAME="String"></a>3.4.1 String</h4>
+The <i>String</i> is a constant. You can declare a <i>string</i> on a position
+in a paragraph with the X/Y values. The number of characters defines the
+width of the item. Number of characters may be greater than the actual
+length of the string. You can take parts out of the string with the parameters
+'from' to 'to'. 'From' reach from 1 to the length of the string, 'to' must
+be greater than 'from' and lower than the the length of the string.
+<h4>
+<a NAME="DBField"></a>3.4.2 Database Field</h4>
+The <i>Database field</i> is a field of the record as a result of the select
+statement. You can declare a <i>DB Field</i> on a position in a paragraph
+with the X/Y values. The number of characters should not be empty. The
+number of characters defines the width of the item. Number of characters
+may be greater than the actual length of the string. You can take parts
+out of the <i>DB Field</i> with the parameters 'from' to 'to'. 'From' reach
+from 1 to the length of the <i>DB Field</i>, 'to' must be greater than
+'from' and lower than the the length of the <i>DB Field</i>. If the number
+of characters is less than the length of the <i>Database field</i> then
+the content of the <i>Database Field</i> is wordwrapped and printed with
+more lines between the x-Value and the given length.
+<p>In the <i>Detail</i> paragraph you can use an order of the fields in
+the line instead of the x/y values. With the x/y values you can define
+more than one line per record.
+<p>If you check the check field 'decode' with a <i>Database Field</i> the
+value of the field is decoded with the help of the table 'schluessel'.
+The <tt>name</tt> of the<i> Database Field</i> is used as value for the
+field 'art' of the table 'schluessel' and the <tt>value</tt> of the<i>
+Database Field</i> is used as value for the field 'begriff' of the table
+'schluessel'. The specific value of the field 'bezeichnung' of the table
+'schluessel' is presented for display to repgen. To use this feature, you
+should insert into the table 'schluessel' all possible values for the <i>Database
+Field.</i>
+<p>If the <i>Database Field</i> is numeric, than you can print <i>Total
+sums</i> or <i>Group sums</i>, if you check the <i>Total</i> checkbox.
+The <i>Total sums</i> are printed in the report footer, the <i>group sum</i>
+in the group footer. The same font as in the column is used. You can influence
+the image of the sums with the checkboxes <i>Bold</i>, <i>understrike</i>
+or <i>overstrike</i>.
+<h4>
+<a NAME="Block"></a>3.4.3 Block</h4>
+As <i>block</i> is a sum of items, the x - position is irrelevant. the
+position is declared within the items in the block. The use of <i>blocks</i>in
+<i>blocks</i> (recursive use) is not implemented.
+<h4>
+<a NAME="Function"></a>3.4.4 Term</h4>
+With a <i>Term </i>you can display the value of an PHP-function. The term
+is defined as you can see in <a href="#FuncDef">Function definition.</a>
+<p>The result of a PHP-function is displayed at the given position in the
+given font and fontsize.
+<h4>
+<a NAME="Textarea"></a>3.4.5 TextArea</h4>
+With a <i>Textarea </i>you can display the value of an PHP-function. The
+term is defined as you can see in <a href="#FuncDef">Function definition.</a>
+<p>The result of a PHP-function is displayed at the given position in the
+given font and fontsize. <i>Textarea</i> can only be used in a report with
+page/record definition in the <i>detail</i> paragraph. You can give the
+x-position
+of the left <b>upper</b> corner and the width of an rectangle in which
+the result of <i>textarea</i> is displayed. If the result of the function
+is greater than one line, the next lines with the same font and fontsize
+are used to display. Wordwrap is used to organize the result in some lines.
+<h4>
+<a NAME="Line"></a>3.4.63 Line</h4>
+A <i>line</i> is drawn from X1/Y1 position to X2/Y2 in the given linewidth.
+<h4>
+<a NAME="Rectangle"></a>3.4.7 Rectangle</h4>
+A <i>rectangle </i>is drawn with the lower left corner X1/Y1 and the given
+width and height int the given linewidth.</blockquote>
+</blockquote>
+
+<h2>
+<a NAME="StrucRep"></a>4. Structure of a Report</h2>
+
+<blockquote>
+<h3>
+<a NAME="Tables"></a>4.1 Tables</h3>
+Table Report:
+<blockquote>id char(10) Identification of report, block or function(block
+begins with 'B', function with 'F'
+<p>typ char(6) Record typ: <tt>info, select, item, block, function</tt>
+<p>attrib text(var) Attribute of this record(The values are separated by
+|).
+<blockquote>
+<ul>
+<li>
+info: &lt;short name>|&lt;creation date>|&lt;Author>|&lt;long name>|&lt;paper
+orientation>|&lt;paper format>|&lt;report type></li>
+
+<li>
+select: &lt;select statement></li>
+
+<li>
+item: look at <a href="#StrucAttr">Structure of an attribut</a></li>
+
+<li>
+block: &lt;short name>|&lt;creation date>|&lt;Author>|&lt;long name></li>
+
+<li>
+function: &lt;short name>|&lt;creation date>|&lt;Author>|&lt;long name>|&lt;function
+definition></li>
+</ul>
+</blockquote>
+</blockquote>
+
+<h3>
+<a NAME="StrucAttr"></a>4.2 Structure of an attribut of an Item</h3>
+An attribut of an item is a, with | separated string.
+<p>&lt;Itemtyp : String,DB,Term,Text,Block,Line,Rectangle>|&lt;paragraph:PH,GH,DE,GF,PF>|&lt;fontname>|&lt;fontsize>|&lt;length+justification(c,l,r)>|&lt;x>|&lt;y>|&lt;value>|&lt;order>|&lt;decode>|&lt;from>|&lt;to></blockquote>
+
+<h2>
+<a NAME="Repgen"></a>5. Repgen, the Generator</h2>
+The definition begins with <b>repgen_index.php</b>, where you are asked
+for the database, host, user,password to connect to the database with the
+report definition. If you chose to create a new report, you will come to
+<tt>repgen_create.php</tt>.
+Otherwise you will come to <tt>repgen_select.php</tt>, where you can select
+a report to work with. After selection of a report you will be guided to
+<tt>repgen_create.php</tt> too. In this screen you define the common properties
+of the report:
+<h2>
+<b>Common data of the old report Report List of all stored Reports</b></h2>
+
+<table BORDER=0 >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>ID-Number of the report:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="id_neu" SIZE="10" MAXLENGTH="10" VALUE="1111111111"></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Nickname:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="short" SIZE="10" MAXLENGTH="10" VALUE="Reports"></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Name:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="long" SIZE="40" MAXLENGTH="40" VALUE="Report List of all stored Reports"></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Author:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="author" SIZE="20" MAXLENGTH="20" VALUE="Bauer"></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Creation Date:&nbsp;</div>
+</td>
+
+<td>2001-07-20</td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT BGCOLOR="#EEEEEE">
+<div align=right>Name of the group field:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="group" SIZE="20" MAXLENGTH="30" VALUE="id"></td>
+</tr>
+
+<tr BGCOLOR="#EEEEEE">
+<td ALIGN=RIGHT>
+<div align=right>Group type:&nbsp;</div>
+</td>
+
+<td BGCOLOR="#EEEEEE"><select NAME="group_type"><option value="nopage">No
+new page when group changes&nbsp;</option><option value="newpage" SELECTED>New
+Page on group change&nbsp;</option></select></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>SQL-Statement for record selection:&nbsp;</div>
+</td>
+
+<td><input TYPE="TEXT" NAME="sql" SIZE="60" MAXLENGTH="255" VALUE="select * from reports"></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td><input TYPE="SUBMIT" NAME="test_sel" VALUE="Test the SQL-Statement"></td>
+</tr>
+
+<tr>
+<td></td>
+
+<td></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Printer Orientation:&nbsp;</div>
+</td>
+
+<td><select NAME="print_format"><option value="Portrait" SELECTED>Portrait&nbsp;</option><option value="Landscape">Landscape&nbsp;</option></select></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Paper Format:&nbsp;</div>
+</td>
+
+<td><select NAME="print_size"><option value="A4" SELECTED>A4&nbsp;</option><option value="A5">A5&nbsp;</option></select></td>
+</tr>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right>Report type:&nbsp;</div>
+</td>
+
+<td><select NAME="report_type"><option value="single">Page per record&nbsp;</option><option value="class">Line
+per record&nbsp;</option><option value="classtable" SELECTED>Line per record
+with grid&nbsp;</option></select></td>
+</tr>
+</table>
+
+<br>&nbsp;
+<br>&nbsp;
+<table BORDER=0 >
+<caption><tbody>
+<br></tbody></caption>
+
+<tr>
+<td ALIGN=RIGHT>
+<div align=right><input TYPE="SUBMIT" NAME="select" VALUE="Back to report selection(without storage)"></div>
+</td>
+
+<td ALIGN=CENTER>
+<center><input TYPE="SUBMIT" NAME="seiten_aufc" VALUE="Page Definition for Strings"></center>
+</td>
+
+<td ALIGN=LEFT><input TYPE="SUBMIT" NAME="seiten_aufl" VALUE="Page Definition for Graphics"></td>
+</tr>
+</table>
+
+<p>You can test the sql statement and when you are ready, you can do the
+next step, the creation of String or Graphic elements:
+<p>
+<hr ALIGN="CENTER">
+<br>If you click 'Page Definition', you will come to this screen:
+<p><img SRC="Image2.gif" BORDER=0 height=768 width=1024 align=BOTTOM>
+<p>Here is the definition of an item. First you have to declare the paragraph
+(Mode:), the font and then you may give the X/Y position or the order of
+the item(only in detail paragraph). Afterwards you give in, how many place
+for characters you would like for this item and the alignment(left, right,
+center). Optional you may only take a substring out of this item.
+<p>If you check the check-box for decode, the value is not displayed, instead
+the correspondent value in the table 'schluessel' is shown in the report.
+<h2>
+<a NAME="Sample"></a>6. Samples</h2>
+There is a sample sample-odbc.php for ODBC-Database, a sample-mysql.php
+for Mysql-database and a sample-pgsql.php for Postgresql. This sample files
+are examples for calling reports and will show all reports in the database.
+<h2>
+<a NAME="Functions"></a>6. Functions</h2>
+There are some examples of useful functions:
+<p>Current Date-function<font face="Arial,Helvetica">: <u>function datum()
+{return date("m-d-Y");}</u></font>
+<p>Current time: <u><font face="Arial,Helvetica">function atime() {return
+date("h:i:s a");}</font></u>
+<p>Page Number:
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>
+function page_number($db,$it)</u>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>{$it->set_font("Helvetica.afm");</u>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<u>
+$it->pdf->ezStartPageNumbers(500,40,8,"left",'{PAGENUM} of {TOTALPAGENUM}');</u>
+<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<u>return ;}</u>
+<p>Old Group after changing: <u>function oldgroup($db,$it){return $it_group_old();}</u><u></u>
+<p>New Group: <u>function newgroup($db,$it){return $it->get_group_new();}</u><u></u>
+<p>Total number of records in the report: <u>function rec_count($db,$it)
+{return $it->count;}</u><u></u>
+<p>Number of Records in a group: <u>function subcount($db,$it) {return
+$it->subcount;}</u><u></u>
+<p></form>
+</body>
+</html>

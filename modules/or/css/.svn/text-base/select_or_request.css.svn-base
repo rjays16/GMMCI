@@ -1,0 +1,354 @@
+a#return_button {
+  background: #F4F1EC url(../../../images/or_main_images/return_button.png) no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  
+}
+
+a#return_button:hover {
+  background-position: 0px -25px;
+  outline: none;
+  cursor: pointer;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+}
+
+table#or_request_table {
+  padding: 0px;
+  margin: 0px;
+}
+
+a#charge {
+  background: url('../../../images/or_select_images/charge.png');
+  height: 22px;
+  width: 75px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none;          
+}
+
+a#edit_charge {
+  background: url('../../../images/or_select_images/edit_charge.png');
+  height: 22px;
+  width: 75px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none; 
+  float: left;
+}
+
+a#delete_charge {
+  background: url('../../../images/or_select_images/remove_charge.png');
+  height: 22px;
+  width: 75px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none;
+  float: left; 
+}
+
+a#serve_charge {
+  background: url('../../../images/or_select_images/serve_charge.png');
+  height: 22px;
+  width: 75px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none;
+  float: left; 
+}
+
+a#cancel_request {
+  background: url('../../../images/or_main_images/cancel_request.png');
+  height: 23px;
+  width: 72px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none;
+  float: left; 
+}
+
+a#charge:hover, a#edit_charge:hover, a#delete_charge:hover, a#serve_charge:hover, a#cancel_request:hover {
+  opacity: 1;
+}
+
+
+#select_or {
+  padding: 0px 15px 15px 15px;
+  margin: 0 0 20px;
+  background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+  border: 1px solid #D6D3CC;
+}
+
+#select_or div#navigation {
+  background: url('../../../images/or_select_images/wbg.gif') repeat-x 0 -1px;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding-top: 3px;
+  height: 24px;
+}
+
+#select_or div#search_bar {
+  background: #fafafa url('../../../images/or_select_images/bg.gif') repeat-x top;
+  position: relative;
+  border: 1px solid #ccc;
+  overflow: hidden;
+  padding: 3px;
+}
+
+#select_or input#search_field {
+  background: #FFFFFF url('../../../images/or_select_images/magnifier.png') no-repeat right;
+  border: 1px #7F9DB9 solid;
+  padding-right: 17px;
+}
+
+
+
+#select_or div.group {
+ float: left;
+ background: none;
+ margin: 1px 5px;
+}
+
+#select_or span#control {
+  position: relative;
+  overflow: visible;
+  font: normal 11px Arial;
+  color: #000;
+}
+
+#select_or span#page_stat {
+ position: relative;
+ top: 5px;
+ overflow: visible;
+ font: normal 11px Arial;
+ color: #000;
+}
+
+#select_or span#control input {
+  width: 50px;
+}
+
+#select_or div#navigation div.button {
+  float: left;
+  width: 22px;
+  height: 22px;
+  border: 0px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#select_or div#navigation div.button span {
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+}
+
+#select_or div#navigation div.button span:hover {
+  width: 19px;
+  height: 19px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+#select_or div#navigation div.button:hover {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#select_or div#navigation div#button_separator {
+  float: left;
+  height: 22px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 1px;
+} 
+
+#select_or div#navigation div#next {
+  background: url('../../../images/or_select_images/next.gif') no-repeat center;
+}
+
+#select_or div#navigation div#first {
+  background: url('../../../images/or_select_images/first.gif') no-repeat center;
+} 
+
+#select_or div#navigation div#prev {
+  background: url('../../../images/or_select_images/prev.gif') no-repeat center;
+}
+
+#select_or div#navigation div#last {
+  background: url('../../../images/or_select_images/last.gif') no-repeat center;
+}
+
+#select_or div#navigation div.pre_load {
+  background: url('../../../images/or_select_images/load.png') no-repeat center; 
+}
+
+#select_or div#navigation div.pre_load.loading {
+  background: url('../../../images/or_select_images/load.gif') no-repeat center; 
+}
+
+div#cancel_or_main_request {
+  margin: 0 0 20px;
+  background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+  border: 1px solid #D6D3CC;
+  width: 400px;
+  display: none;
+  position:fixed;
+  top: 15%;
+  left: 15%;
+}
+
+div#cancel_or_main_request div#header {
+  background: #F4F1EC;
+  padding: 10px;
+  color: #990000;
+  font: bold 1.2em Arial;
+}
+
+div#cancel_or_main_request div#body {
+  color: #000000;
+  font: normal 12px Arial;
+  padding: 15px 15px 10px 15px;
+}
+
+div#cancel_or_main_request div#body form {
+  margin-top: 15px;
+  font: normal 13px Tahoma;
+}
+
+div#cancel_or_main_request div#body label {
+ display: block;
+ float: left;
+}
+
+div#cancel_or_main_request div#header a#close_cancel {
+  background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+  width: 68px;
+  height: 18px;
+  display: block;
+  float: right;
+  opacity: 0.7; 
+}
+
+div#cancel_or_main_request div#header a#close_cancel:hover {
+  opacity: 1;
+}
+
+div#cancel_or_main_request div#body form textarea {
+  margin-bottom: 10px;
+}
+
+div#cancel_or_main_request div#body form input#or_cancel_submit {
+  background: #F4F1EC url('../../../images/or_main_images/submit_request.png') no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+}
+
+div#cancel_or_main_request div#body form input#or_cancel_submit:hover, 
+div#cancel_or_main_request div#body form a#or_cancel_cancel:hover {
+  background-position: 0px -25px;
+  outline: none;
+  cursor: pointer;
+}
+
+div#cancel_or_main_request div#body form a#or_cancel_cancel {
+  background: #F4F1EC url('../../../images/or_select_images/charge_cancel_button.png') no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
+div#cancel_or_main_request div#body form textarea.error_field {
+  border: 1px #FF0000 solid;
+}
+
+div#cancel_or_main_request div#body span#error_form_input {
+  color:red;
+  font: normal 11px Arial;
+  margin-left:5px;
+  float: right;
+}
+
+a#approve_request {
+  background: url('../../../images/or_select_images/approve.png') no-repeat;
+  height: 22px;
+  width: 100%;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none; 
+  float: left;
+}
+
+a#disapprove_request {
+  background: url('../../../images/or_select_images/disapprove.png');
+  height: 22px;
+  width: 90px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none; 
+  float: left;
+}
+
+a#schedule_request {
+  background: url('../../../images/or_select_images/schedule_button.png');
+  height: 22px;
+  width: 90px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none; 
+  float: left;
+}
+
+a#post_operative {
+  background: url('../../../images/or_select_images/post_operative.png');
+  height: 22px;
+  width: 110px;
+  padding: 0px;
+  margin: 0px;
+  display: block;
+  opacity: 0.7;
+  outline: none; 
+  float: left;
+}
+
+

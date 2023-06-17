@@ -1,0 +1,1 @@
+<input filter="{$options.filter}" param="value" id="{$options.id}_value" name="{$options.name}[value]" class="{$className|default:"input"}" type="text" value="{$value|escape:"html"}" style="width:100%" />

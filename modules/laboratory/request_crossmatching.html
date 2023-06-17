@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="fr" lang="fr">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="Content-Script-Type" content="text/javascript" />
+	<meta http-equiv="Content-Style-Type" content="text/css" />
+	<meta name="gmapkey" content="" />
+	<meta name="description" content="" />
+	<meta name="keywords" content="" />
+
+	<title></title>
+
+	<link rel="stylesheet" href="../../css/transform/jqtransform.css" type="text/css" media="all" />
+	<link rel="stylesheet" href="../../css/transform/demo.css" type="text/css" media="all" />
+	
+	<script type="text/javascript" src="../../css/transform/jquery.js" ></script>
+	<script type="text/javascript" src="../../css/transform/jquery.jqtransform.min.js" ></script>
+	<script language="javascript">
+		$(function(){
+			$('form').jqTransform({imgPath:'../../css/transform/img/'});
+		});
+	</script>
+	
+	<link rel="stylesheet" href="../../css/themes/default/default.css?t=1224051913" type="text/css">
+	
+</head>
+<body><table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td class="jedPanelHeader">Crossmatching</td>
+  </tr>
+</table>
+
+
+	<form action="?" method="GET">
+		<div class="jedPanel"><div class="rowElem"><label>Name:</label><input type="text" name="inputtext"/></div>
+		<div class="rowElem"><label>Case Number:</label><input type="inputtext" /></div>
+		<div class="rowElem"><label>Checkbox: </label><input type="checkbox" name="chbox" id=""></div>
+		<div class="rowElem"><label>Radio :</label> 
+			<input type="radio" id="" name="question" value="male" checked><label>male</label>
+			<input type="radio" id="" name="question" value="female" ><label>female</label></div>
+		<div class="rowElem"><label>Textarea :</label> <textarea cols="40" rows="12"></textarea></div>
+
+		<div class="rowElem">
+			<label>Sex:</label>
+			<select name="select">
+				<option value="">Male </option>
+				<option value="opt1">Female</option>
+			</select>
+		</div>
+		<div class="rowElem">
+			<label>Select :</label>
+			<select name="select">
+				<option value="">&nbsp;</option>
+				<option value="opt1">Blood Typing (ABO and Rh)</option>
+				<option value="opt2">Option 2</option>
+				<option value="opt3">Option 3</option>
+				<option value="opt4">Option 4</option>
+				<option value="opt5">Option 5</option>
+				<option value="opt6">Option 6</option>
+				<option value="opt7">Option 7</option>
+				<option value="opt8">Option 8</option>
+			</select>
+		</div>
+		
+		<div class="rowElem"><label>Submit button:</label><input type="submit" value="Submit" /></div>
+		<div class="rowElem"><label>Reset button:</label><input type="reset" value="Reset" /></div>
+		<div class="rowElem"><label>Input button:</label><input type="button" value="Cancel" /></div>
+		</div>		
+	</form>
+
+</body>
+</html>

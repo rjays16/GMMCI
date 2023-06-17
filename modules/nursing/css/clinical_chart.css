@@ -1,0 +1,63 @@
+.calendar {
+  z-index: 3000;
+}
+div.clinical_chart_popup {
+  margin: 0 0 20px;
+  background: #DFE8F6;
+  border: 2px solid #99BBE8;
+  width: 305px;
+  display: none;
+  position:fixed;
+  top: 15%;
+  left: 15%;
+}
+
+div.clinical_chart_popup div.header {
+  background: url('../../../images/clinical_back.gif') repeat-x;
+  height: 26px;
+  padding: 5px 5px 0px 5px;
+  color: #000000;
+  font: bold 1.2em Arial;
+  cursor: move;
+}
+
+div.clinical_chart_popup div.body {
+  color: #000000;
+  font: normal 12px Arial;
+  padding: 2px 5px 5px 5px;
+}
+
+div.clinical_chart_popup div.header a.close_popup {
+  background: url('../../../images/close_popup.png') no-repeat;
+  width: 68px;
+  height: 18px;
+  display: block;
+  float: right; 
+  opacity: 0.7;
+}
+
+div.clinical_chart_popup div#header a.close_popup:hover {
+  opacity: 1;
+}
+
+div.clinical_chart_popup img.jqResize {
+  position: absolute; 
+  right: 2px; 
+  bottom: 2px;
+  cursor: se-resize;
+}
+
+div.clinical_chart_popup input.add_header {
+  background: url('../../../images/add_header.png') no-repeat; 
+  width: 64px;
+  height: 21px;
+  padding: 0px;
+  margin: 5px 0px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+div.clinical_chart_popup input.add_header:hover {
+  opacity: 1;
+}

@@ -1,0 +1,40 @@
+ul.grant_list {
+  display: block;
+  list-style: none;
+  margin: 0;
+  width: 99%;
+  padding: 0;
+}
+
+ul.grant_list li {
+  border: 1px solid #234976;
+  border-top-color: #758ea9;
+  border-bottom-color: #294f79;
+  background-color: #5a7797;
+  height: 26px;
+  width: 100%;
+  margin: 2px;
+  padding: 2px;
+  text-indent: 0;
+}
+
+ul.grant_list li div {
+  color: #fff;
+  font: bold 12px Tahoma;
+  float: left;
+}
+
+ul.grant_list li div.col_account {
+  width: 50%;
+  text-align: left;
+}
+
+ul.grant_list li div.col_amount {
+  width: 20%;
+  text-align: right;
+}
+
+ul.grant_list li div.col_controls {
+  width: 30%;
+  text-align: center;
+}

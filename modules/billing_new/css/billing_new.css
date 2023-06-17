@@ -1,0 +1,29 @@
+body { font-family:Arial, Helvetica, Sans-Serif; font-size:0.8em;}
+
+thead.togglehdr th.toggleth {
+	cursor: pointer;
+}
+
+tbody.billfooter td.billftr1 {
+	border-right:hidden;
+}
+
+tbody.billfooter td.billftr2 {
+	border-left:hidden;
+}
+
+#accListDetails, #mdListDetails, #supListDetails, #docRoleArea, #hsListDetails, #opsListDetails, #mscListDetails {
+	border-collapse:collapse;
+}
+
+#accListDetails img, #mdListDetails img, #supListDetails img, #docRoleArea img, #hsListDetails img, #opsListDetails img, #mscListDetails img  {
+	float:right;
+}
+
+#accListDetails div.arrow, #mdListDetails div.arrow, #supListDetails div.arrow, #docRoleArea div.arrow, #hsListDetails div.arrow, #opsListDetails div.arrow, #mscListDetails div.arrow  {
+	background:transparent url(../../../images/arrows.png) no-repeat scroll 0px -16px; width:16px; height:16px; display:block;
+}
+
+#accListDetails div.up, #mdListDetails div.up, #supListDetails div.up, #docRoleArea div.up, #hsListDetails div.up, #opsListDetails div.up, #mscListDetails div.up {
+	background-position:0px 0px;
+}

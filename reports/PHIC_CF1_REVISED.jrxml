@@ -1,0 +1,3080 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="cf1" language="groovy" pageWidth="612" pageHeight="936" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" >
+	<property name="ireport.zoom" value="2.0000000000000044"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1049"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<parameter name="member_gender" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="name_last" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="name_first" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="name_middle" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="suffix" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="birth_date" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="series_no" class="java.lang.String"/>
+	<parameter name="unit" class="java.lang.String"/>
+	<parameter name="building_name" class="java.lang.String"/>
+	<parameter name="house_no" class="java.lang.String"/>
+	<parameter name="street" class="java.lang.String"/>
+	<parameter name="lot_no" class="java.lang.String"/>
+	<parameter name="subdivision" class="java.lang.String"/>
+	<parameter name="barangay" class="java.lang.String"/>
+	<parameter name="city" class="java.lang.String"/>
+	<parameter name="province" class="java.lang.String"/>
+	<parameter name="zipcode" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="landline_no" class="java.lang.String"/>
+	<parameter name="mobile_no" class="java.lang.String"/>
+	<parameter name="country" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="email_address" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_name_last" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_name_first" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_name_middle" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_suffix" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_birth_date" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_gender" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_relationship" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="emp_contact" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="emp_business_name" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_is_member" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="phic_logo" class="java.lang.String"/>
+	<parameter name="member_gender_f" class="java.lang.String"/>
+	<parameter name="member_gender_m" class="java.lang.String"/>
+	<parameter name="patient_is_member_y" class="java.lang.String"/>
+	<parameter name="patient_is_member_n" class="java.lang.String"/>
+	<parameter name="patient_gender_m" class="java.lang.String"/>
+	<parameter name="patient_gender_f" class="java.lang.String"/>
+	<parameter name="patient_relation_s" class="java.lang.String"/>
+	<parameter name="patient_relation_c" class="java.lang.String"/>
+	<parameter name="patient_relation_p" class="java.lang.String"/>
+	<parameter name="member_pin" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_1" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_2" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_3" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_4" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_5" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_6" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_7" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_8" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_9" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_10" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="member_pin_11" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_1" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_2" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_3" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_4" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_5" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_6" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_7" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_8" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_9" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_10" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="patient_pin_11" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_1" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_2" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_3" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_4" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_5" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_6" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_7" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_8" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_9" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_10" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="pen_11" class="java.lang.String" isForPrompting="false"/>
+	<parameter name="signatory_name_member" class="java.lang.String"/>
+	<parameter name="signatory_name_nonmember" class="java.lang.String"/>
+	<parameter name="signatory_date_member" class="java.lang.String"/>
+	<parameter name="signatory_date_nonmember" class="java.lang.String"/>
+	<parameter name="is_nonmember" class="java.lang.String"/>
+	<parameter name="is_member" class="java.lang.String"/>
+	<parameter name="is_spouse" class="java.lang.String"/>
+	<parameter name="is_child" class="java.lang.String"/>
+	<parameter name="is_parent" class="java.lang.String"/>
+	<parameter name="is_sibling" class="java.lang.String"/>
+	<parameter name="is_other" class="java.lang.String"/>
+	<parameter name="specify" class="java.lang.String"/>
+	<parameter name="reason" class="java.lang.String"/>
+	<parameter name="is_incapacitated" class="java.lang.String"/>
+	<parameter name="is_other_reason" class="java.lang.String"/>
+	<parameter name="emp_name" class="java.lang.String"/>
+	<parameter name="emp_cap" class="java.lang.String"/>
+	<parameter name="emp_date_signed" class="java.lang.String"/>
+	<parameter name="member_fullname" class="java.lang.String"/>
+	<parameter name="patient_fullname" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select * from smed_user limit 1]]>
+	</queryString>
+	<field name="id" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="username" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="password" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="personnel_id" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="default_authitem" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="phic_logo" class="java.lang.String"/>
+	<field name="image_01" class="java.lang.String"/>
+	<detail>
+		<band height="866" splitType="Stretch">
+			<staticText>
+				<reportElement x="479" y="20" width="57" height="36" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CF1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="58" width="99" height="10" />
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Revised September 2018]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="51" width="59" height="14" />
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(Claim Form 1)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="450" y="5" width="109" height="10" />
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[This form may be reproduced and ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="59" y="433" width="468" height="10" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Under the penalty of law, I attest that the information I provided in this Form are true and accurate to the best of my knowledge.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="185" y="495" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="192" y="506" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[year]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="172" y="495" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="102" y="495" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="146" y="506" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[day]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="41" y="479" width="211" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="50" y="495" width="50" height="11" />
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date Signed: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="150" y="495" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="104" y="506" width="20" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[month]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="211" y="495" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="41" y="481" width="211" height="10" />
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="6" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Signature Over Printed Name of Member]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="115" y="495" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="198" y="495" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="137" y="495" width="13" height="11" />
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="131" y="498" width="3" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="166" y="498" width="3" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="416" y="505" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[day]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="385" y="494" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="442" y="494" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="320" y="494" width="50" height="11" />
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date Signed: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="407" y="494" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="372" y="494" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="311" y="480" width="211" height="10" />
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="6" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Signature Over Printed Name of Member's Representative]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="455" y="494" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="468" y="494" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="462" y="505" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="374" y="505" width="24" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[month]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="481" y="494" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="420" y="494" width="13" height="11" />
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="311" y="478" width="211" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="436" y="497" width="3" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="401" y="497" width="3" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="7" y="524" width="176" height="34" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[If member/representative is unable to write, put right thumbmark. Member/representative should be assisted by an HCI representative. Check the appropriate box:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="89" y="567" width="62" height="10" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Representative]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="27" y="567" width="39" height="10" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Member ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="185" y="520" width="67" height="52" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="257" y="520" width="116" height="20" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Relationship of the representative to the member:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="257" y="549" width="96" height="20" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Reason for signing on behalf of the member: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="384" y="524" width="42" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Spouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="384" y="537" width="42" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Sibling]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="384" y="563" width="78" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Other reasons: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="384" y="550" width="93" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Member is incapacitated]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="441" y="524" width="31" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Child]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="441" y="537" width="67" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Others, Specify]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="496" y="524" width="31" height="11" />
+				<textElement verticalAlignment="Top">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Parent]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="438" y="571" width="112" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="499" y="544" width="51" height="1" />
+			</line>
+			<rectangle>
+				<reportElement positionType="Float" x="259" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="285" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="181" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="308" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="194" y="606" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="0" y="608" width="153" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. PhilHealth Employer No. (PEN):]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="157" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="246" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="272" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="220" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="144" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="233" y="606" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="207" y="606" width="13" height="11" />
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="174" y="611" width="3" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="301" y="611" width="3" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="446" y="620" width="99" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="374" y="609" width="68" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[2. Contact No.:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="634" width="84" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. Business Name:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="55" y="662" width="467" height="10" />
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="6" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Business Name of Employer]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="55" y="660" width="467" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="1" y="682" width="146" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. CERTIFICATION OF EMPLOYER:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="4" y="694" width="551" height="41" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="true"/>
+				</textElement>
+				<text><![CDATA[	This is to certify that all monthly premium contributions for and in behalf of the member, while employed in this company, including the applicable three (3) monthly premium contributions within the past six (6) months period prior to the first day of this confinement, have been deducted/collected and remitted to PhilHealth, and that information supplied by the member or his/her representative on Part I are consistent with our available records.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="189" y="757" width="163" height="10" />
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="6" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Official Capacity/ Designation]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="189" y="755" width="163" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="758" width="149" height="21" />
+				<textElement textAlignment="Center">
+					<font fontName="DejaVu Sans" size="6" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[Signature Over Printed Name of Employer/ Authorized Representative]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="Float" x="3" y="756" width="163" height="1" />
+			</line>
+			<rectangle>
+				<reportElement positionType="Float" x="535" y="747" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="374" y="747" width="50" height="11" />
+				<textElement textAlignment="Right">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date Signed: ]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="474" y="747" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="461" y="747" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="522" y="747" width="13" height="11" />
+			</rectangle>
+			<staticText>
+				<reportElement positionType="Float" x="428" y="758" width="20" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="470" y="758" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[day]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="516" y="758" width="17" height="6" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="5" isItalic="false"/>
+				</textElement>
+				<text><![CDATA[year]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement positionType="Float" x="439" y="747" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="496" y="747" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="426" y="747" width="13" height="11" />
+			</rectangle>
+			<rectangle>
+				<reportElement positionType="Float" x="509" y="747" width="13" height="11" />
+			</rectangle>
+			<line>
+				<reportElement positionType="Float" x="455" y="752" width="3" height="1" />
+			</line>
+			<line>
+				<reportElement positionType="Float" x="490" y="752" width="3" height="1" />
+			</line>
+			<staticText>
+				<reportElement positionType="Float" x="10" y="818" width="62" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Date Received: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" positionType="Float" x="73" y="809" width="142" height="20" backcolor="#FFFFFF" />
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[LHIO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" positionType="Float" x="73" y="829" width="142" height="20" backcolor="#FFFFFF" />
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[PRO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" positionType="Float" x="241" y="809" width="142" height="20" backcolor="#FFFFFF" />
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement positionType="Float" x="219" y="818" width="20" height="11" />
+				<textElement>
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[By:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="table_TH" positionType="Float" x="241" y="829" width="142" height="20" backcolor="#FFFFFF" />
+				<textElement verticalAlignment="Middle">
+					<font fontName="DejaVu Sans" size="7" isBold="false"/>
+					<paragraph leftIndent="2"/>
+				</textElement>
+				<text><![CDATA[LHIO/PRO Signature Over Printed Name]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="145" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen}!= '' ? $P{pen} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="158" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_1}!= '' ? $P{pen_1} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="180" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_2}!= '' ? $P{pen_2} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="193" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_3}!= '' ? $P{pen_3} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="206" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_4}!= '' ? $P{pen_4} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="219" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_5}!= '' ? $P{pen_5} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="271" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_9}!= '' ? $P{pen_9} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="258" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_8}!= '' ? $P{pen_8} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="232" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_6}!=""? $P{pen_6} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="245" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_7}!= '' ? $P{pen_7} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="284" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_10}!= '' ? $P{pen_10} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="309" y="606" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{pen_11}!= '' ? $P{pen_11} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="57" y="645" width="465" height="15" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom" markup="none">
+					<font fontName="DejaVu Sans" size="8" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emp_business_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="449" y="609" width="107" height="9" />
+				<textElement verticalAlignment="Bottom" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emp_contact}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="456" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(7)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="407" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="443" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(6)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="372" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="482" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(9)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="469" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(8)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="420" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(4)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="385" y="494" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_nonmember}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="150" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(4)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="102" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="115" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="212" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(9)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="173" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(6)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="186" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(7)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="199" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(8)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement positionType="Float" x="137" y="495" width="13" height="11" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_date_member}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="42" y="463" width="208" height="19" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_name_member}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="313" y="461" width="208" height="19" />
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{signatory_name_nonmember}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="14" y="565" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_member}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="76" y="565" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_nonmember}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="522" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_spouse}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="428" y="522" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_child}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="483" y="522" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_parent}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="535" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_sibling}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="428" y="535" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_other}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="500" y="533" width="49" height="11" />
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="none">
+					<font fontName="DejaVu Sans" size="7" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{specify}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+				<reportElement positionType="Float" x="441" y="562" width="107" height="9" />
+				<textElement textAlignment="Justified" verticalAlignment="Top" markup="none">
+					<font fontName="DejaVu Sans" size="7" isBold="true" isItalic="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{reason}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="548" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_incapacitated}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="371" y="561" width="11" height="11" />
+				<box>
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{is_other_reason}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="4" y="746" width="159" height="10" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emp_name}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="190" y="744" width="162" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="DejaVu Sans" size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{emp_cap}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="-1" y="0" width="573" height="1" />
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="-1" y="1" width="1" height="865" />
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="0" y="865" width="572" height="1" />
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="572" y="1" width="1" height="863" />
+				<graphicElement>
+					<pen lineWidth="2.0"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="227" y="10" width="120" height="15" forecolor="#666666" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isItalic="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Republic of the Philippines]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="158" y="19" width="278" height="17" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Serif" size="11" isBold="true" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[PHILIPPINE HEALTH INSURANCE CORPORATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="476" y="13" width="54" height="10" />
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="DejaVu Sans" size="6" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ is NOT FOR SALE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="31" width="174" height="15" forecolor="#666666" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[Citystate Centre 709 Shaw Boulevard, Pasig City]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="41" width="174" height="15" forecolor="#666666" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[  Call Center (02) 441-7442    Trunkline (02) 441-7444]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="49" width="174" height="15" forecolor="#666666" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[www.philhealth.gov.ph]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="210" y="58" width="174" height="15" forecolor="#666666" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isItalic="false" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[email: actioncenter@philhealth.gov.ph]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="552" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="539" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="526" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="513" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="487" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="474" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="461" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="448" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="435" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="396" y="69" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="363" y="68" width="37" height="13" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[Series #]]></text>
+			</staticText>
+			<line>
+				<reportElement x="1" y="84" width="571" height="1" />
+			</line>
+			<staticText>
+				<reportElement x="2" y="84" width="90" height="10" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IMPORTANT REMINDERS:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="91" width="96" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[PLEASE WRITE IN CAPITAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="97" y="91" width="32" height="10" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LETTERS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="131" y="91" width="18" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[AND]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="148" y="91" width="32" height="10" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CHECK]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="91" width="101" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[ THE APPROPRIATE BOXES.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="99" width="17" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[FOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="99" width="55" height="10" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[local availment]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="71" y="99" width="439" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[, this form together with other PhilHealth claim forms and other supporting documents should be filed within 60 days from date of discharge.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="107" width="17" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[FOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="19" y="107" width="78" height="10" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[availment of benefits abroad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="92" y="107" width="439" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[, this form together with other supporting documents should be filed within 180 days from date of discharge.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="115" width="397" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[Representative of the Health Care Institutions (HCI) shall assist the member/authorized representative in filling out this form.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="123" width="397" height="10" forecolor="#666666" />
+				<textElement>
+					<font size="7" isBold="false"/>
+				</textElement>
+				<text><![CDATA[All information required in this form are necessary. Claim forms with incomplete information shall not be processed.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="131" width="491" height="10" forecolor="#000000" />
+				<textElement>
+					<font size="7" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FALSE/INCORRECT INFORMATION OR MISREPRESENTATION SHALL BE SUBJECT TO CRIMINAL, CIVIL OR ADMINISTRATIVE LIABILITIES.]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="141" width="570" height="20" forecolor="#FFFFFF" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="188" y="141" width="172" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART I - MEMBER INFORMATION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="161" width="184" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[1.PhilHealth Identification Number (PIN) of Member:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="182" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin}!= '' ? $P{member_pin} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="211" y="161" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="218" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="231" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="257" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="270" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="283" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="296" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="322" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="338" y="161" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="345" y="162" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="2" y="173" width="74" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[2. Name of Member:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="196" width="81" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="93" y="196" width="111" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="215" y="196" width="81" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="309" y="196" width="100" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="417" y="174" width="74" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[3. Date of Birth:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="425" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="438" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="453" y="185" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="458" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="471" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="487" y="185" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="492" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="505" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="518" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="531" y="188" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="195" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="111" y="195" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="195" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Name Extension ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="202" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(JR/SR/III)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="318" y="195" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Middle Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="303" y="201" width="113" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ex: DELA CRUZ JUAN JR SIPAG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="428" y="198" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="198" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Day]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="507" y="198" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="214" width="74" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[4. Mailing Address:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="238" width="88" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="102" y="238" width="100" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="211" y="238" width="108" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="324" y="238" width="104" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<line>
+				<reportElement x="437" y="239" width="126" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="239" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Unit/Room No./Floor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="239" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Building Name]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="239" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Lot/Blk/House/Bldg.No]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="337" y="239" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Street]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="459" y="239" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Subdivision/Village]]></text>
+			</staticText>
+			<line>
+				<reportElement x="4" y="261" width="88" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="7" y="261" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Barangay]]></text>
+			</staticText>
+			<line>
+				<reportElement x="104" y="261" width="100" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="114" y="262" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[City/Municipality]]></text>
+			</staticText>
+			<line>
+				<reportElement x="212" y="261" width="108" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="229" y="261" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Province]]></text>
+			</staticText>
+			<line>
+				<reportElement x="324" y="261" width="104" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="338" y="262" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Country]]></text>
+			</staticText>
+			<line>
+				<reportElement x="436" y="261" width="126" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="461" y="262" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Zip Code]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="275" width="87" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[6. Contact Information:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="214" width="24" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[4. Sex:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="214" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="214" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Male]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="483" y="214" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="495" y="214" width="31" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Female]]></text>
+			</staticText>
+			<line>
+				<reportElement x="5" y="295" width="168" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="22" y="293" width="126" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Landline No. (Area Code + Tel. No.)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="304" width="87" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[7. Patient is the member?  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="91" y="303" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="104" y="304" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Yes, Proceed to Part III  ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="181" y="303" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="191" y="304" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[  No, Proceed to Part II]]></text>
+			</staticText>
+			<line>
+				<reportElement x="186" y="294" width="168" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="212" y="292" width="126" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Mobile No.]]></text>
+			</staticText>
+			<line>
+				<reportElement x="373" y="295" width="179" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="399" y="294" width="126" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Email Address]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="317" width="570" height="20" forecolor="#FFFFFF" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="112" y="317" width="170" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART II - PATIENT INFORMATION   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="281" y="317" width="196" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(To be filled-out only if the patient is a dependent)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="1" y="337" width="187" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[1.PhilHealth Identification Number (PIN) of Dependent:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="188" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="201" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="217" y="337" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="224" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="237" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="250" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="276" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="289" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="302" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="315" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="328" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="344" y="337" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="351" y="338" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="348" width="74" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[2. Name of Member:]]></text>
+			</staticText>
+			<line>
+				<reportElement x="3" y="370" width="81" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="5" y="370" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Last Name]]></text>
+			</staticText>
+			<line>
+				<reportElement x="93" y="370" width="111" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="108" y="370" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[First Name]]></text>
+			</staticText>
+			<line>
+				<reportElement x="216" y="369" width="81" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="219" y="369" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Name Extension ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="219" y="378" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(JR/SR/III)]]></text>
+			</staticText>
+			<line>
+				<reportElement x="309" y="370" width="100" height="1" />
+				<graphicElement>
+					<pen lineWidth="0.2"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="317" y="370" width="74" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Middle Name ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="304" y="378" width="113" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[(ex: DELA CRUZ JUAN JR SIPAG)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="350" width="74" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[3. Date of Birth:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="427" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="440" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="359" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="460" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="473" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="489" y="359" width="4" height="19" />
+				<text><![CDATA[-]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="494" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="507" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="520" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="533" y="362" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="429" y="372" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Month]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="463" y="372" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Day]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="509" y="372" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Year]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="392" width="105" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[4. Relationship to Member:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="98" y="392" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="112" y="392" width="25" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Child]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="141" y="392" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="157" y="392" width="25" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Parent]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="185" y="392" width="13" height="12" />
+				<box>
+					<topPen lineWidth="0.2"/>
+					<leftPen lineWidth="0.2"/>
+					<bottomPen lineWidth="0.2"/>
+					<rightPen lineWidth="0.2"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="201" y="392" width="32" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Spouse]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="419" y="392" width="24" height="12" />
+				<textElement verticalAlignment="Middle">
+					<font size="7" isBold="true" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[4. Sex:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="443" y="392" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="455" y="392" width="23" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Male]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="483" y="392" width="13" height="12" />
+				<box>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement>
+					<font isPdfEmbedded="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="495" y="392" width="31" height="12" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7" isBold="false" isStrikeThrough="false"/>
+				</textElement>
+				<text><![CDATA[Female]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="408" width="570" height="20" forecolor="#FFFFFF" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="202" y="408" width="194" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART III - MEMBER CERTIFICATION]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="582" width="570" height="20" forecolor="#FFFFFF" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="112" y="582" width="227" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART IV - EMPLOYER’S CERTIFICATION   ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="325" y="582" width="202" height="20" forecolor="#FFFFFF" />
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[(for employed members only)]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="1" y="778" width="570" height="20" forecolor="#FFFFFF" backcolor="#000000" />
+			</rectangle>
+			<staticText>
+				<reportElement x="192" y="778" width="227" height="20" forecolor="#FFFFFF" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PART V - FOR PHILHEALTH USE ONLY]]></text>
+			</staticText>
+			<image>
+				<reportElement x="3" y="15" width="156" height="45" />
+				<imageExpression><![CDATA[$F{image_01}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="183" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin}!= '' ? $P{member_pin} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="195" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_1}!= '' ? $P{member_pin_1} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="219" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_2}!= '' ? $P{member_pin_2} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="232" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_3}!= '' ? $P{member_pin_3} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="245" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_4}!= '' ? $P{member_pin_4} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="258" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_5}!= '' ? $P{member_pin_5} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="271" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_6}!= '' ? $P{member_pin_6} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="284" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_7}!= '' ? $P{member_pin_7} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="297" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_8}!= '' ? $P{member_pin_8} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="310" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_9}!= '' ? $P{member_pin_9} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="323" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_10}!= '' ? $P{member_pin_10} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="346" y="162" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_pin_11}!= '' ? $P{member_pin_11} : '']]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="3" y="188" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name_last}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="92" y="187" width="114" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name_first}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="215" y="186" width="81" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{suffix}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="311" y="187" width="98" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{name_middle}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(0)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="439" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(1)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="459" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(3)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="472" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(4)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="493" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(6)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="506" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(7)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="519" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(8)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="532" y="187" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{birth_date}.charAt(9)]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="443" y="214" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_gender_m}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="214" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{member_gender_f}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="230" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{unit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="108" y="230" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{building_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="230" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lot_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="332" y="230" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{street}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="451" y="231" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{subdivision}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="7" y="253" width="82" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{barangay}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="107" y="253" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{city}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="218" y="253" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{province}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="327" y="253" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{country}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="450" y="253" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{zipcode}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="36" y="287" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{landline_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="226" y="287" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{mobile_no}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="412" y="287" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{email_address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="91" y="303" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_is_member_y}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="182" y="303" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_is_member_n}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="189" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin}!= '' ? $P{patient_pin} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="202" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_1}!= '' ? $P{patient_pin_1} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="225" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_2}!= '' ? $P{patient_pin_2} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="238" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_3}!= '' ? $P{patient_pin_3} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="251" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_4}!= '' ? $P{patient_pin_4} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="264" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_5}!= '' ? $P{patient_pin_5} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="277" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_6}!= '' ? $P{patient_pin_6} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="290" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_7}!= '' ? $P{patient_pin_7} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="303" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_8}!= '' ? $P{patient_pin_8} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="316" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_9}!= '' ? $P{patient_pin_9} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="329" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_10}!= '' ? $P{patient_pin_10} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="351" y="338" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_pin_11}!= '' ? $P{patient_pin_11} : '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="3" y="361" width="81" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_name_last}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="93" y="361" width="111" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_name_first}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="216" y="360" width="79" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_suffix}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="311" y="361" width="97" height="8" />
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_name_middle}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="427" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(0): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="440" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(1): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="460" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(3): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="474" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(4): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="494" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(6): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="508" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(7): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="521" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(8): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="534" y="362" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_birth_date}!=""? $P{patient_birth_date}.charAt(9): '']]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="483" y="392" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_gender_f}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="444" y="392" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_gender_m}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="185" y="392" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_relation_s}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="142" y="392" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_relation_p}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="99" y="392" width="12" height="13" />
+				<textElement textAlignment="Center">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{patient_relation_c}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="1" y="675" width="571" height="1" />
+			</line>
+		</band>
+	</detail>
+</jasperReport>

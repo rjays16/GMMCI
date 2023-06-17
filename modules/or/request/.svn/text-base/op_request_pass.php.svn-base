@@ -1,0 +1,164 @@
+<?php
+error_reporting(E_COMPILE_ERROR|E_ERROR|E_CORE_ERROR);
+require('./roots.php');
+require($root_path.'include/inc_environment_global.php');
+define('LANG_FILE','stdpass.php');
+define('NO_2LEVEL_CHK',1);
+require_once($root_path.'include/inc_front_chain_lang.php');
+
+require_once($root_path.'global_conf/areas_allow.php');
+
+$allowedarea=&$allow_area['op_room'];
+
+if($retpath=='calendar_opt'){
+	$append=URL_APPEND."&dept_nr=$dept_nr&retpath=$retpath&pday=$pday&pmonth=$pmonth&pyear=$pyear"; 
+	$breakfile=$root_path."modules/calendar/calendar-options.php".URL_APPEND."&dept_nr=$dept_nr&retpath=$retpath&day=$pday&month=$pmonth&year=$pyear";
+}else{
+	$append=URL_APPEND; 
+ 	$breakfile=$root_path."main/op-doku.php".URL_APPEND;
+}
+
+if(!isset($dept_nr)) $dept_nr='';
+
+switch($target)
+{
+	case 'or_new_request':
+		$allowedarea = array("_a_1_opcreaterequest");
+		$fileforward="seg-op-request-select-dept.php".URL_REDIRECT_APPEND."&target=or_new_request";
+		$title="OR::Create new request";		
+	break;
+
+	case 'search':$fileforward="op-pflege-logbuch-such-javastart.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr";
+						$title=$LDSearch;
+						break;
+	case 'archiv':$fileforward="op-pflege-logbuch-arch-javastart.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr";
+						$title=$LDArchive;
+						break;
+	case 'or_request_list':
+				$fileforward="seg-op-request-list.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr&target=or_request_list";
+				$target="or_request_list";
+				$title=$LDNewData;
+			break;
+	
+	case 'or_request_frm':
+			$fileforward="seg-or-request-new.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr&target=or_request_frm";
+			$target="or_request_frm";
+			$title="Request New";
+			break;
+	//default:$fileforward="op-pflege-logbuch-javastart.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr";
+    
+    /** Omick Start
+    * December 12, 2008
+    * For the Main OR Request
+    */
+    
+    case 'or_main':
+      //$fileforward = 'seg-or-main.php'.URL_REDIRECT_APPEND.'&dept_nr='.$dept_nr.'&target=or_main_form';
+      $fileforward="seg-op-request-select-dept.php".URL_REDIRECT_APPEND."&target=or_main"; 
+      $target = 'or_main_form';
+      $title = 'OR Main';
+    break;
+    
+    case 'or_main_request':
+       $fileforward="seg-op-request-select-dept.php".URL_REDIRECT_APPEND."&target=or_main_request"; 
+      $title = 'OR Operation Request';
+    break;
+    
+    case 'select_or_request':
+      $fileforward='select_or_request.php'.URL_REDIRECT_APPEND.'&target=select_or_request';
+      $title = 'OR Charges';
+    break;
+    
+     case 'or_main_list':
+      $fileforward=$root_path.'modules/or/or_main/or_main_list.php'.URL_REDIRECT_APPEND.'&target=or_main_list';
+      $title = 'OR Charges';
+    break;
+    
+    case 'or_main_approve':
+      $fileforward=$root_path.'modules/or/or_main/or_main_approve.php'.URL_REDIRECT_APPEND.'&target=or_main_approve';
+      $title = 'OR Charges';
+    break;
+    
+    case 'or_main_schedule':
+      $fileforward=$root_path.'modules/or/or_main/or_main_schedule.php'.URL_REDIRECT_APPEND.'&target=or_main_schedule';
+      $title = 'OR Charges';
+    break;
+    
+    case 'or_main_post_list';
+      $fileforward=$root_path.'modules/or/or_main/or_main_post_list.php'.URL_REDIRECT_APPEND.'&target=or_main_post_list';
+      $title = 'OR Charges';
+    break;
+    
+    /** Omick End */
+    
+    
+	default:$fileforward="op_request_gui.php".URL_REDIRECT_APPEND."&dept_nr=$dept_nr";
+				$target="entry";
+				$title=$LDNewData;
+}
+
+#echo "op_request_pass.php : fileforward = '".$fileforward."' <br> \n";
+#echo "op_request_pass.php : HTTP_SESSION_VARS : "; print_r($HTTP_SESSION_VARS); echo " <br><br> \n";
+$thisfile=basename(__FILE__);
+
+$lognote="OP Logs $title ok";
+
+$userck='ck_op_pflegelogbuch_user';
+//reset cookie;
+// reset all 2nd level lock cookies
+setcookie($userck.$sid,'');
+require($root_path.'include/inc_2level_reset.php'); 
+setcookie(ck_2level_sid.$sid,'');
+
+require($root_path.'include/inc_passcheck_internchk.php');
+
+#echo "op_request_pass.php : 1 pass = '".$pass."' <br> \n";
+
+if ($pass=='check') 	
+	include($root_path.'include/inc_passcheck.php');
+
+#echo "op_request_pass.php : 2 pass = '".$pass."' <br> \n";
+
+$errbuf="OP Logs $title";
+
+require($root_path.'include/inc_passcheck_head.php');
+?>
+
+<BODY <?php if (!$nofocus)
+				{ echo 'onLoad="document.passwindow.userid.focus();';
+					if($retpath=="calendar_opt") echo "window.resizeTo(800,600);window.moveTo(20,20);";
+					echo '"';
+				}
+				echo  ' bgcolor='.$cfg['body_bgcolor']; 
+ 				if (!$cfg['dhtml']){ echo ' link='.$cfg['body_txtcolor'].' alink='.$cfg['body_alink'].' vlink='.$cfg['body_txtcolor']; } 
+?>>
+<p>
+<FONT    SIZE=-1  FACE="Arial">
+
+<P>
+<img <?php echo createComIcon($root_path,'people.gif','0','absmiddle') ?>>
+<FONT  COLOR="<?php echo $cfg[top_txtcolor] ?>"  SIZE=5  FACE="verdana" > <b><?php echo "$title" ?></b></font>
+
+<table width=100% border=0 cellpadding="0" cellspacing="0"> 
+<tr>
+<td colspan=3><?php if($target=="entry") echo '<img '.createLDImgSrc($root_path,'newdata-b.gif','0').' alt="'.$LDAdmit.'">';
+								else{ echo'<a href="'.$thisfile.$append.'&target=entry"><img '.createLDImgSrc($root_path,'newdata-gray.gif','0').'  alt="'.$LDAdmit.'" ';if($cfg['dhtml'])echo'style=filter:alpha(opacity=70) onMouseover=hilite(this,1) onMouseOut=hilite(this,0)'; echo '></a>';}
+							if($target=="search") echo '<img '.createLDImgSrc($root_path,'such-b.gif','0').' alt="'.$LDSearch.'">';
+								else{ echo '<a href="'.$thisfile.$append.'&target=search"><img '.createLDImgSrc($root_path,'such-gray.gif','0').' alt="'.$LDSearch.'"  ';if($cfg['dhtml'])echo'style=filter:alpha(opacity=70) onMouseover=hilite(this,1) onMouseOut=hilite(this,0)'; echo '></a>';}
+							if($target=="archiv") echo '<img '.createLDImgSrc($root_path,'arch-blu.gif','0').' alt="'.$LDArchive.'">';
+								else{ echo '<a href="'.$thisfile.$append.'&target=archiv"><img '.createLDImgSrc($root_path,'arch-gray.gif','0').' alt="'.$LDArchive.'"  ';if($cfg['dhtml'])echo'style=filter:alpha(opacity=70) onMouseover=hilite(this,1) onMouseOut=hilite(this,0)'; echo '></a>';}
+						?></td>
+</tr>
+<?php require($root_path.'include/inc_passcheck_mask.php') ?>  
+<p>
+<!-- <img src="../img/small_help.gif"> <a href="<?php echo $root_path; ?>main/ucons.php<?php echo URL_APPEND; ?>"><?php echo "$LDIntro2 $LDOrLogBook" ?></a><br>
+<img src="../img/small_help.gif"> <a href="<?php echo $root_path; ?>main/ucons.php<?php echo URL_APPEND; ?>"><?php echo "$LDWhat2Do $LDOrLogBook" ?></a><br>
+
+<p>
+ -->
+<?php
+require($root_path.'include/inc_load_copyrite.php');
+?>
+</FONT>
+</BODY>
+</HTML>

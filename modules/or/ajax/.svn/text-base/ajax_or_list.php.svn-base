@@ -1,0 +1,95 @@
+<?php
+require_once('roots.php');
+
+require($root_path.'include/inc_environment_global.php');   
+
+
+
+class Omick  {
+   
+   function countRec($where) {
+       global $db;
+    $sql = "SELECT count(sos.refno)
+FROM seg_ops_serv sos
+INNER JOIN care_encounter_op ceo ON (sos.refno = ceo.refno)
+INNER JOIN care_department cd ON (cd.nr = ceo.dept_nr)
+INNER JOIN care_room cr ON (cr.room_nr=ceo.op_room)
+LEFT JOIN seg_pharma_or_main spom ON (spom.or_main_refno = sos.refno)
+WHERE spom.or_main_refno IS NULL $where $sort $limit";
+    $result = $db->Execute($sql);
+    $row = $result->FetchRow();
+    return $row[0];    
+}
+}
+
+$omick = new Omick();
+global $db;
+$page = $_POST['page'];
+$rp = $_POST['rp'];
+$sortname = $_POST['sortname'];
+$sortorder = $_POST['sortorder'];
+//$table_name = $_GET['table'];
+if (!$sortname) $sortname = 'request_date';
+if (!$sortorder) $sortorder = 'desc';
+
+$sort = "ORDER BY $sortname $sortorder";
+
+if (!$page) $page = 1;
+if (!$rp) $rp = 3;
+
+$start = (($page-1) * $rp);
+
+$limit = "LIMIT $start, $rp";
+
+$query = $_POST['query'];
+//$qtype = $_POST['qtype'];
+$where = "";
+if ($query) $where = " AND (ordername LIKE '%$query%' OR sos.refno='$query' OR pid='$query')";
+$total = $omick->countRec($where);   
+
+//header("Expires: Mon, Jan 01 2009 05:00:00 GMT" ); 
+header("Last-Modified: " . gmdate( "D, d M Y H:i:s" ) . "GMT" ); 
+header("Cache-Control: no-cache, must-revalidate" ); 
+header("Pragma: no-cache" );
+header("Content-type: text/x-json");
+$json = "";
+$json .= "{\n";
+$json .= "page: $page,\n";
+$json .= "total: $total,\n";
+$json .= "rows: [";
+$rc = false;
+$query = "SELECT sos.refno,
+CONCAT_WS(' ',sos.request_date, sos.request_time) as request_date,
+sos.pid, sos.ordername, cr.info, cd.name_formal
+FROM seg_ops_serv sos INNER JOIN care_encounter_op ceo ON (sos.refno = ceo.refno)
+INNER JOIN care_department cd ON (cd.nr = ceo.dept_nr)
+INNER JOIN care_room cr ON (cr.room_nr=ceo.op_room)
+LEFT JOIN seg_pharma_or_main spom ON (spom.or_main_refno = sos.refno)
+WHERE spom.or_main_refno IS NULL $where $sort $limit";
+
+// $query = "SELECT * FROM care_type_anaesthesia $where $sort $limit";
+   $result = $db->Execute($query);
+   while($row = $result->FetchRow()) {
+     //$js = "javascript:add_or_main_anesthesia(\'$table_name\', {$row['nr']}, \'{$row['id']}\')";
+     $select = '<a href="'.$root_path.'modules/or/request/charge_or_request.php'.URL_APPEND.'&refno='.$row['refno'].'" id="charge"></a>';
+     if ($rc) $json .= ",";
+    $json .= "\n{";
+    $json .= "id:'".$row['refno']."',";
+    $json .= "cell:['".$row['refno']."'";
+    $json .= ",'".$row['request_date']."'";
+    $json .= ",'".$row['pid']."'";
+    $json .= ",'".$row['ordername']."'";
+    $json .= ",'".$row['name_formal']."'";
+    $json .= ",'".$row['info']."'";
+    $json .= ",'".$select."']";
+    $json .= "}";
+    $rc = true; 
+   }
+
+
+$json .= "]\n";
+$json .= "}";
+echo $json;
+ 
+?>
+

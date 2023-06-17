@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<index>
+	<title>Source of Ambulatory</title>
+	<nodes>
+		<node label="html-template">
+			<node label="history">
+				<node label="history.css" icon="cssIcon" url="source/html-template/history/history.css.html"/>
+				<node label="history.js" url="source/html-template/history/history.js.txt"/>
+				<node label="historyFrame.html" icon="htmlIcon" url="source/html-template/history/historyFrame.html"/>
+			</node>
+			<node label="index.template.html" icon="htmlIcon" url="source/html-template/index.template.html"/>
+			<node label="playerProductInstall.swf" icon="swfIcon" url="source/html-template/playerProductInstall.swf"/>
+			<node label="swfobject.js" url="source/html-template/swfobject.js.txt"/>
+		</node>
+		<node label="libs">
+		</node>
+		<node label="services">
+			<node label="patientlist1.php" url="source/services/patientlist1.php.txt"/>
+		</node>
+		<node label="src">
+			<node label="assets">
+				<node label="Ambulatory">
+					<node label="Approve_Request.png" icon="imageIcon" url="source/assets/Ambulatory/Approve_Request.png.html"/>
+					<node label="Approve_Request_s_Outer_Emboss_Highlights.png" icon="imageIcon" url="source/assets/Ambulatory/Approve_Request_s_Outer_Emboss_Highlights.png.html"/>
+					<node label="Layer_1.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_1.png.html"/>
+					<node label="Layer_1_copy.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_1_copy.png.html"/>
+					<node label="Layer_2.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_2.png.html"/>
+					<node label="Layer_2_copy.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_2_copy.png.html"/>
+					<node label="Layer_2_copy_s_Drop_Shadow.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_2_copy_s_Drop_Shadow.png.html"/>
+					<node label="Layer_2_s_Drop_Shadow.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_2_s_Drop_Shadow.png.html"/>
+					<node label="Layer_3.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_3.png.html"/>
+					<node label="Layer_3_s_Drop_Shadow.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_3_s_Drop_Shadow.png.html"/>
+					<node label="Layer_4.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_4.png.html"/>
+					<node label="Layer_4_copy.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_4_copy.png.html"/>
+					<node label="Layer_4_copy_s_Drop_Shadow.png" icon="imageIcon" url="source/assets/Ambulatory/Layer_4_copy_s_Drop_Shadow.png.html"/>
+				</node>
+				<node label="btn_next.png" icon="imageIcon" url="source/assets/btn_next.png.html"/>
+				<node label="btn_next_hov.png" icon="imageIcon" url="source/assets/btn_next_hov.png.html"/>
+				<node label="btn_prev.png" icon="imageIcon" url="source/assets/btn_prev.png.html"/>
+				<node label="btn_prev_hov.png" icon="imageIcon" url="source/assets/btn_prev_hov.png.html"/>
+				<node label="btn_submit.png" icon="imageIcon" url="source/assets/btn_submit.png.html"/>
+				<node label="btn_submit_hov.png" icon="imageIcon" url="source/assets/btn_submit_hov.png.html"/>
+				<node label="datagrid.png" icon="imageIcon" url="source/assets/datagrid.png.html"/>
+				<node label="ui_02.png" icon="imageIcon" url="source/assets/ui_02.png.html"/>
+				<node label="ui_03.png" icon="imageIcon" url="source/assets/ui_03.png.html"/>
+				<node label="ui_approve_hov.png" icon="imageIcon" url="source/assets/ui_approve_hov.png.html"/>
+				<node label="ui_createReq_hov.png" icon="imageIcon" url="source/assets/ui_createReq_hov.png.html"/>
+				<node label="ui_orMemo.png" icon="imageIcon" url="source/assets/ui_orMemo.png.html"/>
+				<node label="ui_orMemoHov.png" icon="imageIcon" url="source/assets/ui_orMemoHov.png.html"/>
+			</node>
+			<node label="components" icon="packageIcon" expanded="true">
+				<node label="Button1.mxml" icon="mxmlIcon" url="source/components/Button1.mxml.html"/>
+				<node label="Button10.mxml" icon="mxmlIcon" url="source/components/Button10.mxml.html"/>
+				<node label="Button2.mxml" icon="mxmlIcon" url="source/components/Button2.mxml.html"/>
+				<node label="Button3.mxml" icon="mxmlIcon" url="source/components/Button3.mxml.html"/>
+				<node label="Button4.mxml" icon="mxmlIcon" url="source/components/Button4.mxml.html"/>
+				<node label="Button5.mxml" icon="mxmlIcon" url="source/components/Button5.mxml.html"/>
+				<node label="Button6.mxml" icon="mxmlIcon" url="source/components/Button6.mxml.html"/>
+				<node label="Button7.mxml" icon="mxmlIcon" url="source/components/Button7.mxml.html"/>
+				<node label="Button8.mxml" icon="mxmlIcon" url="source/components/Button8.mxml.html"/>
+				<node label="Button9.mxml" icon="mxmlIcon" url="source/components/Button9.mxml.html"/>
+				<node label="TextInput1.mxml" icon="mxmlIcon" url="source/components/TextInput1.mxml.html"/>
+				<node label="TextInput2.mxml" icon="mxmlIcon" url="source/components/TextInput2.mxml.html"/>
+			</node>
+			<node label="services.patientlist1" icon="packageIcon" expanded="true">
+				<node label="_GetAllEntityMetadata.as" icon="actionScriptIcon" url="source/services/patientlist1/_GetAllEntityMetadata.as.html"/>
+				<node label="_Super_GetAll.as" icon="actionScriptIcon" url="source/services/patientlist1/_Super_GetAll.as.html"/>
+				<node label="_Super_Patientlist1.as" icon="actionScriptIcon" url="source/services/patientlist1/_Super_Patientlist1.as.html"/>
+				<node label="GetAll.as" icon="actionScriptIcon" url="source/services/patientlist1/GetAll.as.html"/>
+				<node label="Patientlist1.as" icon="actionScriptIcon" url="source/services/patientlist1/Patientlist1.as.html"/>
+			</node>
+			<node selected="true" label="Main.mxml" icon="mxmlAppIcon" url="source/Main.mxml.html"/>
+		</node>
+	</nodes>
+</index>

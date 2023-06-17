@@ -1,0 +1,1433 @@
+
+
+
+/** For the OR Main Request
+	* Added by Omick, December 20, 2008
+	*/
+#or_main_request {
+	padding: 0px 5px 5px 10px;
+	text-align: left;
+}
+
+#or_main_request form, #or_main_request input, #or_main_request_select, #or_main_request table, #or_main_request tr, #or_main_request td, #or_main_request div,
+#or_main_request span {
+	padding: 0px;
+	margin: 0px;
+}
+
+#or_main_request fieldset {
+	padding: 0px 15px 15px 15px;
+	margin: 0 0 20px;
+	/*background: #F4F1EC url(../../../images/or_main_images/fieldset_back.jpg) repeat-x;   */
+	/*background: #F5FAFF url(../../../images/or_main_images/fieldset_back.jpg) repeat-x; */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+}
+
+#or_main_request legend {
+	color: #FFFFFF;
+	/*background-color: #4899BE;*/
+	background-color: #5CADFF;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	padding: 5px;
+	margin-bottom: 0;
+	width: 9em;
+	border: 1px solid #3E4A49;
+	cursor: pointer;
+}
+
+#or_main_request span#reminder {
+	font: normal 11px Arial;
+	color: #292929;
+	line-height: 3em;
+}
+
+#or_main_request label {
+	color: #4C4B4A;
+	display:inline-block;
+}
+
+#or_main_request input[type=text] {
+	border: 1px #CAC9B9 solid;
+	height: 20px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 180px;
+	display:inline-block;
+}
+
+
+#or_main_request input[type=text].error_field {
+	border: 1px #FF0000 solid;
+}
+
+#or_main_request select {
+	font: normal 11px Arial;
+	width: 180px;   /*** Added by Cherry 04-29-10 ***/
+}
+
+#or_main_request span#error_form_input {
+	color:red;
+	font-size:0.8em;
+	margin-left:5px;
+}
+
+#or_main_request tr {
+	vertical-align:  bottom;
+}
+
+#or_main_request input[type=checkbox] {
+	margin: 5px 3px 0px 0px;
+}
+
+#or_main_request input[type=radio] {
+	margin-top: 8px;
+}
+
+#or_main_request a div#select_patient_button {
+	background:  url(../../../images/or_main_images/select_patient.png);
+	width: 105px;
+	height: 31px;
+	float: left;
+	opacity: 0.7;
+}
+
+/*Added by Cherry 02-16-10*/
+#or_main_request a div#select_procedure_button {
+	background: url(../../../images/or_main_images/add_procedure.png);
+	width: 113px;
+	height: 25px;
+	float: left;
+	opacity: 0.7;
+}
+
+#or_main_request a div#select_patient_button:hover, #or_main_request img.date_time_picker:hover {
+	opacity: 1;
+}
+
+#or_main_request img.date_time_picker {
+	background:  url(../../../images/or_main_images/date_time_picker.png);
+	width: 105px;
+	height: 31px;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+#or_main_request textarea {
+	width: 180px;
+	height: 50px;
+	border: 1px #CAC9B9 solid;
+	padding: 3px;
+	font: normal 11px Arial;
+}
+
+#or_main_request input#or_main_submit {
+	background: #F4F1EC url(../../../images/or_main_images/submit_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+#or_main_request input#or_main_submit:hover, #or_main_request a#request_cancel:hover, a#or_main_print:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+/* Added by Cherry 09-04-10 */
+#or_main_request a#or_main_print {
+	background: #F4F1EC url(../../../images/btn_printpdf.gif) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+#or_main_request a#request_cancel {
+	background: #F4F1EC url(../../../images/or_select_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-right: 10px;
+}
+
+#or_main_request div.date_display {
+	display:inline-block;
+	border: 1px #CAC9B9 solid;
+	height: 14px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 175px;
+	background: #FFFFFF;
+	color: #000000;
+}
+
+#or_main_request input[type=radio] {
+	background: #FF0000;
+	border: 1px #FF0000 solid;
+}
+
+#or_main_request div.pseudo_input {
+	display:inline-block;
+	border: 1px #CAC9B9 solid;
+	height: 14px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 175px;
+	background: #FFFFFF;
+	color: #000000;
+}
+
+
+/** Start OR Main Approve Request **/
+
+#or_main_approve_request {
+	padding: 0px;
+	margin: 0px;
+}
+
+#or_main_approve_request table {
+	font: normal 11px Arial;
+	color: #000;
+}
+
+#or_main_approve_request fieldset {
+	padding: 0px 15px 15px 15px;
+	margin: 0 0 10px 0px;
+	/*background: #F4F1EC url(../../../images/or_main_images/fieldset_back.jpg) repeat-x;  */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+}
+
+#or_main_approve_request div.date_display {
+	display:inline-block;
+	border: 1px #CAC9B9 solid;
+	height: 16px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 175px;
+	background: #FFFFFF;
+	color: #000000;
+}
+
+#or_main_approve_request legend {
+	color: #FFFFFF;
+	/*background-color: #4899BE; */
+	background-color: #5CADFF;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	padding: 5px;
+	margin-bottom: 0;
+	width: 9em;
+	border: 1px solid #3E4A49;
+	cursor: pointer;
+}
+
+#or_main_approve_request span.value {
+	/*color: #D22827;*/
+	color: #3366CC;
+}
+
+#or_main_approve_request a#or_main_cancel {
+	background: #F4F1EC url(../../../images/or_main_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+}
+	/*
+#or_main_approve_request input#or_main_schedule_approve {
+	background: #F4F1EC url(../../../images/or_main_images/schedule_submit.png) no-repeat;
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}    */
+
+#or_main_approve_request input#or_main_schedule_approve {
+	background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+	display: block;
+}
+
+#or_main_approve_request input#or_main_approve {
+	background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+	display: block;
+}
+
+#or_main_approve_request input#or_main_disapprove {
+	/*background: #F4F1EC url(../../../images/or_main_images/disapprove_request.png) no-repeat;  */
+	background: #F5FAFF url(../../../images/or_main_images/disapprove_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+	display: block;
+}
+
+#or_main_approve_request input#or_main_approve:hover, #or_main_approve_request input#or_main_disapprove:hover,
+#or_main_approve_request a#or_main_cancel:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+#or_main_approve_request a#or_main_schedule_approve {
+	background: #F4F1EC url(../../../images/or_main_images/schedule_submit.png) no-repeat;
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+#or_main_approve_request a#or_main_schedule_approve:hover, div#or_main_schedule a#schedule_cancel:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+div#approve_or_main_request, div#disapprove_or_main_request {
+	margin: 0 0 20px;
+	/*background: #F4F1EC url(../../../images/or_main_images/fieldset_back.jpg) repeat-x; */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+	width: 400px;
+	display: none;
+	position:fixed;
+	top: 15%;
+	left: 15%;
+}
+
+div#approve_or_main_request div.header, div#disapprove_or_main_request div.header {
+	/*background: #F4F1EC; */
+	background: #5CADFF;
+	padding: 10px;
+	/*color: #990000;*/
+	/*color: #336699;*/
+	color: #FFFFFF; /*Added by Cherry 06-16-10*/
+	font: bold 1.2em Arial;
+}
+
+div#approve_or_main_request div.body, div#disapprove_or_main_request div.body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#approve_or_main_request div.body form, div#disapprove_or_main_request div.body form {
+	margin-top: 15px;
+	font: normal 13px Tahoma;
+}
+
+div#approve_or_main_request div.body label, div#disapprove_or_main_request div.body label {
+ display: block;
+ float: left;
+}
+
+div#approve_or_main_request div.header a#close_approve, div#disapprove_or_main_request div.header a#close_disapprove {
+	background: url(../../../images/or_main_images/close_cancel.png) no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+}
+
+div#approve_or_main_request div.body form textarea, div#disapprove_or_main_request div.body form textarea {
+	margin-bottom: 10px;
+	/*Added by Cherry 06-16-10*/
+	/*background: #F5FAFF;   */
+}
+
+div#approve_or_main_request div.body form input#or_approve_submit, div#disapprove_or_main_request div.body form input#or_disapprove_submit {
+	/*background: #F4F1EC url(../../../images/or_main_images/submit_request.png) no-repeat; */
+	background: #F5FAFF url(../../../images/or_main_images/submit_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#approve_or_main_request div.body form input#or_approve_submit:hover,
+div#disapprove_or_main_request div.body form input#or_disapprove_submit:hover,
+div#approve_or_main_request div.body form a#or_approve_cancel:hover,
+div#disapprove_or_main_request div.body form a#or_disapprove_cancel:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+div#approve_or_main_request div.body form a#or_approve_cancel, div#disapprove_or_main_request div.body form a#or_disapprove_cancel {
+	/*background: #F4F1EC url(../../../images/or_select_images/charge_cancel_button.png) no-repeat; */
+	background: #F5FAFF url(../../../images/or_select_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+div#approve_or_main_request div.body form textarea.error_field,
+div#disapprove_or_main_request div.body form textarea.error_field {
+	border: 1px #FF0000 solid;
+}
+
+div#approve_or_main_request div.body span#error_form_input,
+div#disapprove_or_main_request div.body span#error_form_input {
+	color:red;
+	font: normal 11px Arial;
+	margin-left:5px;
+	float: right;
+}
+
+/** End OR Main Approve Request **/
+
+
+/** Start OR Main Request Schedule **/
+
+div#or_main_schedule {
+	padding: 0px;
+	margin: 0px;
+}
+
+
+div#or_main_schedule fieldset table {
+	font: normal 11px Arial;
+	color: #000;
+}
+
+div#or_main_schedule span.value {
+	/*color: #D22827; */
+	color: #3366CC;
+}
+
+div#or_main_schedule fieldset {
+	margin: 0 0 5px;
+	/*background: #F4F1EC url(../../../images/or_main_images/fieldset_back.jpg) repeat-x; */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+}
+
+div#or_main_schedule fieldset#request_details {
+	display: none;
+	margin-bottom: 0px;
+}
+
+div#or_main_schedule div#toggler, div#or_main_schedule legend {
+	color: #FFFFFF;
+	/*background-color: #4899BE;  */
+	background-color: #5CADFF;
+	font-family: Arial, Helvetica, Sans-serif;
+	font-size: 0.9em;
+	font-weight: bold;
+	padding: 5px;
+	margin: 0px;
+	border: 1px solid #3E4A49;
+	cursor: pointer;
+}
+
+div#or_main_schedule span#reminder {
+	font: normal 11px Arial;
+	color: #292929;
+	line-height: 3em;
+}
+
+div#or_main_schedule a#add_surgeon {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_surgeon.png) no-repeat;
+	background-position: 0px 0px;
+	width: 100px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_assistant_surgeon {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_assistant_surgeon.png) no-repeat;
+	background-position: 0px 0px;
+	width: 130px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_scrub_nurse {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_scrub_nurse.png) no-repeat;
+	background-position: 0px 0px;
+	width: 120px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_circulating_nurse {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_circulating_nurse.png) no-repeat;
+	background-position: 0px 0px;
+	width: 120px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_anesthesiologist {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_anesthesiologist.png) no-repeat;
+	background-position: 0px 0px;
+	width: 130px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_anesthesia_procedure {
+	background: #F4F1EC url(../../../images/or_main_images/staff/add_anesthesia_procedure.png) no-repeat;
+	background-position: 0px 0px;
+	width: 130px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_anesthesia_procedure:hover,
+div#or_main_schedule a#add_anesthesiologist:hover,
+div#or_main_schedule a#add_anesthesiologist:hover,
+div#or_main_schedule a#add_circulating_nurse:hover,
+div#or_main_schedule a#add_scrub_nurse:hover,
+div#or_main_schedule a#add_assistant_surgeon:hover,
+div#or_main_schedule a#add_surgeon:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+/*Added by Cherry 07-09-10*/
+
+div#or_main_schedule input#or_approve_submit {
+	background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;
+	/*background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;*/
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#or_main_schedule input#or_disapprove_submit {
+	background: #F4F1EC url(../../../images/or_main_images/disapprove_request.png) no-repeat;
+	/*background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;*/
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#or_main_schedule a#lab_result {
+	background: #F4F1EC url(../../../images/or_select_images/lab_result.png);
+	background-position: 0px 0px;
+	width: 75px;
+	height: 22px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 200px;
+}
+
+div#or_main_schedule a#clinical_summary {
+	background: #F4F1EC url(../../../images/or_select_images/clinical_summary.png);
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+
+div#or_main_schedule a#op_technique_form {
+	background: #F4F1EC url(../../../images/or_select_images/op_technique_form.png);
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 10px;
+}
+
+/*End Cherry*/
+
+div#or_main_schedule input#or_main_schedule_submit {
+	background: #F4F1EC url(../../../images/or_main_images/schedule_submit.png) no-repeat;
+	/*background: #F4F1EC url(../../../images/or_main_images/approve_request.png) no-repeat;*/
+	background-position: 0px 0px;
+	width: 80px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#or_main_schedule input#or_main_schedule_submit:hover, div#or_main_schedule a#schedule_cancel:hover, div#or_main_schedule input#or_approve_submit:hover, div#or_main_schedule input#or_disapprove_submit:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+
+
+div#or_main_schedule a#schedule_cancel {
+	background: #F4F1EC url(../../../images/or_select_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+}
+
+#or_main_schedule div.date_display {
+	display:inline-block;
+	border: 1px #CAC9B9 solid;
+	height: 14px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 175px;
+	background: #FFFFFF;
+	color: #000000;
+}
+
+#or_main_schedule img.date_time_picker {
+	background:  url(../../../images/or_main_images/date_time_picker.png);
+	width: 105px;
+	height: 31px;
+	opacity: 0.7;
+	cursor: pointer;
+}
+
+#or_main_schedule img.date_time_picker:hover {
+	opacity: 1;
+}
+
+/** End OR Main Request Schedule **/
+
+/** Start OR Main Anesthesia Popup **/
+
+div#or_main_anesthesia {
+	margin: 0 0 20px;
+	/*background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x; */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+	width: 600px;
+	display: none;
+	position:fixed;
+	top: 15%;
+	left: 15%;
+}
+
+div#or_main_anesthesia div#header {
+	/*background: #F4F1EC; */
+	background: #5CADFF;
+	padding: 10px;
+	/*color: #990000;*/
+	color: #FFFFFF;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#or_main_anesthesia div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#or_main_anesthesia div#header a#close_anesthesia {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#or_main_anesthesia div#header a#close_anesthesia:hover {
+	opacity: 1;
+}
+
+div#or_main_anesthesia img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+/** End OR Main Anesthesia Popup **/
+
+
+/** Start For OR Main Post Operative Details **/
+
+/** Note: some of the classes and ids used in post-operative details were inherited in or main schedule **/
+div#or_main_schedule input#or_main_submit {
+	background: #F4F1EC url(../../../images/or_main_images/submit_request.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#or_main_schedule input#or_main_submit:hover, div#or_main_schedule a#or_main_cancel:hover, a#cancel_accommodation:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+a#cancel_accommodation {
+	background: #F4F1EC url(../../../images/or_main_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+}
+
+div#or_main_schedule a#or_main_cancel {
+	background: #F4F1EC url(../../../images/or_main_images/charge_cancel_button.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 5px;
+}
+
+
+div#or_main_schedule a#or_main_surgical_memo_report {
+	background: #F4F1EC url(../../../images/or_select_images/or_surgical_memo.png);
+	background-position: 0px 0px;
+	width: 105px;
+	height: 23px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 100px;
+}
+
+/*Added by Cherry 07-05-10*/
+div#or_main_schedule a#or_asu_info_sheet_report {
+	background: #F4F1EC url(../../../images/or_select_images/information_sheet.png);
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 100px;
+}
+/*End Cherry*/
+
+div#or_main_schedule a#or_main_anesthesia_report {
+	background: #F4F1EC url(../../../images/or_select_images/or_anesthesia_record.png) no-repeat;
+	background-position: 0px 0px;
+	width: 115px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 5px;
+}
+
+div#or_main_schedule a#or_main_op_room_report {
+	background: #F4F1EC url(../../../images/or_select_images/operation_room_record.png) no-repeat;
+	background-position: 0px 0px;
+	width: 90px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	float: left;
+	margin-left: 5px;
+}
+
+a#add_icpm {
+	background: #F4F1EC url(../../../images/or_main_images/add_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 85px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin: 3px 3px 0px 0px;
+}
+
+a#empty_icpm {
+	background: #F4F1EC url(../../../images/or_main_images/empty_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#add_item {
+	background: #F4F1EC url(../../../images/or_main_images/add_item.png) no-repeat;
+	background-position: 0px 0px;
+	width: 85px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#add_accommodation {
+	background: #F4F1EC url(../../../images/or_main_images/add_room.png) no-repeat;
+	background-position: 0px 0px;
+	width: 85px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-right: 5px;
+	float: left;
+}
+
+a#add_room {
+	background: #F4F1EC url(../../../images/or_main_images/add_room.png) no-repeat;
+	background-position: 0px 0px;
+	width: 85px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#add_misc {
+	background: #F4F1EC url(../../../images/or_main_images/add_misc.png) no-repeat;
+	background-position: 0px 0px;
+	width: 105px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#empty_item {
+	background: #F4F1EC url(../../../images/or_main_images/empty_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#add_equipment {
+	background: #F4F1EC url(../../../images/or_main_images/add_equipment.png) no-repeat;
+	background-position: 0px 0px;
+	width: 115px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin: 3px;
+}
+
+a#empty_equipment {
+	background: #F4F1EC url(../../../images/or_main_images/empty_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#empty_room {
+	background: #F4F1EC url(../../../images/or_main_images/empty_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#empty_misc {
+	background: #F4F1EC url(../../../images/or_main_images/empty_icpm.png) no-repeat;
+	background-position: 0px 0px;
+	width: 75px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+a#add_icpm:hover, a#empty_icpm:hover, a#add_item:hover, a#empty_item:hover, a#add_equipment:hover, a#empty_equipment:hover, a#add_room:hover, a#empty_room:hover,
+a#add_misc:hover, a#empty_misc:hover, a#add_accommodation:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+
+}
+
+fieldset#post_operative table tr td, fieldset#delivery_record table tr td {
+	font: normal 12px Verdana;
+}
+
+fieldset#delivery_record table tr td.indented{
+	padding-left: 8px;
+
+}
+
+fieldset#post_operative label {
+	color: #4C4B4A;
+	display:inline-block;
+}
+
+fieldset#post_operative input[type=text], fieldset#delivery_record input[type=text] {
+	border: 1px #CAC9B9 solid;
+	height: 20px;
+	padding: 2px;
+	font: normal 11px Arial;
+	width: 180px;
+	display:inline-block;
+}
+
+fieldset#post_operative input[type=text].error_field {
+	border: 1px #FF0000 solid;
+}
+
+fieldset#post_operative textarea.error_field {
+	border: 1px #FF0000 solid;
+}
+
+fieldset#post_operative span#error_form_input {
+	color:red;
+	font-size:0.8em;
+	margin-left:5px;
+}
+
+fieldset#post_operative textarea, fieldset#delivery_record textarea {
+	width: 230px;
+	height: 50px;
+	border: 1px #CAC9B9 solid;
+	padding: 3px;
+	font: normal 11px Arial;
+}
+
+/** End OR Main Post Operative Details **/
+
+
+/** Start OR Main Equipment Popup **/
+
+div#or_main_equipment {
+	margin: 0 0 20px;
+	/*background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x; */
+	background: #F5FAFF;
+	border: 1px solid #D6D3CC;
+	width: 700px;
+	display: none;
+	position:fixed;
+	top: 15%;
+	left: 15%;
+}
+
+div#or_main_equipment div#header {
+	/*background: #F4F1EC;  */
+	background: #5CADFF;
+	padding: 10px;
+	/*color: #990000; */
+	color: #FFFFFF;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#or_main_equipment div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#or_main_equipment div#header a#close_equipment {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#or_main_equipment div#header a#close_equipment:hover {
+	opacity: 1;
+}
+
+div#or_main_equipment img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+/** End OR Main Equipment Popup **/
+
+/** Start Miscellaneous Popup **/
+
+div#misc_charge {
+	margin: 0 0 20px;
+	background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+	border: 1px solid #D6D3CC;
+	width: 700px;
+	display: none;
+	position:fixed;
+	top: 5%;
+	left: 5%;
+}
+
+div#misc_charge div#header {
+	background: #F4F1EC;
+	padding: 10px;
+	color: #990000;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#misc_charge div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#misc_charge div#header a#close_misc_charge {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#misc_charge div#header a#close_misc_charge:hover {
+	opacity: 1;
+}
+
+div#misc_charge img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+/** End Miscellaneous Popup **/
+
+/** Start Packages Popup **/
+
+div#new_package_popup {
+	margin: 0 0 20px;
+	background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+	border: 2px solid #000000;
+	width: 700px;
+	display: none;
+	position:fixed;
+	top: 5%;
+	left: 5%;
+}
+
+div#new_package_popup div#header {
+	background: #F4F1EC;
+	padding: 10px;
+	color: #990000;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#new_package_popup div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#new_package_popup div#header a#close_new_package_popup {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#new_package_popup div#header a#close_new_package_popup:hover {
+	opacity: 1;
+}
+
+div#new_package_popup img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+/** End Packages Popup **/
+
+/** Start Additional  Accommodation Popup **/
+
+div#other_accommodation {
+	margin: 0 0 10px;
+	background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+	border: 1px solid #D6D3CC;
+	width: 400px;
+	display: none;
+	position:fixed;
+	top: 5%;
+	left: 5%;
+}
+
+div#other_accommodation div#header {
+	background: #F4F1EC;
+	padding: 10px;
+	color: #990000;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#other_accommodation div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#other_accommodation div#header a#close_other_accommodation {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#other_accommodation div#header a#close_other_accommodation:hover {
+	opacity: 1;
+}
+
+div#other_accommodation img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+/** End Additional Accommodation Popup **/
+
+
+table#equipment_list input[type=text] {
+	text-align: right;
+}
+
+/** Calendar **/
+div#or_main_events {
+	margin: 0 0 20px;
+	background: #FFFFFF;
+	border: 1px solid #D6D3CC;
+	width: 700px;
+	display: none;
+	position:fixed;
+	top: 5%;
+	left: 5%;
+}
+
+div#or_main_events div#header {
+	background: #F4F1EC;
+	padding: 10px;
+	color: #990000;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#or_main_events div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#or_main_events div#header a#close_events {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#or_main_events div#header a#close_events:hover {
+	opacity: 1;
+}
+
+div#or_main_events img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+/** Calendar **/
+
+/** OR Main Post Additional, February 20, 2009 **/
+table#sponge_list {}
+table#sponge_list thead th {
+	background: url('../../../images/or_main_images/table_big.jpg') repeat-x;
+	height: 40px;
+
+}
+
+table#sponge_list thead th table tr td {
+	color: #FFFFFF;
+}
+
+table#sponge_list input[type=text] {
+	width: 50px;
+}
+/** End OR Main Post Additional, February 20, 2009 **/
+
+/**Pre operative February 24, 2009 **/
+
+div#or_main_schedule a#add_laboratory {
+	background: #F4F1EC url(../../../images/or_main_images/requests/add_laboratory.png) no-repeat;
+	background-position: 0px 0px;
+	width: 100px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_blood {
+	background: #F4F1EC url(../../../images/or_main_images/requests/add_blood.png) no-repeat;
+	background-position: 0px 0px;
+	width: 100px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule a#add_radiology {
+	background: #F4F1EC url(../../../images/or_main_images/requests/add_radio.png) no-repeat;
+	background-position: 0px 0px;
+	width: 100px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	display: block;
+	margin-top: 3px;
+}
+
+div#or_main_schedule input#pre_op_submit {
+	background: #F4F1EC url(../../../images/or_main_images/save_pre_operation.png) no-repeat;
+	background-position: 0px 0px;
+	width: 135px;
+	height: 25px;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	float: left;
+	margin-right: 10px;
+}
+
+div#or_main_schedule a#add_laboratory:hover,div#or_main_schedule a#add_blood:hover, div#or_main_schedule a#add_radiology:hover,
+div#or_main_schedule input#pre_op_submit:hover {
+	background-position: 0px -25px;
+	outline: none;
+	cursor: pointer;
+}
+
+div#or_main_schedule span#error_form_input {
+	color: red;
+	font-size:0.8em;
+	margin-left:5px;
+}
+
+/*div#preopchecklist label#detail_label {    /*added by celsy 07/09/10
+	width: 80px;
+	display:inline-block;
+	text-align:left;
+} */
+
+
+
+/** End Pre operative February 24, 2009 **/
+
+/** Additional Popup, Oxygen utilization **/
+div#or_main_oxygen {
+	margin: 0 0 20px;
+	background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+	border: 1px solid #D6D3CC;
+	width: 600px;
+	display: none;
+	position:fixed;
+	top: 15%;
+	left: 15%;
+}
+
+div#or_main_oxygen div#header {
+	background: #F4F1EC;
+	padding: 10px;
+	color: #990000;
+	font: bold 1.2em Arial;
+	cursor: move;
+}
+
+div#or_main_oxygen div#body {
+	color: #000000;
+	font: normal 12px Arial;
+	padding: 15px 15px 10px 15px;
+}
+
+div#or_main_oxygen div#header a#close_oxygen {
+	background: url('../../../images/or_main_images/close_cancel.png') no-repeat;
+	width: 68px;
+	height: 18px;
+	display: block;
+	float: right;
+	opacity: 0.7;
+}
+
+div#or_main_oxygen div#header a#close_oxygen:hover {
+	opacity: 1;
+}
+
+div#or_main_oxygen img.jqResize {
+	position: absolute;
+	right: 2px;
+	bottom: 2px;
+	cursor: se-resize;
+}
+
+input.short {
+	width: 70px;
+}
+
+/** End Oxygen utilization **/

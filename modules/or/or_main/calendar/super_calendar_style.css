@@ -1,0 +1,186 @@
+
+
+#calendar td {
+	font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+#calback {
+	clear: both;
+	width: 100%;
+	height: 100%;
+	background: url('../../../../modules/or/or_main/calendar/images/calWaiting.gif') no-repeat center;
+}
+
+#calendar {
+	background: #FFF;
+	width: 100%;
+	height: 100%;
+}
+
+.cal {
+	width: 800px;
+	border: 1px solid #CCC;
+	margin: 0 auto;
+}
+
+.cal a {
+	color: #0C0;
+	text-decoration: none;
+	border-bottom: 1px dashed #CCC;
+	font-size: 9px;
+}
+
+.cal a:hover {
+	color: #0E0;
+}
+
+.calhead {
+	width: 100%;
+	font-weight: bold;
+	color: #FFFFFF;
+	font-size: 20px;  
+	background: url('../../../../modules/or/or_main/calendar/images/calBack.gif') repeat center left;
+	padding: 5px;
+}
+
+.calhead table td {
+  color: #FFFFFF;
+  font-weight: bold;
+}
+
+tr.dayhead td.sunday {
+  color: #CC0000;
+}
+
+.calhead img {
+	border: none;
+}
+
+.calhead table {
+	width: 100%;
+}
+
+.calhead a {
+	text-decoration: none;
+	border: none;
+}
+
+.dayhead {
+	height: 25px;
+	background: #EEE;
+}
+
+.dayhead td {
+	text-align: center;
+	color: #000;
+}
+
+.dayrow {
+	background: #FFF;
+	height: 80px;
+}
+
+.dayrow td {
+	width: 14%;
+	font-size: 18px;
+	color: #656551;
+	padding: 3px;
+	border: 1px solid #DDD;
+}
+
+.day {
+	float: right;
+}
+
+div.sunday {
+    float: right;
+	 color: #CC0000;
+}
+
+.dayover {
+	background: #F4F4F4;
+}
+
+.dayout {
+	background: #FFF;
+}
+
+#event {
+	font-family: Arial, sans-serif;
+	border-top: 1px solid #727260;
+	border-bottom: 1px solid #727260;
+    margin-bottom: 10px;
+}
+
+#event table {
+  font-family: Arial, sans-serif;
+}
+
+#event .heading {
+	padding: 10px;
+	position: relative;
+	background: url('../../../../modules/or/or_main/calendar/images/calEvent.gif') repeat-x top left;
+	border-bottom: 1px dotted #CCC;
+}
+
+#event table tr td.title {
+	color: #656551;
+	font-size: 16px;
+	font-weight: bold;
+}
+
+#event table tr td.other_details {
+ font-weight: bold;
+ color: #8C8C73;
+  font-size: 11px;
+}
+
+#event .posted {
+	color: #8C8C73;
+	font-size: 10px;
+}
+
+#event .back {
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+#event .back a {
+	color: #0C0;
+	text-decoration: underline;
+	border: none;
+	font-size: 10px;
+}
+
+#event .back a:hover {
+	color: #0E0;
+}
+
+#event .line {
+	padding: 10px;
+	overflow: auto;
+}
+
+.error {
+	color: #C00;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+#jump {
+	z-index: 100;
+	line-height: 30px;
+	padding: 5px;
+	background: #F6F6F6;
+	border: 1px solid #888;
+}
+
+#jump a {
+	text-decoration: none;
+	border: none;
+}
+
+#jump img {
+	border: none;
+}

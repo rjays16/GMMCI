@@ -1,0 +1,42 @@
+body {
+    margin-left: 0px;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    font-family: arial, tahoma;
+    font-size: 12px;
+    font-weight: normal;
+    color: #1c3d69;
+}
+
+A {
+}
+
+A:Hover {
+}
+
+.carlpanel {
+  padding:1px 4px;
+
+ /* background-color:#dfe8f6;*/
+ background-color: #eef2f9;
+  font:normal 10px Tahoma;
+  border:1px solid #99bbe8;
+ /* border-width:0px 0px;
+  width:100%; */ 
+  
+}
+
+.carlPanelHeader {
+
+  background-image:url("images/seg_panel_header_bg1.gif");
+  /*border:1px solid #717171;*/
+  border:1px solid #99bbe8;
+  background-color:#aeaeae;  
+  color: #15428b;  
+  font:bold 11px Tahoma;
+  
+  height:21px;
+ 
+}
+

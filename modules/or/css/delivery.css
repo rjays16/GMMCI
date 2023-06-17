@@ -1,0 +1,268 @@
+/** CSS for the delivery record **/
+
+#or_delivery  {
+  padding: 0px 5px 5px 10px;
+  text-align: left;
+}
+
+#or_delivery form, #or_delivery input, #or_delivery, #or_delivery table, #or_delivery tr, #or_delivery td, 
+#or_delivery div, #or_delivery span {
+  padding: 0px;
+  margin: 0px;
+  font: normal 1em Arial;
+  color: #000000;
+}
+
+#or_delivery fieldset {
+  padding: 0px 15px 15px 15px;
+  margin: 0 0 20px;
+  background: #F4F1EC url(../../../images/or_main_images/fieldset_back.jpg) repeat-x;
+  border: 1px solid #D6D3CC;
+}
+
+#or_delivery legend {
+  color: #FFFFFF;
+  background-color: #4899BE;
+  font-family: Arial, Helvetica, Sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 0;
+  width: 9em;
+  border: 1px solid #3E4A49;
+  cursor: pointer;
+}
+
+#or_delivery table {
+  border-collapse: collapse;
+}
+
+#or_delivery table tr td.left {
+  background: #E3DCCE;
+  border: 1px #CFC5AD solid;
+  padding: 4px;
+  width: 100px;
+}
+
+#or_delivery table tr td.right {
+  background: #F4F1EC;
+  border: 1px #CFC5AD solid;  
+  padding: 1px;
+}
+
+#or_delivery input[type=text] {
+  border: 1px #CAC9B9 solid;
+  height: 20px;
+  padding: 2px;
+  font: normal 12px Arial;
+  width: 250px;  
+  display:inline-block;  
+}
+
+#or_delivery input[type=text].right_aligned {
+  text-align: right;
+}
+
+#or_delivery input#or_dr_record_submit {
+  background: #F4F1EC url(../../../images/or_main_images/submit_request.png) no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+}
+
+#or_delivery a#or_dr_record_cancel {
+  background: #F4F1EC url(../../../images/or_select_images/charge_cancel_button.png) no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
+#or_delivery input#or_dr_record_submit:hover, #or_delivery a#or_dr_record_cancel:hover {
+  background-position: 0px -25px;
+  outline: none;
+  cursor: pointer;
+}
+
+#or_delivery input[type=checkbox], #or_delivery input[type=radio] {
+  margin:0;
+  padding:0;
+  margin-right: 2px;
+  margin-left: 10px;
+}
+
+/** popup may 27 2009 **/
+div.or_delivery_popup {
+  margin: 0 0 20px;
+  background: #FFFFFF;
+  border: 1px #CFC5AD solid ;
+  width: 700px;
+  display: none;
+  position:fixed;
+  top: 15%;
+  left: 15%;
+  /*height: 200px;*/
+ 
+}
+
+div.or_delivery_popup div.header {
+  background: #E3DCCE;
+  border-bottom: 1px #CFC5AD solid;
+  height: 20px;
+  padding: 5px 5px 0px 5px;
+  color: #000000;
+  font: normal 1em Arial;
+  cursor: move;
+  text-align: left;
+}
+
+div.or_delivery_popup div.body {
+  color: #000000;
+  font: normal 12px Arial;
+  padding: 2px 5px 5px 5px;
+}
+
+#select_or {
+}
+
+div.or_delivery_popup input[type=button].select_dr_patient {
+  border: 1px #876d2d solid;
+  background: #a18748;
+  padding: 3px;
+  width: 100%;
+  font: bold 12px Arial;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+#select_or div#navigation {
+  background: url('../../../images/or_select_images/wbg_old2.gif') repeat-x 0 -1px;
+  border: 1px #CFC5AD solid;
+
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  padding-top: 3px;
+  height: 24px;
+}
+
+#select_or div#search_bar {
+  background: #fafafa url('../../../images/or_select_images/bg_old2.gif') repeat-x top;
+  position: relative;
+  border-top: 1px #CFC5AD solid;
+  border-left: 1px #CFC5AD solid;
+  border-right: 1px #CFC5AD solid;
+  overflow: hidden;
+  padding: 3px;
+}
+
+#select_or input#search_field {
+  background: #FFFFFF url('../../../images/or_select_images/magnifier.png') no-repeat right;
+  border: 1px #7F9DB9 solid;
+  padding-right: 17px;
+}
+
+
+
+#select_or div.group {
+ float: left;
+ background: none;
+ margin: 1px 5px;
+}
+
+#select_or span#control {
+  position: relative;
+  overflow: visible;
+  font: normal 11px Arial;
+  color: #000;
+}
+
+#select_or span#page_stat {
+ position: relative;
+ top: 5px;
+ overflow: visible;
+ font: normal 11px Arial;
+ color: #000;
+}
+
+#select_or span#control input {
+  width: 50px;
+}
+
+#select_or div#navigation div.button {
+  float: left;
+  width: 22px;
+  height: 22px;
+  border: 0px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#select_or div#navigation div.button span {
+  width: 20px;
+  height: 20px;
+  display: block;
+  float: left;
+}
+
+#select_or div#navigation div.button span:hover {
+  width: 19px;
+  height: 19px;
+  border-top: 1px solid #fff;
+  border-left: 1px solid #fff;
+}
+
+#select_or div#navigation div.button:hover {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+#select_or div#navigation div#button_separator {
+  float: left;
+  height: 22px;
+  border-left: 1px solid #ccc;
+  border-right: 1px solid #fff;
+  margin: 1px;
+} 
+
+#select_or div#navigation div#next {
+  background: url('../../../images/or_select_images/next.gif') no-repeat center;
+}
+
+#select_or div#navigation div#first {
+  background: url('../../../images/or_select_images/first.gif') no-repeat center;
+} 
+
+#select_or div#navigation div#prev {
+  background: url('../../../images/or_select_images/prev.gif') no-repeat center;
+}
+
+#select_or div#navigation div#last {
+  background: url('../../../images/or_select_images/last.gif') no-repeat center;
+}
+
+#select_or div#navigation div.pre_load {
+  background: url('../../../images/or_select_images/load.png') no-repeat center; 
+}
+
+#select_or div#navigation div.pre_load.loading {
+  background: url('../../../images/or_select_images/load.gif') no-repeat center; 
+} 
+/** end **/
+
+
+
+
+
+

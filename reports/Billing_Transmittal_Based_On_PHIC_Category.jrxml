@@ -1,0 +1,312 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="Summary of PHIC Claims Transmitted" language="groovy" pageWidth="1545" pageHeight="875" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="1505" leftMargin="20" rightMargin="20" topMargin="0" bottomMargin="0" uuid="536abea8-2d82-4ec6-ba64-874b0ed73048">
+	<property name="ireport.zoom" value="0.7710865788590784"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="title" class="java.lang.String"/>
+	<parameter name="hosp_name" class="java.lang.String"/>
+	<parameter name="date_span" class="java.lang.String"/>
+	<parameter name="address" class="java.lang.String"/>
+	<parameter name="generate_system" class="java.lang.String"/>
+	<parameter name="doh_logo" class="java.lang.String"/>
+	<parameter name="spmc_logo" class="java.lang.String"/>
+	<parameter name="user_note" class="java.lang.String"/>
+	<parameter name="user_note_position" class="java.lang.String"/>
+	<parameter name="user_prepared" class="java.lang.String"/>
+	<parameter name="user_prepared_position" class="java.lang.String"/>
+	<parameter name="from_date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="end_date" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="from_year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="to_year" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="today" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<field name="category_id" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="category_name" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="month_name" class="java.lang.String"/>
+	<field name="month" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tcount" class="java.lang.Long"/>
+	<title>
+		<band height="199">
+			<textField>
+				<reportElement x="442" y="120" width="630" height="20" uuid="0fca515c-3178-477e-9a7a-215c04089ca9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{title}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="76" width="630" height="20" uuid="6ee6403a-6730-4d25-9514-d5df51f7da76"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{hosp_name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement mode="Opaque" x="25" y="172" width="1451" height="25" backcolor="#5F8DA9" uuid="24df49e8-a3f1-48bf-89d5-9e57cabbf5e1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{date_span}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="98" width="630" height="20" uuid="385c1ce1-83a6-40cd-a6f2-1d4256d2d87a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{address}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="442" y="142" width="630" height="20" uuid="70732a1a-8f27-451d-80f4-6ddfc49f2092"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle" markup="none">
+					<font fontName="DejaVu Sans" size="16" isBold="true"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{generate_system}]]></textFieldExpression>
+			</textField>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement positionType="Float" x="265" y="39" width="140" height="123" uuid="127c1d25-1f78-4871-8f41-c8ab74340071"/>
+				<imageExpression><![CDATA[$P{doh_logo}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame" onErrorType="Blank">
+				<reportElement positionType="Float" x="1112" y="39" width="140" height="125" uuid="2dd8f43c-aebf-444d-8181-60192f96061a"/>
+				<imageExpression><![CDATA[$P{gch_logo}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="633">
+			<crosstab ignoreWidth="false">
+				<reportElement x="25" y="31" width="1451" height="106" uuid="8f46de9f-ce0a-47c2-81d8-4789eeb9e117"/>
+				<crosstabDataset isDataPreSorted="true"/>
+				<crosstabHeaderCell>
+					<cellContents>
+						<staticText>
+							<reportElement x="0" y="0" width="290" height="30" uuid="f050f620-7081-4393-a575-af0252b9ce28"/>
+							<box leftPadding="5" rightPadding="10">
+								<topPen lineWidth="0.5"/>
+								<leftPen lineWidth="0.5"/>
+							</box>
+							<textElement textAlignment="Center" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<text><![CDATA[CATEGORY]]></text>
+						</staticText>
+					</cellContents>
+				</crosstabHeaderCell>
+				<rowGroup name="category_name" width="290" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{category_id} + "-" +  $F{category_name}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true" pattern="" isBlankWhenNull="false">
+								<reportElement style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="0" y="0" width="290" height="25" uuid="8dcdd438-6774-4ed1-95b5-5f70186e0bc6"/>
+								<box leftPadding="5" rightPadding="10"/>
+								<textElement textAlignment="Left" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="11" isBold="false"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{category_name}.substring($V{category_name}.indexOf("-") + 1, $V{category_name}.length())]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement stretchType="RelativeToTallestObject" x="0" y="0" width="220" height="25" uuid="c84d3459-e27e-4503-9a9f-adc7b424bf1d"/>
+								<box leftPadding="5" rightPadding="10"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="month_name" height="30" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{month_name}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField isStretchWithOverflow="true" pattern="MMM">
+								<reportElement style="Crosstab Data Text" stretchType="RelativeToTallestObject" x="0" y="0" width="94" height="30" uuid="ef8ad46c-bfc0-48d9-a200-bcf559e77ac9"/>
+								<box leftPadding="5" rightPadding="10"/>
+								<textElement verticalAlignment="Middle">
+									<font fontName="DejaVu Sans"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{month_name}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement x="0" y="0" width="102" height="30" uuid="5034baec-d9c6-4ee1-9d9b-b385022c263a"/>
+								<box leftPadding="5" rightPadding="10"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font fontName="DejaVu Sans" size="10" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="tcountMeasure" class="java.lang.Integer" calculation="Sum">
+					<measureExpression><![CDATA[$F{tcount}]]></measureExpression>
+				</measure>
+				<crosstabCell width="244" height="25">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="25" uuid="baa4471c-02d7-4ad6-845d-0d56c5bb43a8"/>
+							<box leftPadding="5" rightPadding="10"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{tcountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="146" height="25" columnTotalGroup="month_name">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="102" height="25" uuid="d7797cc5-78b8-4beb-8503-1bd39a7b5ffb"/>
+							<box leftPadding="5" rightPadding="10"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" size="11" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{tcountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="244" height="25" rowTotalGroup="category_name">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="94" height="25" uuid="943b6967-4235-45d8-bb8b-51bbb0cc1fb2"/>
+							<box leftPadding="5" rightPadding="10"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" size="11" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{tcountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="146" height="25" rowTotalGroup="category_name" columnTotalGroup="month_name">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField>
+							<reportElement style="Crosstab Data Text" x="0" y="0" width="102" height="25" uuid="9a50469b-a29b-4e44-9191-73a3f10deab2"/>
+							<box leftPadding="5" rightPadding="10"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font fontName="DejaVu Sans" size="11" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{tcountMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="604" y="458" width="374" height="30" uuid="1f47d817-dfee-4029-a73a-3e8f53f0a8aa"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_note}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="604" y="489" width="374" height="25" uuid="44c94875-f1a8-4ce1-831e-aa5b4220174a"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_note_position}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="79" y="458" width="374" height="30" uuid="a757fff7-cdb9-4e05-a60c-a13b1a7488a4"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_prepared}]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="79" y="489" width="374" height="25" uuid="d27c7967-e717-465f-8568-1f520718386e"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{user_prepared_position}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="79" y="427" width="100" height="30" uuid="802308bd-699c-4599-8050-d6ac71c4f229"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Prepared by:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="604" y="427" width="100" height="30" uuid="baebcc66-069a-421f-8e92-5cc7c568dc53"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<text><![CDATA[Noted by:]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement stretchType="RelativeToTallestObject" x="0" y="603" width="682" height="30" uuid="3547797c-4cd3-43fa-aa85-1fcae7f9d226"/>
+				<textElement>
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{today}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="20" width="148" height="33" uuid="41086b69-407a-43c7-8dda-56e366ca2449"/>
+				<textElement textAlignment="Center" rotation="None">
+					<font size="10"/>
+				</textElement>
+				<text><![CDATA[CATEGORY]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<noData>
+		<band height="50"/>
+	</noData>
+</jasperReport>

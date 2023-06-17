@@ -1,0 +1,390 @@
+<?php
+
+  //LISTGEN YEHEY
+  require_once($root_path.'modules/listgen/listgen.php');
+  $listgen = new ListGen($root_path);
+  
+
+	# Start Smarty templating here
+ /**
+ * LOAD Smarty
+ */
+	
+ # Note: it is advisable to load this after the inc_front_chain_lang.php so
+ # that the smarty script can use the user configured template theme
+	include_once($root_path."include/care_api_classes/sponsor/class_sponsor.php");
+	$sc = new SegSponsor();
+	global $db;
+
+/*	
+	if (!isset($_GET["ref"])) {
+		die("Invalid item reference.");
+		exit;
+	}
+	$Ref = $_GET["ref"];
+	if ($_REQUEST["viewonly"]) $view_only = 1;
+*/
+
+	$Nr = $_GET['nr'];
+	$is_refund = ($_GET['refund'] != "no");
+
+	require_once($root_path.'gui/smarty_template/smarty_care.class.php');
+	$smarty = new smarty_care('common');
+  
+//	if (isset($_POST["submitted"]) && !$_REQUEST['viewonly']) {
+//		$data = array(
+//			'return_date'=>$_POST['return_date'],
+//			'comments'=>$_POST['comments'],
+//			'modify_id'=>$_SESSION['sess_temp_userid'],
+//			'modify_time'=>date('YmdHis')
+//		);
+//		
+//		if ($_POST['refund_amount']) {
+//			$data['refund_amount']=str_replace(",","",$_POST['refund_amount']);
+//		}
+//		
+//		if ($_POST['chk_adjust']) {
+//			$data["refund_amount_fixed"] = str_replace(",","",$_POST["refund_amount_fixed"]);
+//		}
+//		
+//		if ($Nr) {
+//			$data["history"]=$rc->ConcatHistory("Update: ".date('Y-m-d H:i:s')." [".$_SESSION['sess_temp_userid']."]\n");
+//			$rc->useReturn();
+//			$rc->setDataArray($data);
+//			$rc->where = "return_nr=".$db->qstr($Nr);
+//			$saveok=$rc->updateDataFromInternalArray($Nr,FALSE);
+//		}
+//		else {
+//			$Nr = $rc->getLastNr();
+//			$data['return_nr']=$Nr;
+//			$data['create_id']=$_SESSION['sess_temp_userid'];
+//			$data['create_time']=date('YmdHis');
+//			$data['history']="Create ".date('Y-m-d H:i:s')." ".$HTTP_SESSION_VARS['sess_temp_userid']."\n";
+//			$rc->useReturn();
+//			$rc->setDataArray($data);
+//			$saveok = $rc->insertDataFromInternalArray();
+//			if ($saveok) {
+//			}
+//			else {
+//				$errorMsg = $db->ErrorMsg();
+//				print_r($rc->sql);
+//			}
+//		}
+
+//		if ($saveok) {
+//			# Bulk write return items
+//			$bulk = array();
+//			foreach ($_POST["items"] as $i=>$v) {
+//				$bulk[] = array($_POST["ref"][$i],$_POST["items"][$i],$_POST["returned"][$i]);
+//			}			
+//			$rc->clearReturnItems($Nr);
+//			$rc->addReturnItems($Nr, $bulk);
+//			$smarty->assign('sWarning','<div style="margin:6px">Ward stock details successfully saved!</div>');
+//		}
+//		else {
+//			$errorMsg = $db->ErrorMsg();
+//			if (strpos(strtolower($errorMsg), "duplicate entry") !== FALSE)
+//				$smarty->assign('sWarning','<br><strong>Error:</strong> An item with the same stock number already exists in the database.');
+//			else {
+//				if ($errorMsg)
+//					$smarty->assign('sWarning',"<br><strong>Error:</strong> $errorMsg");
+//				else
+//					$smarty->assign('sWarning',"<br><strong>Unknown error occurred!</strong>");
+//				#print_r($order_obj->sql);
+//			}
+//		}		
+//	}
+//	
+
+	# href for the help button
+	$smarty->assign('pbHelp',"javascript:gethelp('products_db.php','input','$mode','$cat')");
+
+	# href for the close button
+	$smarty->assign('breakfile',$breakfile);
+
+	# Assign Body Onload javascript code
+  /*
+	if ($view_only) { 		
+		$onLoadJS='onload="eraseCookie(\'__ret_ck\');'.($Nr ? 'xajax_populate_items(\''.$Nr.'\',1)' : '').'"';
+	}
+	else {
+	 $onLoadJS='onload="eraseCookie(\'__ret_ck\');'.($Nr ? 'xajax_populate_items(\''.$Nr.'\')' : '').'"';
+	}
+  */
+	$smarty->assign('sOnLoadJs',$onLoadJS);
+
+# Collect javascript code
+
+ob_start();
+	 # Load the javascript code
+?>
+<!-- OLiframeContent(src, width, height) script:
+ (include WIDTH with its parameter equal to width, and TEXTPADDING,0, in the overlib call)
+-->
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/iframecontentmws.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/ajaxcontentmws.js"></script>
+
+<!-- Core module and plugins:
+-->
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/overlibmws.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/overlibmws_modal.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/overlibmws_shadow.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/overlibmws/overlibmws_scroll.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/jsprototype/prototype.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/fat/fat.js"></script>
+<link rel="stylesheet" type="text/css" media="all" href="<?= $root_path ?>js/jscalendar/calendar-win2k-cold-1.css" />
+<script type="text/javascript" src="<?=$root_path?>js/jscalendar/calendar.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/jscalendar/lang/calendar-en.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/jscalendar/calendar-setup_3.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/seg_utils.js"></script>
+<script type="text/javascript" src="<?=$root_path?>js/NumberFormat154.js"></script>
+<script type="text/javascript" src="js/sponsor.js?t=<?=time()?>"></script>
+<script type="text/javascript" language="javascript">
+<!--
+
+	var glst, grid, buffer, iSrc='', iNr='', iCode='';
+
+	function validate() {
+		if ($('chk_adjust').checked) {
+			var val = $('refund_amount_fixed').value;
+			if (isNaN(parseFloatEx(val))) {
+				alert("Please enter a valid value for the fixed refund amount...");
+				$('refund_amount_fixed').focus();
+				return false;
+			}
+		}
+		return confirm('Do you wish to submit this return/refund entry?');
+	}
+  
+  function openPatientSelect() {
+<?php
+  $var_arr = array(
+    "var_pid"=>"pid",
+    "var_encounter_nr"=>"encounter_nr",
+    "var_name"=>"patientname",
+    "var_clear"=>"clear-enc",
+    "var_discount"=>"sw-class",
+    "var_enctype"=>"encounter_type",
+    "var_enctype_show"=>"encounter_type_show",
+    "var_include_walkin"=>"0",
+    "var_reg_walkin"=>"0"
+  );
+  $vas = array();
+  foreach($var_arr as $i=>$v) {
+    $vars[] = "$i=$v";
+  }
+  $var_qry = implode("&",$vars);
+?>
+    overlib(
+        OLiframeContent('<?= $root_path ?>modules/registration_admission/seg-select-enc.php?<?=$var_qry?>&var_include_enc=0',
+        700, 400, 'fSelEnc', 0, 'no'),
+        WIDTH,700, TEXTPADDING,0, BORDER,0,
+        STICKY, SCROLL, CLOSECLICK, MODAL,
+        CLOSETEXT, '<img src=<?= $root_path ?>/images/close_red.gif border=0 >',
+        CAPTIONPADDING,2, 
+        CAPTION,'Select registered person',
+        MIDX,0, MIDY,0, 
+        STATUS,'Select registered person');
+    return false;
+  }
+  
+  function openGrant(src, nr, code) {
+    if (!code) code='';
+    iSrc = src; iNr = nr; iCode = code;
+    return OLgetAJAX('<?= $root_path ?>modules/sponsor/ajax/grant.php<?= URL_APPEND ?>&userck=<?= $userck ?>&src='+src+'&nr='+nr+'&code='+code, OLcmdExT1, 300, 'ovfl1');
+  }
+  
+  function OLcmdExT1() {
+    overlib(
+        OLresponseAJAX,
+        WIDTH,560, HEIGHT,360, TEXTPADDING,0, BORDER,0,
+        STICKY, SCROLL, CLOSECLICK, MODAL,
+        CLOSETEXT, '<img src=<?= $root_path ?>/images/close_red.gif border=0 >',
+        CAPTIONPADDING,2, 
+        CAPTION,'Edit grant',
+        MIDX,0, MIDY,0, 
+        STATUS, 'Edit grant');
+
+    glst = new LGList('glst');
+    glst.ajaxFetcher='populateGrants';
+    glst.sortOrder=[0,1,0,0,null];
+    glst.fetcherParams={ 'src':iSrc,'nr':iNr,'code':iCode };
+    glst.maxRows='5';
+    glst.emptyMessage='No grants found for this item...';
+    glst.columnCount='4';
+    glst.add=addGrant;
+    glst.reload();
+
+    return false;
+  }
+-->
+</script>
+
+<?php
+$xajax->printJavascript($root_path.'classes/xajax_0.5');
+$listgen->printJavascript($root_path);
+
+# Setup dyynamic lists
+$listgen->setListSettings('MAX_ROWS','10');
+$listgen->setListSettings('RELOAD_ONLOAD', FALSE);
+
+$rlst = &$listgen->createList('rlst',array('Source','Reference','Date','Status',''),array(0,-1,0,NULL,NULL),'populateRequests');
+$rlst->initialMessage = "No request item selected yet...";
+$rlst->addMethod = 'addRequest';
+$rlst->fetcherParams = array();
+$rlst->columnWidths = array("10%", "20%", "30%", "15%", "10%");
+$smarty->assign('lstRequest',$rlst->getHTML());
+
+$dlst = &$listgen->createList('dlst',array('Item description','Quantity','Price','Discount','Status',''),array(0,NULL,NULL,NULL,NULL,NULL),'populateDetails');
+$dlst->initialMessage = "Select patient to view the request list...";
+$dlst->addMethod = 'addItem';
+$dlst->fetcherParams = array();
+$dlst->columnWidths = array("35%", "10%", "15%", "15%", "15%", "10%");
+$smarty->assign('lstDetails',$dlst->getHTML());
+
+/*
+$glst = &$listgen->createList('glst',array('Account','Price',''),array(0,0,NULL),'populateGrants');
+$glst->initialMessage = "No grants found for this item...";
+$glst->addMethod = 'addGrant';
+$glst->fetcherParams = array();
+$glst->columnWidths = array("60%", "25%", "15%");
+$smarty->assign('lstGrants',$glst->getHTML());
+*/
+
+$sTemp = ob_get_contents();
+ob_end_clean();
+$smarty->append('JavaScript',$sTemp);
+
+$title = "Accounts :: ";
+
+# Title in the title bar 
+$smarty->assign('sToolbarTitle', $title);
+
+# Window bar title
+$smarty->assign('sWindowTitle', $title);
+
+# Render form values
+if ($is_refund) {
+	$smarty->assign('sRefundAmount','<input class="segInput" type="text" id="refund_amount" name="refund_amount" size="15" readonly="readonly" style="text-align:right" value="'.$_POST['refund_amount'].'"/>');
+	$chk_adjust = ($_POST['refund_amount_fixed'] && $_POST['refund_amount']!=$_POST['refund_amount_fixed']);
+	$smarty->assign('sCheckAdjust', '<input type="checkbox" id="chk_adjust" name="chk_adjust" class="segInput" value="1" onclick="$(\'refund_amount_fixed\').disabled=!this.checked" '.( $chk_adjust ? 'checked="checked"' : '' ).'/><label class="segnput" for="chk_adjust">Adjust amount</label>');
+	$smarty->assign('sAdjustAmount','<input class="segInput" type="text" id="refund_amount_fixed" name="refund_amount_fixed" size="15" style="text-align:right"'.($chk_adjust ? '' : ' disabled="disabled"').' value="'.$_POST['refund_amount_fixed'].'"/>');
+}
+else {
+	$smarty->assign('sRefundAmount','<input class="segInput" type="text" id="refund_amount" name="refund_amount" size="15" readonly="readonly" value="'.$_POST['refund_amount'].'" disabled="disabled" style="text-align:right;visibility:hidden" />');
+	$smarty->assign('sCheckAdjust', '<input type="checkbox" id="chk_adjust" name="chk_adjust" class="segInput" value="1" onclick="$(\'refund_amount_fixed\').disabled=!this.checked" '.( $chk_adjust ? 'checked="checked"' : '' ).' disabled="disabled" style="visibility:hidden"/><label class="segInput" for="chk_adjust" style="visibility:hidden">Adjust amount</label>');
+	$smarty->assign('sAdjustAmount','<input class="segInput" type="text" id="refund_amount_fixed" name="refund_amount_fixed" size="15" disabled="disabled" value="'.$_POST['refund_amount_fixed'].'" style="text-align:right;visibility:hidden"/>');
+}
+
+$smarty->assign('sSelectEnc','<img id="select-enc" src="../../images/btn_encounter_small.gif" border="0" style="cursor:pointer" onclick="openPatientSelect()" />');
+$smarty->assign('sPatientEncNr','<input id="encounter_nr" name="encounter_nr" type="hidden" value="'.$_POST["encounter_nr"].'"/>');  
+$smarty->assign('sPatientID','<input id="pid" name="pid" type="hidden" value="'.$_POST["pid"].'"/>');
+$smarty->assign('sPatientName','<input class="segInput" id="patientname" name="patientname" type="text" size="30" style="font:bold 12px Arial;" readonly="readonly" value="'.$_POST["ordername"].'"/>');
+$smarty->assign('sClearEnc','<input class="segButton" id="clear-enc" type="button" style="font:bold 11px Arial" value="Clear" disabled="disabled" />');
+$smarty->assign('sPatientEncType','<input id="encounter_type" name="encounter_type" type="hidden" value="'.$_POST["encounter_type"].'"/>');
+$enc = array("1"=>"ER PATIENT", "2"=>'OUTPATIENT', "3"=>'INPATIENT (ER)', "4"=>'INPATIENT (OPD)');
+if ($_POST['encounter_type'])  $smarty->assign('sOrderEncTypeShow',$enc[$_POST['encounter_type']]);
+else {
+  if ($person['encounter_type'])
+    $smarty->assign('sOrderEncTypeShow',$enc[$person['encounter_type']]);
+  else  $smarty->assign('sOrderEncTypeShow', 'WALK-IN');
+}
+$smarty->assign('sSWClass',($_POST['discountid'] ? $_POST['discountid'] : 'None'));
+
+# Stock date
+$dbtime_format = "Y-m-d H:i";
+$fulltime_format = "F j, Y g:ia";
+if ($_POST['return_date']) {
+	$dStockDate = strtotime($_POST['return_date']);
+	$curDate = date($dbtime_format,$dStockDate);
+	$curDate_show = date($fulltime_format,$dStockDate);
+}
+else {
+	$curDate = date($dbtime_format,time());
+	$curDate_show = date($fulltime_format,time());
+}
+$smarty->assign('sDateStart','
+  <input class="segInput" name="from" id="from" type="text" size="8" value=""/>
+  <img src="'. $root_path .'gui/img/common/default/show-calendar.gif" id="tg_from" align="absmiddle" style="cursor:pointer;"  />
+  <script type="text/javascript">
+    Calendar.setup ({
+      inputField : "from", ifFormat : "'. $phpfd .'", showsTime : false, button : "tg_from", singleClick : true, step : 1
+    });
+  </script>
+');
+$smarty->assign('sDateEnd','
+  <input class="segInput" name="to" id="to" type="text" size="8" value=""/>
+  <img src="'. $root_path .'gui/img/common/default/show-calendar.gif" id="tg_to" align="absmiddle" style="cursor:pointer;"  />
+  <script type="text/javascript">
+    Calendar.setup ({
+      inputField : "to", ifFormat : "'. $phpfd .'", showsTime : false, button : "tg_to", singleClick : true, step : 1
+    });
+  </script>
+');
+
+
+
+/*
+$smarty->assign('sReturnDate','<span id="show_return_date" class="segInput" style="font-weight:bold; color:#0000c0; padding:0px 2px;width:200px; height:24px">'.$curDate_show.'</span><input class="segInput" name="return_date" id="return_date" type="hidden" value="'.$curDate.'" style="font:bold 12px Arial">');
+if ($view_only) {
+	$smarty->assign('sCalendarIcon','<img ' . createComIcon($root_path,'show-calendar.gif','0') . ' id="return_date_trigger" class="segSimulatedLink" align="absmiddle" style="margin-left:2px;opacity:0.5">');
+}
+else {
+	$smarty->assign('sCalendarIcon','<img ' . createComIcon($root_path,'show-calendar.gif','0') . ' id="return_date_trigger" class="segSimulatedLink" align="absmiddle" style="margin-left:2px;cursor:pointer">');
+	$jsCalScript = "<script type=\"text/javascript\">
+		Calendar.setup ({
+			displayArea : \"show_return_date\",
+			inputField : \"return_date\",
+			ifFormat : \"%Y-%m-%d %H:%M\", 
+			daFormat : \"	%B %e, %Y %I:%M%P\", 
+			showsTime : true, 
+			button : \"return_date_trigger\", 
+			singleClick : true,
+			step : 1
+		});
+	</script>";
+	$smarty->assign('jsCalendarSetup', $jsCalScript);	
+}
+
+$smarty->assign('sComments','<textarea class="segInput" name="comments" cols="26" rows="2" style="float:left; margin-left:5px; font-size:12px;">'.$_POST['comments'].'</textarea>');
+$smarty->assign('sReturnItems',"<tr><td colspan=\"10\">Item list is currently empty...</td></tr>");
+*/
+
+$smarty->assign('sFormStart','<form ENCTYPE="multipart/form-data" action="'.$thisfile.URL_APPEND."&clear_ck_sid=".$clear_ck_sid.'&target=edit&nr='.$Nr.'&from='.$_GET['from'].'&refund='.$_GET['refund'].'" method="POST" id="orderForm" name="inputform" onSubmit="return validate()">');
+$smarty->assign('sFormEnd','</form>');
+
+ob_start();
+$sTemp='';
+
+?>
+	<input type="hidden" name="submitted" value="1" />
+  <input type="hidden" name="sid" value="<?php echo $sid?>">
+  <input type="hidden" name="lang" value="<?php echo $lang?>">
+  <input type="hidden" name="cat" value="<?php echo $cat?>">
+  <input type="hidden" name="userck" value="<?php echo $userck?>">  
+  <input type="hidden" name="encoder" value="<?php echo  str_replace(" ","+",$HTTP_COOKIES_VARS[$local_user.$sid])?>">
+  <input type="hidden" name="dstamp" value="<?php echo  str_replace("_",".",date(Y_m_d))?>">
+  <input type="hidden" name="tstamp" value="<?php echo  str_replace("_",".",date(H_i))?>">
+  <input type="hidden" name="lockflag" value= "<?php echo  $lockflag?>">
+
+  <input type="hidden" id="refno" name="refno" value="">
+  <input type="hidden" id="refsource" name="refsource" value="">
+
+<?php 
+
+$sTemp = ob_get_contents();
+ob_end_clean();
+
+$sBreakImg ='close2.gif';	
+#$sBreakImg ='cancel.gif';
+$smarty->assign('sHiddenInputs',$sTemp);
+if (!$viewonly) {
+	$smarty->assign('sContinueButton','<input type="image" class="segSimulatedLink" src="'.$root_path.'images/btn_submitorder.gif" align="absmiddle" alt="Submit">');
+	$smarty->assign('sBreakButton','<img class="segSimulatedLink" src="'.$root_path.'images/btn_cancelorder.gif" alt="'.$LDBack2Menu.'" align="absmiddle" onclick="window.location=\''.$breakfile.'\'" onsubmit="return false;">');
+}
+
+# Assign the form template to mainframe
+$smarty->assign('sMainBlockIncludeFile','sponsor/grant.tpl');
+$smarty->display('common/mainframe.tpl');
+
+?>

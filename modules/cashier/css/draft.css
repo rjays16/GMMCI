@@ -1,0 +1,9 @@
+body {
+	background: url(seg_printing_bg.gif) 0 0 repeat-x #ffffff;
+}
+
+h1 {
+	color: #40569a;
+	font:bold 16px Arial;
+	margin: 2px;
+}

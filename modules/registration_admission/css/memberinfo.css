@@ -1,0 +1,111 @@
+/**
+*	 PHIC Member's Information Form
+*
+*  Applied this CSS for pop-up dialog box for prompting PHIC Member's Information ...
+*/
+
+/* Overlay */
+#modal-overlay {background-color:#000; opacity: 0; cursor:wait;}
+
+/* Container */
+.simplemodal-container {
+    font: 16px/22px Arial; 
+    text-align:left; 
+    width:480px;
+}
+.simplemodal-container .modal-content {
+    background: -moz-linear-gradient(top, #fff, #dfdfdf);
+    color:#606162; 
+}
+div.simplemodal-container .modal-title {
+    color:#444; 
+    font-size:20px; 
+    line-height:20px; 
+    margin: 0; 
+    margin-bottom: 10px;
+    padding:0 0 6px 12px; 
+    text-align:left;
+    text-shadow: 0 1px #fff;
+    border-bottom: 1px solid #eee;
+}
+.simplemodal-container .modal-loading {display:none}
+.simplemodal-container .modal-message {
+    text-align:center;
+    margin-bottom: 10px;
+}
+.simplemodal-container .message-success,
+.simplemodal-container .message-error,
+.simplemodal-container .message-info {
+    color: #fff;
+    background:#52ae59;
+    border: 0; 
+    font-size: 14px; 
+    font-weight:bold; 
+    line-height:18px; 
+    margin:0 auto; 
+    padding:2px;
+    width: 95%;
+    -moz-border-radius-topleft:5px; 
+    -moz-border-radius-topright:5px;
+    border-radius:5px;
+    cursor: default;
+}
+.simplemodal-container .message-error {
+    color: #fff;
+    background:#ff3333; 
+}
+.simplemodal-container .message-info {
+    background-color: #e4edf7;
+    color: #4d4d4d;
+}
+.simplemodal-container br {clear:both;}
+.simplemodal-container form {margin:0; padding:0;}
+.simplemodal-container label {
+    color: #3d3d3d;
+    display: inline-block;
+    font-weight:bold; 
+    padding-right:4px; 
+    text-align:right; 
+    width:120px; 
+    padding-top: 4px
+}
+.simplemodal-container .segInput {
+    margin:2px; 
+    width:260px;
+}
+.simplemodal-container textarea {height:114px;}
+.simplemodal-container .modal-cc {cursor:default; font-size:14px; vertical-align:top;}
+.simplemodal-container .modal-top {
+    background-color:#fff; 
+    height:13px; 
+    margin:0; 
+    padding:0; 
+    -webkit-border-top-left-radius:8px; 
+    -webkit-border-top-right-radius:8px; 
+    -moz-border-radius-topleft:8px; 
+    -moz-border-radius-topright:8px; 
+    border-radius:8px 8px 0 0;
+}
+.simplemodal-container .modal-bottom {
+    background-color:#dfdfdf; 
+    padding: 10px;
+    -webkit-border-bottom-right-radius:8px; 
+    -webkit-border-bottom-left-radius:8px; 
+    -moz-border-radius-bottomright:8px; 
+    -moz-border-radius-bottomleft:8px; 
+    border-radius:0 0 8px 8px;
+}
+.simplemodal-container a.modal-close,
+.simplemodal-container a.modal-close:link,
+.simplemodal-container a.modal-close:active,
+.simplemodal-container a.modal-close:visited {
+    color:#444; 
+    font-size:18px; 
+    font-weight:bold; 
+    position:absolute; 
+    text-decoration:none; 
+    right:8px; 
+    top: 4px;
+}
+.simplemodal-container a.modal-close:hover {color:#c00;}
+.simplemodal-container hr {color:#eee}

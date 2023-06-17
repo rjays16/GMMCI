@@ -1,0 +1,43 @@
+<?php
+	function multiply($x, $y)
+	{
+		$objResponse = new xajaxResponse();
+//		$objResponse->addAssign("z", "value", $x*$y);
+		$objResponse->addAlert("The answer is ".$x*$y);
+		return $objResponse;
+	}
+
+	function populateProductList($keyword) {
+		$objResponse = new xajaxResponse();		
+		$objResponse->addAlert("Yeah!!!");
+		return $objResponse;
+		//file_put_contents($root_path."modules/pharmacy/out.txt","AHAAHAHAHAHA");
+/*
+		global $db;
+		if($cat=='pharma') $dbtable='care_pharma_products_main';
+		else $dbtable='care_med_products_main';
+		# clean input data
+		$sql="SELECT * FROM $dbtable WHERE  bestellnum $sql_LIKE '$keyword%'
+					OR artikelnum $sql_LIKE '$keyword%'
+					OR industrynum $sql_LIKE '$keyword%'
+					OR artikelname $sql_LIKE '$keyword%'
+					OR generic $sql_LIKE '$keyword%'
+					OR description $sql_LIKE '$keyword%' ORDER BY artikelname";
+
+    $ergebnis=$db->Execute($sql);
+		$linecount=$ergebnis->RecordCount();
+
+		$objResponse = new xajaxResponse();
+		$objResponse->addScriptCall("pharma_retail_gui_clearSrcRows");
+		
+		while($result=$ergebnis->FetchRow()) {
+			$objResponse->addScriptCall("pharma_retail_gui_addSrcProductRow",$result["bestellnum"],$result["artikelname"]);
+		}
+		return $objResponse;
+*/
+	}
+	
+	//require("retail-new.common.php");
+	require($root_path.'modules/pharmacy/ajax/retail-new.common.php');
+	$xajax->processRequests();
+?>

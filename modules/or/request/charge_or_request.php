@@ -1,0 +1,368 @@
+<?php
+/** Edited again by Omick on February 13, 2009 01:05 AM 
+*  This module was edited to match kuya vins code.  Take note though
+*  that some of the added codes are subject for modifications.
+*  All of the edited codes are marked with: *see manolo
+*/
+error_reporting(E_COMPILE_ERROR | E_CORE_ERROR | E_ERROR);  //set the error level reporting
+require('./roots.php'); //traverse the root= directory
+$local_user='ck_op_pflegelogbuch_user'; //I don't get this, but it has something to do with page authorization access
+require($root_path.'include/inc_environment_global.php');   
+require_once($root_path.'include/inc_front_chain_lang.php');
+require_once($root_path.'gui/smarty_template/smarty_care.class.php'); //load the extended smarty template
+require_once($root_path . 'include/care_api_classes/billing/class_ops.php'); //load the segops class
+require_once($root_path . 'include/care_api_classes/class_social_service.php'); //load the segops class
+include_once($root_path . 'include/care_api_classes/class_order.php');  //load the SegOrder class
+require_once($root_path.'include/inc_date_format_functions.php'); //load the date format functions 
+require_once($root_path . 'modules/or/ajax/order.common.php');   
+  
+
+$smarty = new Smarty_Care('charge_or_request');
+$smarty->assign('sToolbarTitle',"OR::Charges"); //Assign a toolbar title
+$target = $_GET['target'];
+$breakfile = $root_path . 'modules/or/request/select_or_request.php'.URL_APPEND.'&target='.$target; 
+
+/** css and js scripts **/
+$css_and_js = array('<link rel="stylesheet" href="'.$root_path.'modules/or/css/or_charge.css" type="text/css" />'
+                    , '<script type="text/javascript" src="'.$root_path.'modules/or/js/flexigrid/lib/jquery/jquery.js"></script>'
+                    , '<script>var J = jQuery.noConflict();</script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/jsprototype/prototype.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/iframecontentmws.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_draggable.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_filter.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_overtwo.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_scroll.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_shadow.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_modal.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/NumberFormat154.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'modules/or/js/order-gui.js"></script>'
+                    , '<link rel="stylesheet" type="text/css" media="all" href="'.$root_path.'js/jscalendar/calendar-win2k-cold-1.css">'
+                    , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/calendar.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/calendar-setup_3.js"></script>'
+                    , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/lang/calendar-en.js"></script>'
+                    , $xajax->printJavascript($root_path.'classes/xajax_0.5')
+                    );
+$smarty->assign('css_and_js', $css_and_js);
+
+$reference_number = isset($_GET['refno']) ? $_GET['refno'] : $_POST['refno'];
+$seg_ops = new SegOps(); //instantiate a SegOps object
+$or_details = $seg_ops->get_or_request_details($reference_number); //get the or request details
+
+/**Start: Used for OR Request Details Fieldset **/
+$smarty->assign('reference_number', $reference_number);
+$smarty->assign('department', $or_details['name_formal']);
+$smarty->assign('operating_room', $or_details['info']);
+$smarty->assign('request_date', date('F d, Y h:ia', strtotime($or_details['request_date'])));
+$smarty->assign('operation_date', date('F d, Y h:ia', strtotime($or_details['operation_date'])));
+$smarty->assign('patient_id', $or_details['pid']);
+$smarty->assign('patient_name', $or_details['ordername']);
+$smarty->assign('patient_address', $or_details['orderaddress']);
+/**End: Used for OR Request Details Fieldset **/
+
+/** Start: Used for the OR Charges Fieldset **/
+$smarty->assign('form_start', '<form name="charge_or_form" method="POST" action="'.$_SERVER['PHP_SELF'].'">');
+$smarty->assign('charge', '<input type="radio" name="iscash" id="iscash0" value="0" checked="checked" /> <label>Charge</label>');
+$smarty->assign('cash', '<input type="radio" name="iscash" id="iscash1" value="1" /> <label>Cash</label>');
+$smarty->assign('priority', array('0'=>'Normal', '1'=>'Urgent'));
+$smarty->assign('default_priority_value', '0');
+$smarty->assign('requested_date_display', '<div id="requested_date_display">'.date('F d, Y h:ia').'</div>');
+$smarty->assign('requested_date', '<input type="hidden" name="requested_date" id="requested_date" value="'.date('Y-m-d H:i').'" />');
+$smarty->assign('date_time_picker', '<img src="'.$root_path.'images/or_main_images/date_time_picker.png" id="date_time_picker" />');
+
+/** End: Used for the OR Charges Fieldset **/
+
+$social_service = new SocialService();
+$social_service_details = $social_service->getLatestClassificationByPid($or_details['pid']); //get the discount and discountid
+
+$is_sc = ($social_service_details['discountid'] == 'SC') ? 'true' : 'false';
+$smarty->assign('is_submitted', '<input type="hidden" value="TRUE" name="is_submitted" />');
+$smarty->assign('pharma_area', '<input type="hidden" name="pharma_area" id="pharma_area" value="OR" />');
+$smarty->assign('encounter_nr', '<input type="hidden" name="encounter_nr" id="encounter_nr" value="'.$or_details['encounter_nr'].'" />');
+$smarty->assign('issc', '<input type="hidden" name="issc" id="issc" value="'.$is_sc.'" />');
+$smarty->assign('refno', '<input type="hidden" name="refno" id="refno" value="'.$reference_number.'" />');
+$smarty->assign('discountid', '<input type="hidden" name="discountid" id="discountid" value="'.$social_service_details['discountid'].'" />');
+$smarty->assign('discount', '<input type="hidden" name="discount" id="discount" value="'.$social_service_details['discount'].'" />');
+$smarty->assign('charge_submit', '<input type="submit" id="charge_submit" value="" onclick="return validate();" />');
+$smarty->assign('charge_cancel', '<a href="'.$breakfile.'" id="charge_cancel"></a>');
+
+$smarty->assign('supplies_add_button','<img class="segSimulatedLink" id="supplies_add" src="'.$root_path.'images/btn_additems.gif" border="0" onclick="return openOrderTray2();">');
+$smarty->assign('supplies_empty_button','<img class="segSimulatedLink" id="clear-list" src="'.$root_path.'images/btn_emptylist.gif" border="0" onclick="if (confirm(\'Clear the order list?\')) emptyTraySupplies()"/>');
+$smarty->assign('form_end', '</form>');
+
+
+if (isset($_POST['is_submitted'])) {
+    global $db;  //see *manolo
+    $db->StartTrans();   //see *manolo
+    $seg_order = new SegOrder('pharma');
+    extract(calculate_total_pharma_order());
+    $order_data = array(
+            'refno'=>$seg_order->getLastNr(date("Y-m-d")),
+            'encounter_nr'=>$or_details['encounter_nr'],
+            'pharma_area'=>'OR',
+            'pid'=>$or_details['pid'],
+            'ordername'=>$or_details['ordername'],
+            'orderaddress'=>$or_details['orderaddress'],
+            'orderdate'=>$_POST['requested_date'],
+            'is_cash'=> $_POST['iscash'],
+            'amount_due'=>$total,
+            'is_tpl'=> 1, //temp
+            'discount'=>$_POST['discount'],
+            'discountid'=>$_POST['discountid'],
+            'is_urgent'=>$_POST['priority'],
+            'comments'=>'', //temp
+            'history' => "Create ".date('Y-m-d H:i:s')." ".$HTTP_SESSION_VARS['sess_temp_userid']."\n",
+            'create_id'=>$_SESSION['sess_temp_userid'],
+            'modify_id'=>$_SESSION['sess_temp_userid'],
+            'modify_time'=>date('YmdHis'),
+            'create_time'=>date('YmdHis')
+            );
+            
+    $seg_order->setDataArray($order_data);
+    $currentErrorMsg = "Unable to save order information..."; //See *manolo
+    $saveok = $seg_order->insertDataFromInternalArray();
+    
+    if ($saveok) {
+      $currentErrorMsg = "Unable to update order details..."; //see *manolo
+      $saveok = $seg_order->clearOrderList($order_data['refno']);   //see *manolo
+      if ($saveok) $saveok = $seg_order->addOrders($order_data['refno'],$bulk); //see *manolo
+      if ($saveok) process_inventory('new', $order_data['refno'], $_POST['items'], $_POST['qty']);
+      
+      $bulk = array();
+      if ($_POST['issc']) $bulk[] = 'SC';
+  
+      foreach ($_POST["discount"] as $i=>$v) {
+        if ($v) $bulk[] = array($v);
+      }
+      $seg_order->clearDiscounts($order_data['refno']);
+      if ($bulk) $seg_order->addDiscounts($order_data['refno'], $bulk);                      
+      if ($saveok) {
+        if (count($_POST['items']) > 0) {
+          $item_array = $_POST['items'];
+          $status_array = array_fill(0, count($item_array), 'S');
+          $remarks_array = array_fill(0, count($item_array), '');
+          $saveok = $seg_order->changeServeStatus($order_data['refno'], $item_array, $status_array, $remarks_array); 
+        }
+      }
+      if ($saveok) $saveok = $seg_ops->insert_care_encounter_pharma_order($order_data['refno'], $reference_number);
+      if ($saveok) {
+      $db->CompleteTrans();
+      $smarty->assign('sMsgTitle','Pharmacy order successfully saved!');
+      $smarty->assign('sMsgBody','The order details have been saved into the database...');
+      $sBreakImg ='close2.gif';
+      $smarty->assign('sBreakButton','<img class="segSimulatedLink" '.createLDImgSrc($root_path,$sBreakImg,'0','absmiddle').' alt="'.$LDBack2Menu.'" onclick="window.location=\''.$breakfile.'\'" onsubmit="return false;" style="cursor:pointer">');
+      $printfile = $root_path.'modules/pharmacy/seg-pharma-order.php'. URL_APPEND."&target=print&userck=$userck".'&cat=pharma&ref='.$order_data['refno'];
+      $smarty->assign('sPrintButton','<img class="segSimulatedLink"  src="'.$root_path.'images/btn_printpdf.gif" border="0" align="absmiddle" alt="Print" onclick="openWindow(\''.$printfile.'\')" onsubmit="return false;" style="cursor:pointer">');
+            
+      
+           
+      # Assign submitted form values
+      $smarty->assign('sSelectArea', $order_data['pharma_area']);
+      $smarty->assign('sRefNo', $order_data['refno']);
+      $smarty->assign('sCashCharge', ($_REQUEST['iscash']=="1") ? "Cash" : "Charge");
+      $smarty->assign('sOrderDate', $order_data['orderdate']);
+      $smarty->assign('sOrderName', $order_data['ordername']);
+      $smarty->assign('sOrderAddress', $order_data['orderaddress']);
+      $smarty->assign('sPriority',($order_data['priority']=="0") ? "Normal" : "Urgent");
+      $smarty->assign('sRemarks',$order_data['comments']);
+            
+    
+      $itemsResult = $seg_order->getOrderItemsFullInfo($order_data['refno']);
+      if ($itemsResult) {
+        $oRows = "";
+        while ($oItem=$itemsResult->FetchRow()) {
+          $oRows .= '<tr>
+                      <td class="jedPanel3" style="font:bold 11px Tahoma;color:#000080">'.$oItem['bestellnum'].'</td>
+                      <td class="jedPanel3">'.$oItem['artikelname'].'</td>
+                      <td class="jedPanel3" align="right">'.number_format((float)$oItem['force_price'],2).'</td>
+                      <td class="jedPanel3" align="center">'.number_format((float)$oItem['quantity']).'</td>
+                      <td class="jedPanel3" align="right">'.number_format((float)$oItem['quantity']*(float)$oItem['force_price'],2).'</td>
+                     </tr>';
+          }
+          if (!$oRows) {
+            $oRows = '<tr><td colspan="10" class="jedPanel3">Order list is currently empty...</td></tr>';
+          }
+      }
+      if (!$oRows) {
+        $oRows = '<tr><td colspan="10" class="jedPanel3">Error reading order details from database...</td></tr>';
+      }
+      
+      $smarty->assign('sItems',$oRows);
+            
+      $smarty->assign('sMainBlockIncludeFile','order/saveok.tpl');
+      $smarty->display('common/mainframe.tpl');
+      exit();
+    }
+    }
+    else {
+      /** see manolo **/
+      $errorMsg = $db->ErrorMsg();
+      if (strpos(strtolower($errorMsg), "duplicate entry") !== FALSE)
+        $smarty->assign('sysErrorMessage','<strong>Error:</strong> An item with the same order number already exists in the database.');
+      else
+        $smarty->assign('sysErrorMessage',"<strong>$currentErrorMsg</strong><br/><strong>DB Error:</strong> $errorMsg");
+      $db->RollbackTrans();
+      /** see manolo **/
+    }
+}
+
+
+$smarty->assign('sMainBlockIncludeFile','or/charge_or_request.tpl'); //Assign the charge_or_request template to the frameset
+$smarty->display('common/mainframe.tpl'); //Display he contents of the frame 
+
+function calculate_total_pharma_order() {
+  $bulk = array();
+  $orig = $_POST['iscash'] ? $_POST['pcash'] :  $_POST['pcharge'];
+  $total = 0;
+  foreach ($_POST["items"] as $i=>$v) {
+    $consigned = in_array($v, $_POST['consigned']) ? '1' : '0';
+    $bulk[] = array(
+    $_POST["items"][$i],
+    $_POST["dosage"][$i], //see *manolo
+    $_POST["qty"][$i],
+    parseFloatEx($_POST["prc"][$i]),
+    parseFloatEx($_POST["prc"][$i]), 
+    $consigned, $orig[$i]);
+    $total += (parseFloatEx($_POST["prc"][$i]) * (float) $_POST["qty"][$i]);
+  }
+  return array('total' => $total, 'bulk' => $bulk);
+}
+
+function process_inventory($mode, $pharma_refno, $current_items, $current_quantities) {
+  global $root_path;
+  $seg_order_inventory = new SegOrder('pharma'); 
+  require_once($root_path.'include/care_api_classes/inventory/class_inventory.php');
+  $unit = new Unit();
+  $unit->unit_id = null;
+  $unit->is_unit_per_pc = 1;
+  if ($mode=='new') {
+    foreach ($current_items as $key => $value) {
+      $inventory = new Inventory();
+      $inventory->area_code = 'OR';
+      $inventory->item_code = $value;
+      $matrix = $seg_order_inventory->prepareInventoryMatrix($inventory->item_code, $inventory->area_code);
+      $inventory->remInventory($current_quantities[$key], $unit, $matrix[0]);
+      if ($matrix) {
+        $q1 = (int)$current_quantities[$key];
+        foreach ($matrix as $mat) {
+          $q2 = (int)$mat[1];
+          if (($q1-$q2)>0) {
+            $saveok = $inventory->remInventory($q2, $unit, $mat[0]); 
+            $q2 = $q2-$q1;
+          }
+          else {
+            $saveok = $inventory->remInventory($q1, $unit, $mat[0]); 
+            if (!$saveok) echo $db->ErrorMsg();
+            break;
+          }
+          if (!$saveok) break;
+        }
+      }
+    } 
+  }
+  if ($mode=='edit') {
+  
+    $items_in_dbase = $seg_order_inventory->get_order_items($pharma_refno);
+    foreach ($items_in_dbase['items'] as $key => $value)  {
+      $inventory = new Inventory();
+      $inventory->area_code = 'OR';
+      $inventory->item_code = $value;
+      $inventory->addInventory($items_in_dbase['quantities'][$key], $unit, null, null, '');
+    }
+    foreach ($current_items as $key => $value) {
+      $inventory = new Inventory();
+      $inventory->area_code = 'OR';
+      $inventory->item_code = $value;
+      $matrix = $seg_order_inventory->prepareInventoryMatrix($inventory->item_code, $inventory->area_code);
+      
+      if ($matrix) {
+        $q1 = (int)$current_quantities[$key];
+        foreach ($matrix as $mat) {
+          $q2 = (int)$mat[1];
+          if (($q1-$q2)>0) {
+            $saveok = $inventory->remInventory($q2, $unit, $mat[0]); 
+            $q2 = $q2-$q1;
+          }
+          else {
+            $saveok = $inventory->remInventory($q1, $unit, $mat[0]); 
+            if (!$saveok) echo $db->ErrorMsg();
+            break;
+          }
+          if (!$saveok) break;
+        }
+      }
+    }
+  }
+}
+?>
+<script>
+
+function openOrderTray() {
+        overlib(
+            OLiframeContent('<?=$root_path?>modules/or/request/seg-order-tray.php', 660, 360, 'fOrderTray', 0, 'no'),
+            WIDTH,600, TEXTPADDING,0, BORDER,0, 
+            STICKY, SCROLL, CLOSECLICK, MODAL,
+            CLOSETEXT, '<img src=<?=$root_path?>images/close_red.gif border=0 >',
+            CAPTIONPADDING,2, 
+            CAPTION,'Add product from Order tray',
+            MIDX,0, MIDY,0, 
+            STATUS,'Add product from Order tray');
+        return false
+}
+
+function openOrderTray2() {
+        var discount = $('discountid').value;
+        var area = $('pharma_area').value;
+        var url = '<?=$root_path?>modules/or/request/seg-order-tray.php?area='+area+'&d='+discount;
+        overlib(
+            OLiframeContent(url, 660, 360, 'fOrderTray', 0, 'no'),
+            WIDTH,600, TEXTPADDING,0, BORDER,0, 
+            STICKY, SCROLL, CLOSECLICK, MODAL,
+            CLOSETEXT, '<img src=<?=$root_path?>images/close_red.gif border=0 >',
+            CAPTIONPADDING,2, 
+            CAPTION,'Add pharmacy item from Order tray',
+            MIDX,0, MIDY,0, 
+            STATUS,'Add product from Order tray');
+        return false
+}
+
+function jsCalendarSetup(){
+  
+  Calendar.setup ({
+    displayArea : "requested_date_display",
+    inputField : "requested_date", 
+    ifFormat : "<?="%Y-%m-%d %H:%M"?>", 
+    daFormat : "<?="%B %e, %Y %I:%M%P"?>", 
+    showsTime : true, 
+    button : "date_time_picker", 
+    singleClick : true, 
+    step : 1,
+  });
+ 
+}
+
+function validate() {
+  if (document.getElementsByName('items[]').length==0) {
+    alert("Item list is empty...");
+    return false;
+  }
+  else {
+    return confirm('Process this pharmacy order?'); 
+  }
+}
+
+jsCalendarSetup();    
+document.body.onLoad = refreshDiscountSupplies();
+
+ 
+J("input[@name='iscash']").change(function() {
+  if (warnClear()) { 
+    emptyTraySupplies(); 
+    changeTransactionType(); return true;
+  } 
+  else 
+    return false;
+});
+
+        
+</script>

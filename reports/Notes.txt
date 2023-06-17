@@ -1,0 +1,2 @@
+Put the .jrxml files namely csfp1.jrxml and csfp2.jrxml to:
+>>tomcat>>webapps>>JavaBridge>>resource

@@ -1,0 +1,35 @@
+div#checklist-div span {
+
+}
+
+span.checklist-code {
+	display: inline-block;
+	width: 80px;
+	font: bold 12px Arial;
+}
+
+span.checklist-name {
+	display: inline-block;
+	width: 250px;
+	font: bold 12px Arial;
+}
+
+span.checklist-price {
+	display: inline-block;
+	width: 75px;
+	font: bold 12px Arial;
+	text-align:right;
+	color: #660000;
+}
+
+span.checklist-available {
+	display: inline-block;
+	width: 100px;
+	font: bold 12px Arial;
+	color: #ff0000;
+}
+
+span.checklist-add {
+	display: inline-block;
+	width: 30px;
+}

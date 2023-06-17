@@ -1,0 +1,116 @@
+#or_charge fieldset {
+  padding: 5px 15px 5px 15px;
+  margin: 0 0 10px;
+  background: #F4F1EC url('../../../images/or_main_images/fieldset_back.jpg') repeat-x;
+  border: 1px solid #D6D3CC;
+}
+                                                                                                                  
+#or_charge legend {
+  color: #FFFFFF;
+  background-color: #4899BE;
+  font-family: Arial, Helvetica, Sans-serif;
+  font-size: 0.9em;
+  font-weight: bold;
+  padding: 5px;
+  margin-bottom: 0;
+  width: 9em;
+  border: 1px solid #3E4A49;
+  cursor: pointer;
+}
+
+#or_charge table {
+  font: normal 11px Arial;
+  color: #4C4B4A;
+}
+
+#or_charge span.value {
+  color: #D22827;
+}
+
+#or_charge input#charge_submit {
+  background: #F4F1EC url('../../../images/or_select_images/charge_submit_button.png') no-repeat;
+   background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+}
+
+#or_charge input#charge_update {
+  background: #F4F1EC url('../../../images/or_select_images/update_submit_button.png') no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  float: left;
+  margin-right: 10px;
+}
+
+#or_charge a#charge_cancel {
+  background: #F4F1EC url('../../../images/or_select_images/charge_cancel_button.png') no-repeat;
+  background-position: 0px 0px;
+  width: 75px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+}
+
+#or_charge a#charge_cancel:hover, #or_charge input#charge_submit:hover, #or_charge input#charge_edit:hover, 
+#or_charge input#charge_update:hover {
+  background-position: 0px -25px;
+  outline: none;
+  cursor: pointer;
+}
+
+#or_charge input#charge_edit {
+  background: #F4F1EC url('../../../images/or_select_images/charge_edit_button.png') no-repeat;
+  background-position: 0px 0px;
+  width: 95px;
+  height: 25px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  display: block;
+  float: left;
+  margin-right: 10px;
+}
+
+#or_charge img#date_time_picker:hover {
+  opacity: 1;
+}
+#or_charge img#date_time_picker {
+  opacity: 0.7;
+  cursor: pointer;
+}
+
+#or_charge table#or_charge_details tr {
+  vertical-align: bottom;
+  
+}
+#or_charge div#requested_date_display {
+  border: 1px #CAC9B9 solid;
+  height: 14px;
+  padding: 2px;
+  font: normal 11px Arial;
+  width: 100%;
+  
+}
+
+#or_charge input[type=text] {
+  background: #FFF;
+}
+
+#or_charge select {
+  background: #FFF;
+}
+
+
+

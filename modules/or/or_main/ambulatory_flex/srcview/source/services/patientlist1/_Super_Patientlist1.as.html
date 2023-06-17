@@ -1,0 +1,208 @@
+<!-- saved from url=(0014)about:internet -->
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>_Super_Patientlist1.as</title>
+<link rel="stylesheet" type="text/css" href="../../../SourceStyles.css"/>
+</head>
+
+<body><pre>
+<span class="ActionScriptASDoc">/**
+ * This is a generated class and is not intended for modfication.  To customize behavior
+ * of this service wrapper you may modify the generated sub-class of this class - Patientlist1.as.
+ */</span>
+<span class="ActionScriptpackage">package</span> <span class="ActionScriptDefault_Text">services</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">patientlist1</span>
+<span class="ActionScriptBracket/Brace">{</span>
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">mx</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">rpc</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">AsyncToken</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">fr</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">core</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">model_internal</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">mx</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">rpc</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">AbstractOperation</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">services</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">patientlist1</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">GetAll</span>
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">mx</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">collections</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">ItemResponder</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">mx</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">rpc</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">remoting</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">RemoteObject</span>; 
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">mx</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">rpc</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">remoting</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">Operation</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">fr</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">services</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">wrapper</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">RemoteObjectServiceWrapper</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">fr</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">vo</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">AvailablePropertyIterator</span>;
+<span class="ActionScriptReserved">import</span> <span class="ActionScriptDefault_Text">com</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">adobe</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">serializers</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">utility</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">TypeUtility</span>;
+
+<span class="ActionScriptMetadata">ExcludeClass]</span>
+<span class="ActionScriptReserved">internal</span> <span class="ActionScriptclass">class</span> <span class="ActionScriptDefault_Text">_Super_Patientlist1</span> <span class="ActionScriptReserved">extends</span> <span class="ActionScriptDefault_Text">RemoteObjectServiceWrapper</span>
+<span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span>      
+       
+    <span class="ActionScriptComment">// Constructor
+</span>    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">_Super_Patientlist1</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>
+    <span class="ActionScriptBracket/Brace">{</span><span class="ActionScriptBracket/Brace"></span>
+        <span class="ActionScriptComment">// initialize service control
+</span>        <span class="ActionScriptDefault_Text">_serviceControl</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">RemoteObject</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>; 
+        
+         <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">operations</span>:<span class="ActionScriptDefault_Text">Object</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">operation</span>:<span class="ActionScriptDefault_Text">Operation</span>;         
+         
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"getAllItems"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultElementType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">GetAll</span>;
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"getAllItems"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"getItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"getItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"createItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"createItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"updateItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"updateItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"deleteItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"deleteItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"count"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"count"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">operation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptReserved">new</span> <span class="ActionScriptDefault_Text">Operation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptReserved">null</span><span class="ActionScriptOperator">,</span><span class="ActionScriptBracket/Brace"></span> <span class="ActionScriptString">"getItems_paged"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+         <span class="ActionScriptDefault_Text">operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">resultType</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">Object</span>;          
+         <span class="ActionScriptDefault_Text">operations</span><span class="ActionScriptBracket/Brace">[</span><span class="ActionScriptString">"getItems_paged"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">]</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operation</span>;
+         <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">operations</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">operations</span>;   
+         <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">convertResultHandler</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">TypeUtility</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">convertResultHandler</span>;
+
+        
+    
+                      
+         <span class="ActionScriptDefault_Text">model_internal</span><span class="ActionScriptOperator">::</span><span class="ActionScriptDefault_Text">initialize</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'getAllItems' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">getAllItems</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"getAllItems"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'getItem' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">getItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">itemID</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"getItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">itemID</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'createItem' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">createItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">item</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"createItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">item</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'updateItem' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">updateItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">item</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"updateItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">item</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'deleteItem' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">deleteItem</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">itemID</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"deleteItem"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">itemID</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'count' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">count</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"count"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+    <span class="ActionScriptASDoc">/**
+      * This method is a generated wrapper used to call the 'getItems_paged' operation. It returns an AsyncToken whose 
+      * result property will be populated with the result of the operation when the server response is received. 
+      * To use this result from MXML code, define a CallResponder component and assign its token property to this method's return value. 
+      * You can then bind to CallResponder.lastResult or listen for the CallResponder.result or fault events.
+      *
+      * @see mx.rpc.AsyncToken
+      * @see mx.rpc.CallResponder 
+      *
+      * @return an AsyncToken whose result property will be populated with the result of the operation when the server response is received.
+      */</span>          
+    <span class="ActionScriptReserved">public</span> <span class="ActionScriptfunction">function</span> <span class="ActionScriptDefault_Text">getItems_paged</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">startIndex</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptOperator">,</span> <span class="ActionScriptDefault_Text">numItems</span>:<span class="ActionScriptDefault_Text">Object</span><span class="ActionScriptBracket/Brace">)</span> : <span class="ActionScriptDefault_Text">AsyncToken</span>
+    <span class="ActionScriptBracket/Brace">{</span>
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_operation</span>:<span class="ActionScriptDefault_Text">AbstractOperation</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_serviceControl</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">getOperation</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptString">"getItems_paged"</span><span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">)</span>;
+        <span class="ActionScriptvar">var</span> <span class="ActionScriptDefault_Text">_internal_token</span>:<span class="ActionScriptDefault_Text">AsyncToken</span> <span class="ActionScriptOperator">=</span> <span class="ActionScriptDefault_Text">_internal_operation</span><span class="ActionScriptOperator">.</span><span class="ActionScriptDefault_Text">send</span><span class="ActionScriptBracket/Brace">(</span><span class="ActionScriptDefault_Text">startIndex</span><span class="ActionScriptOperator">,</span><span class="ActionScriptDefault_Text">numItems</span><span class="ActionScriptBracket/Brace">)</span> ;
+
+        <span class="ActionScriptReserved">return</span> <span class="ActionScriptDefault_Text">_internal_token</span>;
+    <span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>   
+
+<span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+
+<span class="ActionScriptBracket/Brace"></span><span class="ActionScriptBracket/Brace">}</span>
+</pre></body>
+</html>

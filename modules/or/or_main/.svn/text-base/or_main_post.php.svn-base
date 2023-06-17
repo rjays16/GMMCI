@@ -1,0 +1,819 @@
+<?php
+error_reporting(E_COMPILE_ERROR | E_CORE_ERROR | E_ERROR);  //set the error level reporting
+require('./roots.php'); //traverse the root directory
+$local_user='ck_op_pflegelogbuch_user'; //I don't get this, but it has something to do with page authorization access
+require($root_path.'include/inc_environment_global.php');   
+require_once($root_path.'include/inc_front_chain_lang.php');
+require_once($root_path.'gui/smarty_template/smarty_care.class.php'); //load the extended smarty template
+require_once($root_path.'include/care_api_classes/billing/class_ops.php'); //load the SegOps class
+require_once($root_path."include/care_api_classes/class_order.php");  //load the SegOrder class
+require_once($root_path.'modules/or/ajax/op-request-new.common.php'); //load the xajax module
+require_once($root_path.'include/care_api_classes/class_department.php'); //load the department class
+require_once($root_path.'include/care_api_classes/class_oproom.php'); //load the department class
+require_once($root_path.'include/inc_date_format_functions.php'); //include the date formatting functions
+require_once($root_path.'include/care_api_classes/class_person.php');
+require_once($root_path . 'include/care_api_classes/class_social_service.php'); //load the segops class
+require_once($root_path . 'include/care_api_classes/class_equipment_order.php'); //load the segops class
+
+echo 'omick';
+
+
+$smarty = new Smarty_Care('or_main_request');
+$smarty->assign('sToolbarTitle',"Operating Room Main :: Post Operative Details"); //Assign a toolbar title 
+$smarty->assign('sWindowTitle',"Operating Room Main :: Post Operative Details");
+$breakfile=$root_path.'main/op-doku.php'.URL_APPEND;
+$smarty->assign('breakfile', $breakfile);
+$smarty->assign('check_date_string', $check_date_string);
+$smarty->assign('or_main_css', '<link rel="stylesheet" href="'.$root_path.'modules/or/css/or_main.css" type="text/css" />');
+
+$javascript_array = array('<script type="text/javascript" src="'.$root_path.'modules/or/js/flexigrid/lib/jquery/jquery.js"></script>'
+                          , '<link rel="stylesheet" type="text/css" href="'.$root_path.'modules/or/js/flexigrid/css/flexigrid/flexigrid.css">'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/flexigrid/flexigrid.js"></script>'
+                          , '<link rel="stylesheet" href="'.$root_path.'modules/or/css/select_or_request.css" type="text/css" />'
+                          , '<link rel="stylesheet" href="'.$root_path.'modules/or/css/or_charge.css" type="text/css" />' 
+                          , '<script>var J = jQuery.noConflict();</script>'
+                          , '<link rel="stylesheet" type="text/css" media="all" href="'.$root_path.'js/jscalendar/calendar-win2k-cold-1.css">'
+                          , '<script type="text/javascript" src="'.$root_path.'js/jsprototype/prototype.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/calendar.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/calendar-setup_3.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/jscalendar/lang/calendar-en.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/iframecontentmws.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_draggable.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_filter.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_overtwo.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_scroll.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_shadow.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/overlibmws/overlibmws_modal.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'js/NumberFormat154.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/op-request-new.js?t='.time().'"></script>'
+                          , '<link rel="stylesheet" type="text/css" href="'.$root_path.'modules/or/js/jqmodal/jqModal.css">'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/jqmodal/jqModal.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/jqmodal/jqDnR.js"></script>'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/jqmodal/dimensions.js"></script>'
+                          , '<link rel="stylesheet" href="'.$root_path.'modules/or/css/or_main.css" type="text/css" />'
+                          , '<script type="text/javascript" src="'.$root_path.'modules/or/js/order-gui.js"></script>'
+						  , '<script type="text/javascript" src="'.$root_path.'modules/or/js/order_equipment.js"></script>' 
+                          , $xajax->printJavascript($root_path.'classes/xajax-0.2.5')
+                          );
+$smarty->assign('javascript_array', $javascript_array);
+
+$seg_ops = new SegOps();
+$refno = isset($_POST['refno']) ? $_POST['refno'] : $_GET['refno'];
+$nr = $seg_ops->getOpRequestNrByRefNo($refno);
+$mode = isset($_GET['mode']) ? $_GET['mode'] : $_POST['mode'];
+
+
+if ($seg_ops->encOpsNrHasOpsServ($nr)) {
+  $basic_info = $seg_ops->getAllEncounterOpsServiceInfo($nr);
+  $or_main_info = $seg_ops->get_or_main_basic_info($refno);
+}
+  
+$seg_department = new Department();
+$seg_room = new OPRoom();
+$dept_nr = $basic_info['dept_nr'];
+$op_nr = $basic_info['op_nr'];
+$op_room = $basic_info['op_room'];
+$department = $seg_department->FormalName($dept_nr);
+$operating_room = $seg_room->get_or_name($op_room);
+
+/** Form tags **/
+$smarty->assign('form_start', '<form name="main_or_form" method="POST" action="'.$_SERVER['PHP_SELF'].'" onsubmit="return validate()">');
+$smarty->assign('form_end', '</form>');
+/** End Form tags **/
+
+/** Form elements under fieldset "Request Details" **/
+$smarty->assign('required_mark', '<em><img src="'.$root_path.'images/or_main_images/required_mark.png" /></em>');
+$smarty->assign('error_input', '<span id="error_form_input"></span>');
+
+$smarty->assign('or_request_department', $department);
+$smarty->assign('or_op_room', $operating_room['info']);
+$transaction = array('1' => 'Cash', '0' => 'Charge'); 
+$smarty->assign('or_transaction_type', $transaction[$basic_info['is_cash']]);
+$smarty->assign('or_request_priority', $or_main_info['request_priority']);
+
+
+$request_date = date('F d, Y h:ia', strtotime($basic_info['request_date'].' '.$basic_info['request_time']));
+$smarty->assign('or_request_date', $request_date);
+$smarty->assign('or_consent_signed', ($or_main_info['consent_signed'] == 1) ? 'Yes' : 'No');
+
+$case = array('pay_elective'=>'Pay - Elective', 'pay_stat'=>'Pay - Stat', 
+              'service_elective'=>'Service - Elective', 'service_stat'=>'Service - Stat');
+$smarty->assign('or_request_case', $case[$or_main_info['or_case']]);
+/** End **/
+
+/** Form elements under fieldset "Patient Information" **/
+$seg_person = new Person($basic_info['pid']);
+$person_info = $seg_person->getAllInfoArray();
+$middle_initial = (strnatcasecmp($person_info['name_middle'][0], $person_info['name_middle'][1]) == 0) ? ucwords(substr($person_info['name_middle'], 0, 2)) : strtoupper($person_info['name_middle'][0]);
+$person_name = $person_info['name_last'] . ', ' . $person_info['name_first'] . ' ' . $middle_initial; 
+$person_gender = (strnatcasecmp($person_info['sex'], 'm') == 0) ? 'Male' : 'Female';
+$person_age = (int)$seg_person->getAge(date('m/d/Y', strtotime($person_info['date_birth'])));
+$person_age = is_int($person_age) ? $person_age . ' years old' : '-Not specified-';
+
+
+$person_address = implode(", ",array_filter(array($person_info['street_name'], $person_info["brgy_name"], $person_info["mun_name"])));
+if ($person_info["zipcode"])
+  $person_address.=" ".$person_info["zipcode"];
+if ($person_info["prov_name"])
+  $person_address.=" ".$person_info["prov_name"];
+
+$patient_name = $person_name; 
+$patient_gender = $person_gender;
+$patient_age = $person_age;
+$patient_address = $person_address;
+$smarty->assign('patient_name', $patient_name);
+$smarty->assign('patient_gender', $patient_gender);
+$smarty->assign('patient_age', $patient_age);
+$smarty->assign('patient_address', $patient_address);
+/** End **/
+
+/** Form elements under fieldset "Pre-operation Details" **/
+
+$operation_date = date('F d, Y h:ia', strtotime($basic_info['op_date'].' '.$basic_info['op_time']));
+$smarty->assign('or_operation_date', $operation_date);
+
+$or_est_op_length = $or_main_info['est_length_op'];
+$pre_operative_diagnosis = $or_main_info['pre_op_diagnosis'];
+$operation_procedure = $or_main_info['operation_procedure'];
+$smarty->assign('or_est_op_length', $or_est_op_length); 
+$smarty->assign('pre_operative_diagnosis', $pre_operative_diagnosis);
+$smarty->assign('operation_procedure', $operation_procedure);
+$classification = array('clean'=>'Clean', 'contaminated'=>'Contaminated',
+                        'wound_dehiscence'=>'Wound Dehiscence',
+                        'clean_contaminated'=>'Clean/Contamianted',
+                        'dirty_infected'=>'Dirty/Infected');
+$smarty->assign('or_case_classification', $classification[$or_main_info['case_classification']]);
+
+ /** End **/
+ 
+/** Form elements under fieldset "Other Details" **/
+$special_requirements = array('cp_clearance'=>'CP Clearance', 'pulmo_clearance'=>'Pulmo Clearance', 'consent'=>'Consent',
+                               'pedia_clearance'=>'Pedia Clearance', 'others'=>'Others');
+$smarty->assign('or_special_requirements', $special_requirements[$or_main_info['special_requirements']]);
+/** End **/
+
+/** Form elements under fieldset "Post-operative Details **/
+$post_op_details = $seg_ops->get_or_main_post_details($or_main_info['or_main_refno']);
+//echo $or_main_info['or_main_refno'];
+//print_r($post_op_details);
+$post_time_started = $post_op_details['time_started'];
+$post_time_finished = $post_op_details['time_finished'];
+$post_op_diagnosis = $post_op_details['post_op_diagnosis']; 
+ 
+$smarty->assign('post_time_started', '<input type="text" name="post_time_started" id="post_time_started" value="'.$post_time_started.'" />');
+$smarty->assign('post_time_finished', '<input type="text" name="post_time_finished" id="post_time_finished" value="'.$post_time_finished.'" />');
+$smarty->assign('pts_meridian', array('am' => 'AM', 'pm' => 'PM'));
+$smarty->assign('ptf_meridian', array('am' => 'AM', 'pm' => 'PM'));
+$smarty->assign('post_operative_diagnosis', '<textarea name="post_operative_diagnosis">'.$post_op_diagnosis.'</textarea>');
+$smarty->assign('pts_meridian_selected', strtolower($post_op_details['ts_meridian']));
+$smarty->assign('ptf_meridian_selected', strtolower($post_op_details['tf_meridian']));
+/** End **/
+
+/** Onclick events for each button **/
+$add_surgeon_onclick = 'onclick="overlib(
+        OLiframeContent(\''.$root_path.'modules/or/request/seg-op-request-select-personnel.php?personnel_type=surgeon&dept_nr='.$dept_nr.'&table_name=surgeon_list\', 500, 300, \'fSelBatchNr\', 1, \'auto\'),
+        WIDTH,400, TEXTPADDING,0, BORDER,0,STICKY, SCROLL, CLOSECLICK, MODAL,CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',
+        CAPTIONPADDING,4, CAPTION,\'Select surgeon\',MIDX,0, MIDY,0,STATUS,\'Select surgeon\'); return false;"onmouseout="nd();"';
+$add_assistant_surgeon_onclick = 'onclick="overlib(
+        OLiframeContent(\''.$root_path.'modules/or/request/seg-op-request-select-personnel.php?personnel_type=surgeon_assist&dept_nr='.$dept_nr.'&table_name=assistant_surgeon_list\', 500, 300, \'fSelBatchNr\', 1, \'auto\'),
+        WIDTH,400,TEXTPADDING,0, BORDER,0,STICKY, SCROLL, CLOSECLICK, MODAL,CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',
+        CAPTIONPADDING,4, CAPTION,\'Select surgeon\',MIDX,0, MIDY,0,STATUS,\'Select surgeon\'); return false;"onmouseout="nd();"';
+$add_anesthesiologist_onclick = 'onclick="overlib(
+        OLiframeContent(\''.$root_path.'modules/or/request/seg-op-request-select-personnel.php?personnel_type=anesthesiologist&dept_nr='.$dept_nr.'&table_name=anesthesiologist_list\', 500, 300, \'fSelBatchNr\', 1, \'auto\'),
+        WIDTH,400,TEXTPADDING,0, BORDER,0,STICKY, SCROLL, CLOSECLICK, MODAL,CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',
+        CAPTIONPADDING,4,CAPTION,\'Select anesthesiologist\',MIDX,0, MIDY,0,STATUS,\'Select anesthesiologist\'); return false;"
+        onmouseout="nd();"';
+$add_scrub_nurse_onclick = 'onclick="overlib(
+        OLiframeContent(\''.$root_path.'modules/or/request/seg-op-request-select-personnel.php?personnel_type=nurse_scrub&dept_nr='.$dept_nr.'&table_name=scrub_nurse_list\', 500, 300, \'fSelBatchNr\', 1, \'auto\'),
+        WIDTH,400,TEXTPADDING,0, BORDER,0,STICKY,SCROLL,CLOSECLICK, MODAL,CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',
+        CAPTIONPADDING,4,CAPTION,\'Select scrub nurse\',MIDX,0, MIDY,0,STATUS,\'Select scrub nurse\'); return false;"
+        onmouseout="nd();"';
+$add_circulating_nurse_onclick = 'onclick="overlib(
+        OLiframeContent(\''.$root_path.'modules/or/request/seg-op-request-select-personnel.php?personnel_type=nurse_rotating&dept_nr='.$dept_nr.'&table_name=circulating_nurse_list\', 500, 300, \'fSelBatchNr\', 1, \'auto\'),
+        WIDTH,400,TEXTPADDING,0, BORDER,0,STICKY, SCROLL, CLOSECLICK, MODAL,CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',
+        CAPTIONPADDING,4,CAPTION,\'Select circulating nurse\',MIDX,0, MIDY,0,STATUS,\'Select circulating nurse\'); return false;"
+        onmouseout="nd();"';
+$add_icpm_onclick = 'onclick="return overlib(OLiframeContent(\''.$root_path.'modules/or/request/seg-op-tray.php\', 625, 380, \'fOrderTray\', 1, \'auto\'),WIDTH, 380, TEXTPADDING,0, BORDER,0, 
+        STICKY, SCROLL, CLOSECLICK, MODAL, CLOSETEXT, \'<img src='.$root_path.'/images/close.gif border=0 >\',CAPTIONPADDING,4, 
+        CAPTION,\'Add procedure codes from ICPM tray\',MIDX,0, MIDY,0, STATUS,\'Add procedure codes from ICPM tray\');"onmouseout="nd();"';
+/** End **/
+
+/** Buttons for add surgeon, assistant surgeon, scrub nurse, circulating nurse **/
+
+$smarty->assign('add_surgeon', '<a href="javascript:void(0)" id="add_surgeon" '.$add_surgeon_onclick.'></a>');
+$smarty->assign('add_assistant_surgeon', '<a href="#" id="add_assistant_surgeon" '.$add_assistant_surgeon_onclick.'></a>');
+$smarty->assign('add_scrub_nurse', '<a hre="#" id="add_scrub_nurse" '.$add_scrub_nurse_onclick.'></a>');
+$smarty->assign('add_circulating_nurse', '<a href="#" id="add_circulating_nurse" '.$add_circulating_nurse_onclick.'></a>');
+$smarty->assign('add_anesthesiologist', '<a href="#" id="add_anesthesiologist" '.$add_anesthesiologist_onclick.'></a>');
+$smarty->assign('add_anesthesia_procedure', '<a href="#" id="add_anesthesia_procedure" onclick="show_popup()"></a>');
+$smarty->assign('add_icpm', '<a href="javascript:void(0)" id="add_icpm" '.$add_icpm_onclick.'></a>');
+$smarty->assign('empty_icpm', '<a href="javascript:void(0)" id="empty_icpm" onclick="emptyTray()"></a>');
+$smarty->assign('supplies_add_button','<a href="javascript:void(0)" id="add_item" onclick="return openOrderTray();"></a>');
+$smarty->assign('supplies_empty_button','<a href="javascript:void(0)" id="empty_item" onclick="if (confirm(\'Clear the order list?\')) emptyTraySupplies()"></a>');
+$smarty->assign('add_equipment', '<a href="javascript:void(0)" id="add_equipment" onclick="show_popup_equipment()"></a>');
+$smarty->assign('empty_equipment', '<a href="javascript:void(0)" id="empty_equipment" onclick="empty_equipment()"></a>');
+/** End **/
+
+
+
+/** Other form elements **/
+$smarty->assign('or_main_submit', '<input type="submit" id="or_main_submit" value="" />');
+$smarty->assign('or_main_cancel', '<a href="'.$breakfile.'" id="or_main_cancel"></a>');
+$encounter_nr = $basic_info['encounter_nr'];
+$hospital_number = $basic_info['pid'];
+
+$smarty->assign('encounter_nr', '<input type="hidden" name="encounter_nr" id="encounter_nr" value="'.$encounter_nr.'" />');
+$smarty->assign('hospital_number', '<input type="hidden" name="hospital_number" id="hospital_number" value="'.$hospital_number.'" />');
+$smarty->assign('submitted', '<input type="hidden" value="TRUE" name="submitted" />');
+$smarty->assign('op_nr', '<input type="hidden" name="op_nr" value="'.$op_nr.'" />');
+$smarty->assign('op_room', '<input type="hidden" name="op_room" value="'.$op_room.'" />');
+$smarty->assign('dept_nr', '<input type="hidden" name="dept_nr" value="'.$dept_nr.'" />');
+$smarty->assign('refno', '<input type="hidden" name="refno" value="'.$refno.'" />');
+$smarty->assign('or_request_nr', '<input type="hidden" name="or_request_nr" value="'.$nr.'" />');
+$smarty->assign('or_main_refno', '<input type="hidden" name="or_main_refno" value="'.$or_main_info['or_main_refno'].'" />');
+/** End **/
+
+/** Popup elements **/
+
+$smarty->assign('close_anesthesia', '<a href="javascript:void(0)" id="close_anesthesia" class="jqmClose"></a>');
+$smarty->assign('resize', '<img src="'.$root_path.'images/or_main_images/resize.gif" class="jqResize" />');
+
+$smarty->assign('close_equipment', '<a href="javascript:void(0)" id="close_equipment" class="jqmClose"></a>');
+
+/** End **/
+
+/** Elements for flexigrid **/
+$number_of_pages = array('5'=>'5', '10'=>'10', '15'=>'15', '20'=>'20', '25'=>'25', '30'=>'30');
+$smarty->assign('number_of_pages', $number_of_pages);
+$smarty->assign('page_number', '<input type="text" id="page_number" name="page_number" />');
+$smarty->assign('search_field', '<input type="text" id="search_field" name="search_field" />');
+$smarty->assign('departments', $list_dept);
+$smarty->assign('selected_department', 'all');
+$smarty->assign('search_button', '<input type="submit" id="search_button" value="Search" />');
+/** End **/
+
+/** For OR Charges **/
+$social_service = new SocialService();
+$social_service_details = $social_service->getLatestClassificationByPid($basic_info['pid']); //get the discount and discountid
+$is_sc = ($social_service_details['discountid'] == 'SC') ? '1' : '0';
+
+$smarty->assign('pharma_area', '<input type="hidden" name="pharma_area" id="pharma_area" value="OR" />');
+$smarty->assign('issc', '<input type="hidden" name="issc" id="issc" value="'.$is_sc.'" />');
+$smarty->assign('discountid', '<input type="hidden" name="discountid" id="discountid" value="'.$social_service_details['discountid'].'" />');
+$smarty->assign('discount', '<input type="hidden" name="discount" id="discount" value="'.$social_service_details['discount'].'" />');
+$smarty->assign('transaction_type', '<input type="hidden" name="transaction_type" id="transaction_type" value="'.$basic_info['is_cash'].'" />');
+
+
+/** End **/
+
+if (isset($_POST['submitted'])) {
+  
+ 
+ $data = array('refno' => $refno,
+               'or_main_refno' => $_POST['or_main_refno'],
+               'post_time_started' => date('H:i', strtotime($_POST['post_time_started'].' '.$_POST['pts_meridian'])),
+               'post_time_finished' => date('H:i', strtotime($_POST['post_time_finished'].' '.$_POST['ptf_meridian'])),
+               'post_operative_diagnosis' => $_POST['post_operative_diagnosis'],
+               'surgeon' => $_POST['surgeon'],
+               'surgeon_assist' =>  $_POST['surgeon_assist'],
+               'anesthesiologist' => $_POST['anesthesiologist'],
+               'nurse_scrub' => $_POST['nurse_scrub'],
+               'nurse_rotating' => $_POST['nurse_rotating'],
+               'rvu' => $_POST['rvu'],
+               'ops_code' => $_POST['ops_code'],
+               'multiplier' => $_POST['multiplier'],
+               'ops_charge' => $_POST['ops_charge'],
+               'time_begun' => $_POST['time_begun'],
+               'time_ended' => $_POST['time_ended'],
+               'tb_meridian' => $_POST['tb_meridian'],
+               'te_meridian' => $_POST['te_meridian'],
+               'anesthetics' => $_POST['anesthetics'],
+               'anesthesia_procedure' => $_POST['anesthesia_procedure']
+              );
+ if ($seg_ops->update_post_operative($data)) {
+     
+     $smarty->assign('sysInfoMessage','OR Main post operative details successfully updated.');   
+ }
+ echo 'Mode ' .$mode . ' Pharma refno ' .$_POST['pharma_refno']; 
+ $seg_order = new SegOrder('pharma');
+ $order_count = count($_POST['items']);
+ if ($order_count > 0) {
+ extract(calculate_total_pharma_order());
+ $order_refno = ($mode == 'new' || $_POST['pharma_refno'] == 0) ? $seg_order->getLastNr(date("Y-m-d")) : $pharma_refno; 
+ $order_data = array(
+            'refno' => $order_refno,
+            'encounter_nr' => $basic_info['encounter_nr'],
+            'pharma_area' => 'OR',
+            'pid' => $basic_info['pid'],
+            'ordername' => $person_name,
+            'orderaddress' => $person_address,
+            'orderdate' => date('Y-m-d H:i'),
+            'is_cash' => $basic_info['is_cash'],
+            'amount_due' => $total,
+            'is_tpl'=> 1, //temp
+            'discount' => $_POST['discount'],
+            'discountid' => $_POST['discountid'],
+            'is_urgent' =>0, //temp
+            'comments' =>'', //temp
+            'history' => "Create ".date('Y-m-d H:i:s')." ".$HTTP_SESSION_VARS['sess_temp_userid']."\n",
+            'create_id' =>$_SESSION['sess_temp_userid'],
+            'modify_id' =>$_SESSION['sess_temp_userid'],
+            'modify_time' =>date('YmdHis'),
+            'create_time'=>date('YmdHis')
+            );
+  
+  $seg_order->setDataArray($order_data);
+  if ($mode == 'new' || $_POST['pharma_refno'] == 0) {
+    $saveok = $seg_order->insertDataFromInternalArray(); 
+  }
+  elseif ($mode == 'edit' || $_POST['pharma_refno'] != 0) {
+      echo 'i was called3';
+    $pharma_refno = $_POST['pharma_refno'];
+    $seg_order->where = "refno=".$db->qstr($pharma_refno);
+    $saveok = $seg_order->updateDataFromInternalArray($pharma_refno,FALSE);
+  }
+ 
+  if ($saveok) {
+    echo 'i was called2';
+    $order_refno = ($mode == 'new' || $_POST['pharma_refno'] == 0) ? $order_data['refno'] : $pharma_refno;
+    echo $order_refno;
+    $seg_order->clearOrderList($order_refno);
+    $seg_order->addOrders($order_refno, $bulk);
+            
+    $bulk = array();
+    if ($_POST['issc']) $bulk[] = 'SC';
+  
+    foreach ($_POST["discount"] as $i=>$v) {
+      if ($v) $bulk[] = array($v);
+    }
+    
+    $seg_order->clearDiscounts($order_refno);
+    if ($bulk) $seg_order->addDiscounts($order_refno, $bulk);
+    
+    if ($mode == 'new' || $_POST['pharma_refno'] == 0) {
+     echo 'i was called' . $order_data['refno'];                      
+    $seg_ops->insert_care_encounter_pharma_order($order_data['refno'], $refno);
+    }
+ }
+ }
+ 
+ $equipment_count = count($_POST['equipments']);
+ 
+ if ($equipment_count > 0) {
+ if ($_POST['discount'] == '' || !isset($_POST['discount'])) {
+   $discount = 0;
+ }
+ 
+ $equipment_array = array('request_refno' => $refno,
+                          'area' => 'OR',
+                          'order_date' => date('Y-m-d H:i'),
+                          'pid' => $basic_info['pid'],
+                          'encounter_nr' => $basic_info['encounter_nr'],
+                          'patient_name' => $person_name,
+                          'patient_address' => $person_address,
+                          'discountid' => $_POST['discountid'],
+                          'discount' => $discount,
+                          'is_cash' => $basic_info['is_cash'],
+                          'is_sc' => $is_sc,
+                          'number_of_usage' => $_POST['number_of_usage'],
+                          'equipments' => $_POST['equipments'],
+                          'original_price' => $_POST['original_price'],
+                          'adjusted_price' => $_POST['adjusted_price'],
+                          'account_total' => $_POST['account_total']
+                         );
+ 
+ $seg_equipment = new SegEquipmentOrder($equipment_array);
+ if ($seg_equipment->validate()) {
+   if ($seg_equipment->calculate_total_orders()) {
+     if ($mode == 'new' || $_POST['equipment_refno'] == 0) {
+       if ($equipment_refno = $seg_equipment->add_order()) {
+         $seg_equipment->add_order_item_by_bulk($equipment_refno);
+       }
+     }
+     if ($mode == 'edit' && $_POST['equipment_refno'] != 0) {
+       $equipment_refno = $_POST['equipment_refno'];
+       if ($seg_equipment->calculate_total_orders()) {
+         if ($seg_equipment->update_order($equipment_refno)) {
+           if ($seg_equipment->delete_order_item($equipment_refno))
+             $seg_equipment->add_order_item_by_bulk($equipment_refno);
+         }
+       }
+     }
+   }
+ }
+ }
+  
+ $mode = 'edit'; 
+}
+
+if ($mode == 'edit') {
+  $pharma = $seg_ops->get_seg_pharma_or_main($refno);
+  if ($pharma) {
+    $pharma_refno = $pharma['pharma_refno'];
+  }
+  else {
+    $pharma_refno = 0;
+  }
+}
+else {
+  $pharma_refno = 0;
+}
+
+
+$equipment = new SegEquipmentOrder();
+$equipment_refno = $equipment->get_equipment_refno($refno);
+
+
+$smarty->assign('equipment_refno', '<input type="hidden" name="equipment_refno" value="'.$equipment_refno.'" />');
+$smarty->assign('pharma_refno', '<input type="hidden" name="pharma_refno" value="'.$pharma_refno.'" />');
+$smarty->assign('mode', '<input type="hidden" name="mode" value="'.$mode.'" />');
+
+$smarty->assign('sMainBlockIncludeFile','or/or_main_post.tpl'); //Assign the or_main template to the frameset
+$smarty->display('common/mainframe.tpl'); //Display the contents of the frame   
+
+function calculate_total_pharma_order() {
+  $bulk = array();
+  $orig = ($basic_info['is_cash'] == 1) ? $_POST['pcash'] :  $_POST['pcharge'];
+  $total = 0;
+  foreach ($_POST["items"] as $i=>$v) {
+    $consigned = in_array($v, $_POST['consigned']) ? '1' : '0';
+    $bulk[] = array($_POST["items"][$i],$_POST["qty"][$i],
+    parseFloatEx($_POST["prc"][$i]),
+    parseFloatEx($_POST["prc"][$i]), 
+    $consigned, $orig[$i]);
+    $total += (parseFloatEx($_POST["prc"][$i]) * (float) $_POST["qty"][$i]);
+  }
+  return array('total' => $total, 'bulk' => $bulk);
+}
+
+
+
+
+function setup_calendar($display_area, $input_field, $button) {
+  global $root_path;
+  $calendar_script = 
+    '<script type="text/javascript">
+       Calendar.setup ({
+         displayArea : "'.$display_area.'",
+         inputField : "'.$input_field.'", 
+         ifFormat : "%Y-%m-%d %H:%M", 
+         daFormat : "%B %e, %Y %I:%M%P", 
+         showsTime : true, 
+         button : "'.$button.'", 
+         singleClick : true, 
+         step : 1
+       });
+      </script>';
+  return $calendar_script;
+}
+?>
+<script>
+function openOrderTray() {
+        overlib(
+            OLiframeContent('<?=$root_path?>modules/or/request/seg-order-tray.php', 660, 360, 'fOrderTray', 0, 'no'),
+            WIDTH,600, TEXTPADDING,0, BORDER,0, 
+            STICKY, SCROLL, CLOSECLICK, MODAL,
+            CLOSETEXT, '<img src=<?=$root_path?>images/close_red.gif border=0 >',
+            CAPTIONPADDING,2, 
+            CAPTION,'Add product from Order tray',
+            MIDX,0, MIDY,0, 
+            STATUS,'Add product from Order tray');
+        return false
+}
+
+function toggle_details() {
+  J('#request_details').slideToggle('100');
+}
+J().ready(function() {
+  J('#or_main_anesthesia')
+    .jqDrag('.jqDrag')
+    .jqResize('.jqResize');
+  J('#or_main_equipment')
+    .jqDrag('.jqDrag')
+    .jqResize('.jqResize');
+ 
+});
+
+J('#or_main_anesthesia').jqm({
+overlay: 80,
+onShow: function(h) {
+  h.w.fadeIn(1000, function(){h.o.show();}); 
+},
+onHide: function(h){
+  h.w.fadeOut(1000, function(){h.o.remove();});
+}});
+
+J('#or_main_equipment').jqm({
+overlay: 80,
+onShow: function(h) {
+  h.w.fadeIn(1000, function(){h.o.show();}); 
+},
+onHide: function(h){
+  h.w.fadeOut(1000, function(){h.o.remove();});
+}});  
+
+function show_popup() {
+  J('#or_main_anesthesia').jqmShow();
+  J('#or_anesthesia_table').flexigrid({
+  url: '<?=$root_path?>modules/anesthesia/ajax_anesthesia.php?table=anesthesia_procedure_list',
+  dataType: 'json',
+  colModel : [
+            {display: 'Anesthesia', name : 'name', width : 180, sortable : true, align: 'left'},
+            {display: 'Select', name:'select', width: 140, sortable: false, align: 'left'}
+            ],
+  sortname: ["nr"],
+  sortorder: 'desc',
+  useRp: true,
+  rp: 5,
+  resizable: true,
+  domain: ['or_main_anesthesia']
+});
+}
+
+function show_popup_equipment() {
+  J('#or_main_equipment').jqmShow();
+  J('#or_equipment_table').flexigrid({
+  url: '<?=$root_path?>modules/or/ajax/ajax_equipment.php?table=equipment_list',
+  dataType: 'json',
+  colModel : [
+            {display: 'Equipment', name : 'name', width : 90, sortable : true, align: 'left'},
+            {display: 'Equipment Description', name : 'name', width : 180, sortable : true, align: 'left'},
+            {display: 'Unit', name : 'name', width : 30, sortable : true, align: 'left'},
+            {display: 'Cash', name : 'name', width : 50, sortable : true, align: 'left'},
+            {display: 'Charge', name : 'name', width : 50, sortable : true, align: 'left'},
+            {display: 'Is Socialized', name : 'name', width : 20, sortable : true, align: 'left'},
+            {display: 'Select', name:'select', width: 100, sortable: false, align: 'left'}
+            ],
+  sortname: ["equipment_name"],
+  sortorder: 'desc',
+  useRp: true,
+  rp: 5,
+  resizable: true,
+  domain: ['or_main_equipment']
+}); 
+}
+
+
+function populate_anesthesia_fields(details, iterator) {
+  var anesthetics = document.getElementsByName('anesthetics[]'); //or J("input[@name='anesthetics[]']") wud work but it's kinda overkill for this purpose 
+  var time_begun = document.getElementsByName('time_begun[]');
+  var time_ended = document.getElementsByName('time_ended[]');
+  var tb_meridian = document.getElementsByName('tb_meridian[]');
+  var te_meridian = document.getElementsByName('te_meridian[]');
+
+  anesthetics[iterator].value = details.anesthetics;
+  time_begun[iterator].value = details.time_begun;
+  time_ended[iterator].value = details.time_ended;
+  
+  for(var i=0; i<tb_meridian[iterator].length; i++) {
+    if (details.tb_meridian == tb_meridian[iterator].options[i].value) {
+	  tb_meridian[iterator].options[i].selected = true;
+	}
+  }
+  for(var i=0; i<te_meridian[iterator].length; i++) {
+    if (details.te_meridian == te_meridian[iterator].options[i].value) {
+	  te_meridian[iterator].options[i].selected = true;
+	}
+  }
+  
+}  
+
+function add_or_main_anesthesia(table, id, name) {
+
+if ($('anesthesia_procedure_hidden'+id)) {
+  alert('Existing');
+}
+else {
+var table1 = $(table).getElementsByTagName('tbody').item(0);
+if ($('empty_anesthesia_procedure_row')) {
+  table1.removeChild($('empty_anesthesia_procedure_row'));   
+}
+var row = document.createElement("tr");
+
+var array_elements = [{type: 'img', src: '../../../images/btn_delitem.gif'},
+                      {type: 'td_text', name: name},
+                      {type: 'input', name: 'anesthetics[]', text_value: ''},
+                      {type: 'input', name: 'time_begun[]', is_time: true, meridian: 'tb_meridian[]'},
+                      {type: 'input', name: 'time_ended[]', is_time: true, meridian: 'te_meridian[]'}];
+for (var i=0; i<array_elements.length; i++) {
+  var cell = document.createElement("td");
+  if (array_elements[i].type == 'td_text')
+    cell.appendChild(document.createTextNode(array_elements[i].name));
+  if(array_elements[i].type == 'input')  {
+    element = document.createElement(array_elements[i].type) 
+    cell.appendChild(element);
+    element.name = array_elements[i].name;
+    element.type = "text";
+    if (array_elements[i].text_value) {
+      element.value = array_elements[i].text_value;
+    }
+    
+  }
+  if (array_elements[i].type == 'img') {
+    img = document.createElement("img");
+    cell.appendChild(img);
+    img.src = array_elements[i].src;
+    img.style.cursor = "pointer";
+    img.addEventListener("click", function() {remove_anesthesia_procedure(table, id)}, false);
+  }
+                                               
+  if (array_elements[i].is_time) {
+    element = document.createElement("select");
+    element.name = array_elements[i].meridian;
+    cell.appendChild(element);
+    var options = ['AM', 'PM'];
+    for (var j=0; j<options.length; j++) {
+      var option = document.createElement("option");
+      option.text = options[j];
+      option.value = options[j];
+      element.options[j] = option;
+    }
+    
+  }
+  cell.align = "center";
+  row.appendChild(cell);
+}
+row.id = 'anesthesia_procedure'+id;
+$(table).getElementsByTagName('tbody').item(0).appendChild(row);
+
+var hidden_array = document.createElement('input');
+hidden_array.name = "anesthesia_procedure[]";
+hidden_array.type = "hidden";
+hidden_array.value = id;
+hidden_array.id = "anesthesia_procedure_hidden"+id;
+document.forms[0].appendChild(hidden_array);
+}
+}
+
+function remove_anesthesia_procedure(table, id) {
+  var table1 = $(table).getElementsByTagName('tbody').item(0);
+  table1.removeChild($('anesthesia_procedure'+id));
+  document.forms[0].removeChild($('anesthesia_procedure_hidden'+id));
+}
+
+function validate() {
+ var errors = new Array();
+ var errors_field = new Array();
+ 
+   
+  var array_elements = [ {field: J("input[@name='post_time_started']"), 
+                         field_value: J("input[@name='post_time_started']").val() + ' ' + J("select[@name='pts_meridian']").val(), 
+                         msg: 'Please enter a valid time',
+                         msg_dest: J('#error_form_input', J('#time_started_msg')),
+                         is_textfield: true,
+                         type: 'time',
+                         },
+                         {field: J("input[@name='post_time_finished']"), 
+                         field_value: J("input[@name='post_time_finished']").val() + ' ' + J("select[@name='ptf_meridian']").val(), 
+                         msg: 'Please enter a valid time',
+                         msg_dest: J('#error_form_input', J('#time_finished_msg')),
+                         is_textfield: true,
+                         type: 'time',
+                         },
+                         {field: J("textarea[@name='post_operative_diagnosis']"), 
+                         field_value: J("textarea[@name='post_operative_diagnosis']").val(), 
+                         msg: 'Please enter a post operative diagnosis',
+                         msg_dest: J('#error_form_input', J('#post_op_msg')),
+                         is_textfield: true
+                         },
+                         ];
+  
+  for (var i=0; i<array_elements.length; i++) {
+    if (array_elements[i].field_value == '' || !array_elements[i].field_value
+       || (array_elements[i].type == 'time' && !is_valid_time(array_elements[i].field_value))) {
+      array_elements[i].msg_dest.html(array_elements[i].msg);
+      errors_field.push(array_elements[i].field);
+      if (array_elements[i].is_textfield) {
+        array_elements[i].field.addClass('error_field');
+      }
+    }
+    else {
+      array_elements[i].msg_dest.html('');
+      array_elements[i].field.removeClass('error_field');
+    }
+  }
+  if (errors_field.length > 0) {
+    errors_field[0].focus();
+    return false;
+  }
+                                
+ var surgeon_id = document.getElementsByName('surgeon[]');
+ var anesthesiologist_id = document.getElementsByName('anesthesiologist[]');
+ var anesthesia_procedure = document.getElementsByName('anesthesia_procedure[]');
+ var icpm = document.getElementsByName('ops_code[]');
+ var order_items = document
+ 
+ if (surgeon_id.length == 0) {
+   errors.push('Please add a surgeon for this operation.')
+ }
+ if (anesthesiologist_id.length == 0) {
+   errors.push('Please add an anesthesiologist for this operation');
+ }
+ if (anesthesia_procedure.length == 0) {
+   errors.push('Please add an anesthesia procedure');
+ }
+ if (icpm.length == 0) {
+   errors.push('Please add an ICPM');
+ }
+
+ var time_begun = document.getElementsByName('time_begun[]');
+ var time_ended = document.getElementsByName('time_ended[]');
+ var tb_meridian = document.getElementsByName('tb_meridian[]');
+ var te_meridian = document.getElementsByName('te_meridian[]');
+ var anesthetics = document.getElementsByName('anesthetics[]');
+ var is_error_time_flag = false;
+ var is_error_anesthetics = false;
+   
+ for (var i=0; i<anesthesia_procedure.length; i++) {
+   if (!is_valid_time(time_begun[i].value + ' ' + tb_meridian[i].value)) {
+      is_error_time_flag = true;
+   }
+   if (!is_valid_time(time_ended[i].value + ' ' + te_meridian[i].value)) {
+     is_error_time_flag = true;
+   }
+   if (anesthetics[i] == '') {
+     is_error_anesthetics = true;
+   }
+ }
+ 
+ if (is_error_time_flag) {
+   errors.push('Invalid time');
+ }
+ if (is_error_anesthetics) {
+   errors.push('One of the anesthetics is empty');
+ }
+   
+ if (errors.length > 0) {
+   for (var i=0; i<errors.length; i++) {
+      alert(errors[i]);
+ }
+    return false;
+  }
+  else {
+    return true;
+  }
+  
+}
+
+function is_valid_time(time_string) {
+
+  var timePat = /^(\d{1,2}):(\d{2})(:(\d{2}))?(\s?(AM|am|PM|pm))?$/;
+
+  var matchArray = time_string.match(timePat);
+  if (matchArray == null) {
+    /*alert("Time is not in a valid format.");*/
+    return false;
+  }
+  hour = matchArray[1];
+  minute = matchArray[2];
+  second = matchArray[4];
+  ampm = matchArray[6];
+
+  if (second=="") { second = null; }
+  if (ampm=="") { ampm = null }
+
+  if (hour < 1  || hour > 12) {
+    /*alert("Hour must be between 1 and 12.");*/
+    return false;
+  }
+  if (minute<0 || minute > 59) {
+    /*alert ("Minute must be between 0 and 59.");*/
+    return false;
+  }
+  if (second != null && (second < 0 || second > 59)) {
+    /*alert ("Second must be between 0 and 59.");*/
+    return false;
+  }
+  return true;
+}
+
+function append_empty_anesthesia() {
+
+  var table1 = $('anesthesia_procedure_list').getElementsByTagName('tbody').item(0);
+  var row = document.createElement("tr");
+  var cell = document.createElement("td");
+  row.id = "empty_anesthesia_procedure_row";
+  cell.appendChild(document.createTextNode('Anesthesia procedure is currently empty..'));
+       
+  cell.colSpan = "5"; 
+  row.appendChild(cell);
+  $('anesthesia_procedure_list').getElementsByTagName('tbody').item(0).appendChild(row);
+}
+
+xajax_populatePersonnel(<?=$refno? $refno:0?>,7,'surgeon_list','surgeon[]');
+xajax_populatePersonnel(<?=$refno? $refno:0?>,8,'assistant_surgeon_list','surgeon_assist[]');
+xajax_populatePersonnel(<?=$refno? $refno:0?>,12,'anesthesiologist_list','anesthesiologist[]');
+xajax_populatePersonnel(<?=$refno? $refno:0?>,9,'scrub_nurse_list','nurse_scrub[]');
+xajax_populatePersonnel(<?=$refno? $refno:0?>,10,'circulating_nurse_list','nurse_rotating[]');
+xajax_populateOpsCodeListByRefNo(<?=$refno? $refno:0?>);   
+xajax_populate_or_main_anesthesia(<?=$or_main_info['or_main_refno']?>);
+
+xajax_populate_order(<?=$pharma_refno?>, J('discountid').value);  
+
+ 
+xajax_populate_equipment_order(<?=$equipment_refno?>, 'equipment_list');
+
+document.body.onLoad = refreshDiscountSupplies(); 
+document.body.onLoad = update_total();
+</script>

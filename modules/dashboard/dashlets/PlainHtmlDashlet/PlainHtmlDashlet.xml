@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dashlet>
+	<className>PlainHtmlDashlet</className>
+	<name>HTML Pad</name>
+	<shortDesc>Displays any HTML on your dashboard</shortDesc>
+	<longDesc></longDesc>
+	<icon>html.png</icon>
+	<category>Miscellaneous</category>
+	<supports>
+		<contentType>text/html</contentType>
+		<mode>edit</mode>
+		<mode>help</mode>
+	</supports>
+	<keywords>html,</keywords>
+	<preference>
+		<name>contentHeight</name>
+		<value>auto</value>
+	</preference>
+</dashlet>

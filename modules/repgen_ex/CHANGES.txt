@@ -1,0 +1,33 @@
+Changes:
+========
+28.11.2002 Version 0.44 alpha
+         - implemented wordrap for DB-fields
+         - changed output of pdf-file from in-memory to file in the directory 'tmp'
+           because of errors with some reports in IE5.
+         - the total number of records in a group or in the report can be reported
+         - group totals or overall total for numeric fields implemented
+3.6.2002  Version 0.41 alpha corrected some bugs
+10.5.2002 Version 0.4 alpha:
+	- Landscape did not work - corrected
+7.2.2002 Version 0.2 alpha:
+	- Drivers for Mysql,ODBC and Postgresql, untested drivers for other Databases added
+        - New PDF Classes. Despite 'pdflib' I used the classes 'class.pdf.php' and 'class.ezpdf.php' for the 
+	  creation of the pdf-file. 
+	- The internal format of the items has changed
+	- It is now possible, to declare Blocks of items and to use them in an report
+	- It is now possible, to declare own functions(with the danger for the security of the system).
+	- The coordinate system of a page has been altered. For every Mode(Page Header, Group Header, Detail,Group Foot,
+		Page foot) the coordinate system begins with 0/0 in the left lower corner. This change creates the need,
+		to change all Y-Coordinates of Items of the elder reports.
+	- A new item 'Textarea' is added. It is used like a Term, but with wrapping the returned string with a given width
+		of the item.
+	- In a Term-item you can use a parameter 'Database' and/or 'this'. 
+	- Changes to the pdf-classes: 	- new paperformat a3 and a5
+					- no compression(because gzcompress is not available on all PHP-systems)
+					- no local font files 'php_*.afm' written (error on some PHP-systems).
+		The last two points can be easy made available, if you comment out the lines in 'class.pdf.php'. This
+		will bring a better performance.
+
+         
+
+Bauer		

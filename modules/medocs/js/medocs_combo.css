@@ -1,0 +1,44 @@
+	.suggestionsBox {
+		position: relative;
+		/*left: 30px;*/
+		left: 5%;
+		/*margin: 10px 0px 0px 0px;*/
+		/*width: 150px; */
+		background-color:#FFFFFF;
+		/*background-color: #212427;*/
+		/*-moz-border-radius: 7px;
+		-webkit-border-radius: 7px;*/
+		border: 1px solid #000; 
+		/*width:145px; */
+		width:24%;
+		/*height:148px; */
+		/*
+		overflow-y:scroll;*/
+		/*overflow-x:hidden;*/
+		/*overflow-x:scroll;*/
+		
+		/*color: #fff;*/
+	}
+	
+	.suggestionList {
+		/*margin: 0px;
+		padding: 0px;*/
+		margin: 0%;
+		padding: 0%;
+		width:100%;
+	}
+	
+	.suggestionList li {
+		/*
+		margin: 0px 0px 3px 0px;
+		padding: 3px;
+		*/
+		margin: 0% 0% 3% 0%;
+		padding: 3%;
+		cursor: pointer;
+		list-style-type: none;
+	}
+	
+	.suggestionList li:hover {
+		background-color: #659CD8;
+	}

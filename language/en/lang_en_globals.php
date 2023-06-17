@@ -1,0 +1,3 @@
+<?php
+	$LDEncounterNr='Case No.';
+?>

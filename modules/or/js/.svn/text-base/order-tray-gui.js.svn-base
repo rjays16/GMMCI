@@ -1,0 +1,258 @@
+var currentPage=0, lastPage=0;
+var FIRST_PAGE=1, PREV_PAGE=2, NEXT_PAGE=3, LAST_PAGE=4, SET_PAGE=0;
+
+function display(str) {
+	if($('ajax_display')) $('ajax_display').innerHTML = str.replace('\n','<br>');
+}
+
+function formatNumber(num,dec) {
+	var nf = new NumberFormat(num);
+	if (isNaN(dec)) dec = nf.NO_ROUNDING;
+	nf.setPlaces(dec);
+	return nf.toFormatted();
+}
+
+function parseFloatEx(x) {
+   if (x) {
+	var str = x.toString().replace(/\,|\s/,'')
+	return parseFloat(str)
+   }
+   //Added by Omick, December 15, 2008
+   //This function should return something if the condition wasn't met
+   else {
+     return x;
+   }
+}
+
+function setPagination(pageno, lastpage, pagen, total) {
+	currentPage=parseInt(pageno);
+	lastPage=parseInt(lastpage);	
+	firstRec = (parseInt(pageno)*pagen)+1;
+	if (currentPage==lastPage)
+		lastRec = total;
+	else
+		lastRec = (parseInt(pageno)+1)*pagen;
+	if (parseInt(total))
+		$("pageShow").innerHTML = '<span>Showing '+(formatNumber(firstRec))+'-'+(formatNumber(lastRec))+' out of '+(formatNumber(parseInt(total)))+' record(s)</span>'
+	else
+		$("pageShow").innerHTML = ''
+	$("pageFirst").className = (currentPage>0 && lastPage>0) ? "segSimulatedLink" : "segDisabledLink";
+	$("pagePrev").className = (currentPage>0 && lastPage>0) ? "segSimulatedLink" : "segDisabledLink";
+	$("pageNext").className = (currentPage<lastPage) ? "segSimulatedLink" : "segDisabledLink";
+	$("pageLast").className = (currentPage<lastPage) ? "segSimulatedLink" : "segDisabledLink";
+}
+
+function jumpToPage(el, jumpType, set) {
+	if (el.className=="segDisabledLink") return false;
+	if (lastPage==0) return false;
+	switch(jumpType) {
+		case FIRST_PAGE:
+			if (currentPage==0) return false;
+			startAJAXSearch('search',0);
+		break;
+		case PREV_PAGE:
+			if (currentPage==0) return false;
+			startAJAXSearch('search',currentPage-1);
+		break;
+		case NEXT_PAGE:
+			if (currentPage >= lastPage) return false;
+			startAJAXSearch('search',parseInt(currentPage)+1);
+		break;
+		case LAST_PAGE:
+			if (currentPage >= lastPage) return false;
+			startAJAXSearch('search',lastPage);
+		break;
+	}
+}
+
+function prepareAdd(id) {
+	var details = new Object();
+	
+    
+	var cash = parseFloatEx($('cash'+id).value),
+			charge = parseFloatEx($('charge'+id).value),
+			qty=0;
+	
+	if ( isNaN(cash) || (cash < 0) || isNaN(charge) || (charge < 0) ) {
+		alert("Price not set. Cannot add the product to the order yet...")
+		return false
+	} 
+	//alert($('chargesc'+id).value);
+	details.id = $('id'+id).innerHTML
+	details.name = $('name'+id).innerHTML
+	details.desc = $('desc'+id).innerHTML
+	details.prcCash = parseFloatEx($('cash'+id).value)
+	details.prcCharge= parseFloatEx($('charge'+id).value)
+	details.prcCashSC= parseFloatEx($('cashsc'+id).value)
+	details.prcChargeSC= parseFloatEx($('chargesc'+id).value)
+	details.isSocialized= $('soc'+id).value
+	details.prcDiscounted= parseFloatEx($('d'+id).value)
+      qty = 0; 
+	if ($('noqty'+id).value != '1') {
+		while (qty) {
+		}
+		while (isNaN(parseFloat(qty)) || parseFloat(qty)<=0) {
+			qty = prompt("Enter quantity:")
+			if (qty === null) return false;
+		}
+	}	
+	details.qty = qty;
+
+	var list = window.parent.document.getElementById('supplies-list')
+                           
+	result = window.parent.appendOrderSupplies(list,details)
+	if (result) 
+		alert('Item added to order list...');
+	else
+		alert('Failed to add item...');
+	if (window.parent && window.parent.refreshDiscountSupplies) window.parent.refreshDiscountSupplies();
+}
+
+function clearList(listID) {
+	// Search for the source row table element
+	var list=$(listID),dRows, dBody;
+	if (list) {
+		dBody=list.getElementsByTagName("tbody")[0];
+		if (dBody) {
+			dBody.innerHTML = "";
+			return true;	// success
+		}
+		else return false;	// fail
+	}
+	else return false;	// fail
+}
+
+function addProductToList(listID, details ) {
+	// ,id, name, desc, cash, charge, cashsc, chargesc, d, soc
+	var list=$(listID), dRows, dBody, rowSrc;
+	var i;
+	if (list) {
+		dBody=list.getElementsByTagName("tbody")[0];
+		dRows=dBody.getElementsByTagName("tr");
+
+		// get the last row id and extract the current row no.
+			
+		if (typeof(details)=="object") {
+			var id = details.id,
+				name = details.name,
+				desc = details.desc,
+				cash = details.cash,
+				charge = details.charge,
+				cashsc = details.cashsc,
+				chargesc = details.chargesc,
+				d = details.d,
+				soc = details.soc,
+				noqty = details.noqty;
+				
+			var cashHTML, chargeHTML;
+			var cashSeniorHTML, chargeSeniorHTML;
+			
+			if (d>=0)
+			
+			rowSrc = "<tr>"+
+									'<td>'+
+										'<span id="name'+id+'" style="font:bold 12px Arial;color:#000066">'+name+'</span><br />'+
+										'<div style=""><div id="desc'+id+'" style="font:normal 11px Arial; color:#404040">'+desc+'</div></div>'+
+									'</td>'+
+									'<td align="center">'+
+										'<input id="soc'+id+'" type="hidden" value="'+soc+'"/>'+
+										'<span id="id'+id+'" style="font:bold 11px Arial;color:#660000">'+id+'</span></td>'+
+									'<td align="right" '+(cash<=0 ? '' : '')+'>'+
+										'<input id="noqty'+id+'" type="hidden" value="'+(noqty ? '1' : '0')+'"/>'+
+										'<input id="d'+id+'" type="hidden" value="'+d+'"/>'+
+										'<input id="cash'+id+'" type="hidden" value="'+cash+'"/>'+
+											(d!=cash ? '<span style="color:#008000">' : '')+
+											(d>0 ? 
+											 	formatNumber(d,2) : formatNumber(cash,2))+
+											(d!=cash ? '</span>' : '')+
+										'</td>'+
+									'<td align="right">'+
+										'<input id="charge'+id+'" type="hidden" value="'+charge+'"/>'+(charge>0 ? formatNumber(charge,2) : '-')+'</td>'+
+									'<td align="right">'+
+										'<input id="cashsc'+id+'" type="hidden" value="'+cashsc+'"/>'+(cashsc>0 ? formatNumber(cashsc,2) : '-')+'</td>'+
+									'<td align="right">'+
+										'<input id="chargesc'+id+'" type="hidden" value="'+chargesc+'"/>'+(chargesc>0 ? formatNumber(chargesc,2) : '-')+
+									'</td>'+
+/*									'<td align="center">'+
+										'<input class="jedInput" id="qty'+id+'" type="text" style="text-align:right;width:30px" value="" '+(noqty ? 'disabled="disabled"' : '')+' style="text-align:right" onblur="this.value = isNaN(parseFloatEx(this.value))?\'\':parseFloatEx(this.value)"/>'+
+									'</td>'+ */
+									'<td>'+
+										'<input type="button" value=">" style="color:#000066; font-weight:bold; padding:0px 2px" '+
+											'onclick="prepareAdd(\''+id+'\')" '+
+										'/>'+
+									'</td>'+
+								'</tr>';
+		}
+		else {
+			rowSrc = '<tr><td colspan="8" style="">No such product exists...</td></tr>';
+		}
+        
+		dBody.innerHTML += rowSrc;
+	}
+}
+
+function appendOrderSupplies(list, details, disabled) {
+
+    if (!list) list = $('supplies-list')
+    if (list) {
+        var dBody=list.getElementsByTagName("tbody")[0]
+        if (dBody) {
+            var totalCash, totalCharge
+            var src
+            var lastRowNum = null,
+                    items = document.getElementsByName('items[]')
+                    dRows = dBody.getElementsByTagName("tr")
+            if (details) {
+                var id = details.id,
+                    date=details.date,
+                    name=details.name,
+                    items=details.items,
+                    priority=details.priority
+                if (items) {
+                    if ($('rowID'+id)) {
+                        var itemRow = $('row'+id),
+                                itemQty = $('rowQty'+id)
+                        itemQty.value = parseFloat(itemQty.value) + parseFloat(details.qty)
+                        qty = parseFloat(itemQty.value)
+                        tot = netPrice*qty
+                        $('rowPrcCashSC'+id).value        = prcCashSC
+                        $('rowPrcChargeSC'+id).value    = prcChargeSC
+                        $('rowPrcCash'+id).value            = details.prcCash
+                        $('rowPrcCharge'+id).value        = details.prcCharge
+                        $('rowPrc'+id).setAttribute("prevValue",orig)
+                        $('qty'+id).innerHTML                 = isNaN(qty) ? '-&nbsp;&nbsp;' : 'x'+formatNumber(qty,null)
+                        $('rowPrc'+id).value                     = isNaN(netPrice) ? '-&nbsp;&nbsp;' : formatNumber(netPrice,2)
+                        $('tot'+id).innerHTML                 = isNaN(tot) ? '-&nbsp;&nbsp;' : formatNumber(tot,2)
+                        return true
+                    }
+                }
+
+                if (items.length == 0) clearOrder(list)
+                alt = (dRows.length%2)+1
+
+                src = 
+                    '<tr class="wardlistrow'+alt+'" id="row'+id+'">'+
+                        '<input type="hidden" name="items[]" value="'+id+'" />'+
+                        '<td><a href="#">'+date+'</a></td>'+
+                        '<td>'+id+'</td>'+
+                        '<td>'+name+'</td>'+
+                        '<td><span style="color:#660000">'+items+'</span></td>'+
+                        '<td><span style="color:#000066">'+priority+'</span></td>'+
+                        '<td class="centerAlign">'+tot+'</td>'+
+                        '<td align="right">'+
+                            '<a title="Edit" href="apotheke-pass.php'+URL_FORWARD+'&mode=orderedit&ref='+id+'"><img class="segSimulatedLink" src="../../images/cashier_edit.gif" border="0" align="absmiddle" /></a>'+
+                            '<a title="Delete" href="#"><img class="segSimulatedLink" src="../../images/cashier_delete.gif" border="0" align="absmiddle" /></a>'+
+                        '</td>'+
+                    '</tr>';
+                trayItems++;
+            }
+            else {
+                src = "<tr><td colspan=\"8\">Order list is currently empty...</td></tr>";    
+            }
+            dBody.innerHTML += src;
+            return true;
+        }
+    }
+    return false;
+}
+
