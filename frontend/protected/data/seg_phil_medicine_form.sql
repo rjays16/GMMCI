@@ -1,0 +1,1340 @@
+CREATE TABLE `gmmci041518`.`seg_phil_medicine_form`(
+  `form_code` VARCHAR(20) NOT NULL DEFAULT '',
+  `form_desc` TEXT,
+  `date_added` DATE,
+  PRIMARY KEY (`gen_code`)
+);
+
+INSERT INTO `gmmci041518`.`seg_phil_medicine_form` (
+  `form_code`,
+  `form_desc`,
+  `date_added`
+)
+VALUES
+  ('AERO1', 'AEROSOL POWDER', NULL),
+  ('AERO2', 'AEROSOL SPRAY', NULL),
+  ('AERO3', 'AEROSOL', NULL),
+  ('AEROS', 'AEROSOL METERED', NULL),
+  (
+    'BAM01',
+    'BREATH ACTUATED MDI',
+    NULL
+  ),
+  ('BARCH', 'BAR CHEWABLE', NULL),
+  (
+    'BEAD1',
+    'BEAD IMPLANT SUSTAINED RELEASE',
+    NULL
+  ),
+  ('BEAD2', 'BEAD', NULL),
+  (
+    'BEADI',
+    'BEAD IMPLANT EXTENDED RELEASE',
+    NULL
+  ),
+  ('BLOCK', 'BLOCK', NULL),
+  ('BREAD', 'BREADSTICK', NULL),
+  ('BULKX', 'BULK', NULL),
+  ('CAP10', 'CAPSULE COATED', NULL),
+  (
+    'CAP11',
+    'CAPSULE COATED PELLETS',
+    NULL
+  ),
+  (
+    'CAP12',
+    'CAPSULE DELAYED ACTION COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP13',
+    'CAPSULE DELAYED ACTION COATED',
+    NULL
+  ),
+  (
+    'CAP14',
+    'CAPSULE DELAYED ACTION ENTERIC COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP15',
+    'CAPSULE DELAYED ACTION ENTERIC COATED SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAP16',
+    'CAPSULE DELAYED ACTION ENTERIC COATED',
+    NULL
+  ),
+  (
+    'CAP17',
+    'CAPSULE DELAYED ACTION HARD GELATIN GELATIN',
+    NULL
+  ),
+  (
+    'CAP18',
+    'CAPSULE DELAYED ACTION',
+    NULL
+  ),
+  (
+    'CAP19',
+    'CAPSULE DELAYED RELEASE PELLETS',
+    NULL
+  ),
+  (
+    'CAP20',
+    'CAPSULE DELAYED RELEASE',
+    NULL
+  ),
+  (
+    'CAP21',
+    'CAPSULE ENTERIC COATED PELLETS',
+    NULL
+  ),
+  (
+    'CAP22',
+    'CAPSULE EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'CAP23',
+    'CAPSULE FILM COATED EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'CAP24',
+    'CAPSULE FILM COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP25',
+    'CAPSULE FILM COATED',
+    NULL
+  ),
+  (
+    'CAP26',
+    'CAPSULE FOR MICROEMULSION',
+    NULL
+  ),
+  (
+    'CAP27',
+    'CAPSULE GELATIN COATED',
+    NULL
+  ),
+  (
+    'CAP28',
+    'CAPSULE HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP29',
+    'CAPSULE LIQUID FILLED',
+    NULL
+  ),
+  (
+    'CAP30',
+    'CAPSULE REPEAT ACTION',
+    NULL
+  ),
+  (
+    'CAP31',
+    'CAPSULE SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAP33',
+    'CAPSULE SOFT GELATIN LIQUID-FILLED',
+    NULL
+  ),
+  (
+    'CAP34',
+    'CAPSULE SUSTAINED ACTION COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP35',
+    'CAPSULE SUSTAINED ACTION COATED SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAP36',
+    'CAPSULE SUSTAINED ACTION COATED',
+    NULL
+  ),
+  (
+    'CAP37',
+    'CAPSULE SUSTAINED ACTION FILM COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP38',
+    'CAPSULE SUSTAINED ACTION HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAP39',
+    'CAPSULE SUSTAINED ACTION SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAP40',
+    'CAPSULE SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'CAP41',
+    'CAPSULE CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'CAP42',
+    'CAPSULE MODIFIED RELEASE',
+    NULL
+  ),
+  (
+    'CAPS1',
+    'CAPSULE (IMMED./COMP. RELEASE) COATED SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAPS2',
+    'CAPSULE (IMMED./COMP. RELEASE) HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAPS3',
+    'CAPSULE (IMMED./COMP. RELEASE) SOFT GELATIN CHEWABLE',
+    NULL
+  ),
+  (
+    'CAPS4',
+    'CAPSULE (IMMED./COMP. RELEASE) SOFT GELATIN PERLE',
+    NULL
+  ),
+  (
+    'CAPS5',
+    'CAPSULE (IMMED./COMP. RELEASE) SOFT GELATIN',
+    NULL
+  ),
+  (
+    'CAPS6',
+    'CAPSULE (IMMED./COMP. RELEASE)',
+    NULL
+  ),
+  (
+    'CAPS7',
+    'CAPSULE COATED EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'CAPS8',
+    'CAPSULE COATED HARD GELATIN',
+    NULL
+  ),
+  (
+    'CAPS9',
+    'CAPSULE COATED SOFT GELATIN',
+    NULL
+  ),
+  ('CAPSU', 'CAPSULE', NULL),
+  ('CATHE', 'CATHETER', NULL),
+  ('CEMEN', 'CEMENT', NULL),
+  ('CIGAR', 'CIGARETTE', NULL),
+  ('CLOTH', 'CLOTH', NULL),
+  ('CONCE', 'CONCENTRATE', NULL),
+  ('CONEX', 'CONE', NULL),
+  (
+    'COREX',
+    'CORE EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'CREA1',
+    'CREAM EMULSION SUSTAINED RELEASE',
+    NULL
+  ),
+  (
+    'CREA2',
+    'CREAM SUPPOSITORY',
+    NULL
+  ),
+  ('CREA3', 'CREAM', NULL),
+  ('CREAM', 'CREAM AUGMENTED', NULL),
+  ('CRY00', 'CRYSTALS', NULL),
+  ('CRYST', 'CRYSTAL', NULL),
+  ('CULTU', 'CULTURE', NULL),
+  ('DENTI', 'DENTIFRICE', NULL),
+  ('DEPOS', 'DEPOSIT', NULL),
+  ('DEVIC', 'DEVICE', NULL),
+  ('DIAPH', 'DIAPHRAGM', NULL),
+  ('DISCX', 'DISC', NULL),
+  (
+    'DISPE',
+    'DISPERSIBLE TABLET',
+    NULL
+  ),
+  ('DOUCH', 'DOUCHE', NULL),
+  ('DPI01', 'DRY POWDER', NULL),
+  ('DRESS', 'DRESSING', NULL),
+  ('DROPS', 'DROPS', NULL),
+  (
+    'DRUGX',
+    'DRUG DELIVERY SYSTEM',
+    NULL
+  ),
+  (
+    'EDS01',
+    'EYE DROPS SUSPENSION',
+    NULL
+  ),
+  (
+    'EDS02',
+    'EYE DROPS SOLUTION',
+    NULL
+  ),
+  ('ELIXI', 'ELIXIR', NULL),
+  ('EMU01', 'EMULOSION', NULL),
+  ('EMUL1', 'EMULSION CREAM', NULL),
+  (
+    'EMUL2',
+    'EMULSION INJECTION',
+    NULL
+  ),
+  ('EMUL3', 'EMULSION LOTION', NULL),
+  ('EMUL4', 'EMULSION SHAMPOO', NULL),
+  ('EMUL5', 'EMULSION', NULL),
+  (
+    'EMULS',
+    'EMULSION AEROSOL FOAM',
+    NULL
+  ),
+  ('ENEMA', 'ENEMA', NULL),
+  ('EXTRA', 'EXTRACT', NULL),
+  ('EYD01', 'EYE DROPS', NULL),
+  ('EYO01', 'EYE OINTMENT', NULL),
+  (
+    'FDP01',
+    'FREEZE-DRIED POWDER + DILUENT',
+    NULL
+  ),
+  (
+    'FIBER',
+    'FIBER EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'FILM1',
+    'FILM CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'FILM2',
+    'FILM EXTENDED RELEASE',
+    NULL
+  ),
+  ('FILM3', 'FILM SOLUBLE', NULL),
+  ('FILM4', 'FILM', NULL),
+  ('FOODX', 'FOOD', NULL),
+  ('FORM_CODE', 'FORM_DESC', NULL),
+  (
+    'FORS1',
+    'FOR SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  ('FORS2', 'FOR SUSPENSION', NULL),
+  ('FORSX', 'FOR SOLUTION', NULL),
+  (
+    'FPR01',
+    'FREEZE-DRIED POWDER +  RECONSTITUTION FLUID',
+    NULL
+  ),
+  (
+    'GASFX',
+    'GAS FOR INHALATION',
+    NULL
+  ),
+  ('GASXX', 'GAS', NULL),
+  ('GELDE', 'GEL DENTIFRICE', NULL),
+  ('GELME', 'GEL METERED', NULL),
+  ('GELXX', 'GEL', NULL),
+  ('GENER', 'GENERATOR', NULL),
+  ('GLOBU', 'GLOBULE', NULL),
+  ('GRA01', 'GRANULES', NULL),
+  (
+    'GRA10',
+    'GRANULE FOR SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'GRA11',
+    'GRANULE FOR SUSPENSION',
+    NULL
+  ),
+  ('GRA12', 'GRANULE', NULL),
+  ('GRAFT', 'GRAFT', NULL),
+  (
+    'GRAN1',
+    'GRANULE EFFERVESCENT FOR SOLUTION',
+    NULL
+  ),
+  (
+    'GRAN2',
+    'GRANULE EFFERVESCENT FOR SUSPENSION',
+    NULL
+  ),
+  (
+    'GRAN3',
+    'GRANULE EFFERVESCENT',
+    NULL
+  ),
+  (
+    'GRAN4',
+    'GRANULE ENTERIC COATED',
+    NULL
+  ),
+  (
+    'GRAN5',
+    'GRANULE FOR ORAL SOLUTION',
+    NULL
+  ),
+  (
+    'GRAN6',
+    'GRANULE FOR ORAL SUSPENSION',
+    NULL
+  ),
+  (
+    'GRAN7',
+    'GRANULE FOR RECONSTITUTION CR',
+    NULL
+  ),
+  (
+    'GRAN8',
+    'GRANULE FOR RECONSTITUTION',
+    NULL
+  ),
+  (
+    'GRAN9',
+    'GRANULE FOR SOLUTION',
+    NULL
+  ),
+  (
+    'GRANU',
+    'GRANULE DELAYED RELEASE',
+    NULL
+  ),
+  ('GUMC1', 'GUM CHEWING', NULL),
+  ('GUMC2', 'GUM RESIN', NULL),
+  (
+    'GUMCH',
+    'GUM CHEWING MEDICATED',
+    NULL
+  ),
+  ('GUMXX', 'GUM', NULL),
+  ('IMPLA', 'IMPLANT', NULL),
+  ('INFUS', 'INFUSION', NULL),
+  ('INHA1', 'INHALATION', NULL),
+  ('INHAL', 'INHALANT', NULL),
+  (
+    'INJ10',
+    'INJECTION POWDER LYOPHILIZED FOR SUSPENSION',
+    NULL
+  ),
+  (
+    'INJ11',
+    'INJECTION POWDER LYOPHILIZED FOR SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'INJ12',
+    'INJECTION SOLUTION CONCENTRATE',
+    NULL
+  ),
+  (
+    'INJ13',
+    'INJECTION SOLUTION',
+    NULL
+  ),
+  (
+    'INJ14',
+    'INJECTION SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'INJ15',
+    'INJECTION SUSPENSION LIPOSOMAL',
+    NULL
+  ),
+  (
+    'INJ16',
+    'INJECTION SUSPENSION SONICATED',
+    NULL
+  ),
+  (
+    'INJ17',
+    'INJECTION SUSPENSION',
+    NULL
+  ),
+  (
+    'INJ18',
+    'INJECTION SUSTAINED ACTION',
+    NULL
+  ),
+  ('INJ19', 'INJECTION', NULL),
+  (
+    'INJE1',
+    'INJECTION EMULSION',
+    NULL
+  ),
+  (
+    'INJE2',
+    'INJECTION LIPID COMPLEX',
+    NULL
+  ),
+  (
+    'INJE3',
+    'INJECTION LIPOSOMAL',
+    NULL
+  ),
+  (
+    'INJE4',
+    'INJECTION MICROSPHERES',
+    NULL
+  ),
+  (
+    'INJE5',
+    'INJECTION POWDER FOR SOLUTION',
+    NULL
+  ),
+  (
+    'INJE6',
+    'INJECTION POWDER FOR SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'INJE7',
+    'INJECTION POWDER FOR SUSPENSION',
+    NULL
+  ),
+  (
+    'INJE8',
+    'INJECTION POWDER LYOPHILIZED FOR LIPOSOMAL SUSPENSION',
+    NULL
+  ),
+  (
+    'INJE9',
+    'INJECTION POWDER LYOPHILIZED FOR SOLUTION',
+    NULL
+  ),
+  ('INJEC', 'INJECTABLE', NULL),
+  (
+    'INSER',
+    'INSERT EXTENDED RELEASE',
+    NULL
+  ),
+  ('INSEX', 'INSERT', NULL),
+  (
+    'INTRA',
+    'INTRAUTERINE DEVICE',
+    NULL
+  ),
+  ('IRRIG', 'IRRIGANT', NULL),
+  ('IRRIX', 'IRRIGATION', NULL),
+  ('JELLY', 'JELLY', NULL),
+  ('KITXX', 'KIT', NULL),
+  ('LENSX', 'LENS', NULL),
+  ('LINER', 'LINER DENTAL', NULL),
+  ('LINIM', 'LINIMENT', NULL),
+  (
+    'LIPOS',
+    'LIPOSOME-ENCAPSULATED',
+    NULL
+  ),
+  ('LIPST', 'LIPSTICK', NULL),
+  (
+    'LIQU1',
+    'LIQUID CONCENTRATE',
+    NULL
+  ),
+  (
+    'LIQU2',
+    'LIQUID EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'LIQU3',
+    'LIQUID FOR INHALATION',
+    NULL
+  ),
+  (
+    'LIQU4',
+    'LIQUID WATER STERILE FOR INJECTION',
+    NULL
+  ),
+  ('LIQU5', 'LIQUID', NULL),
+  (
+    'LIQUI',
+    'LIQUID CONCENTRATE INJECTION',
+    NULL
+  ),
+  ('LOLLI', 'LOLLIPOP', NULL),
+  ('LOTI1', 'LOTION', NULL),
+  ('LOTI2', 'LOTION/SHAMPOO', NULL),
+  ('LOTIO', 'LOTION AUGMENTED', NULL),
+  ('LOZEN', 'LOZENGE', NULL),
+  (
+    'LPS01',
+    'LYOPHILIZED POWDER + SOLVENT',
+    NULL
+  ),
+  (
+    'LPS02',
+    'LYOPHILIZED POWDER + DILUENT',
+    NULL
+  ),
+  (
+    'LPS03',
+    'LYOPHILIZED POWDER + SOLUTION',
+    NULL
+  ),
+  (
+    'LYP01',
+    'LYOPHILIZED POWDER',
+    NULL
+  ),
+  (
+    'MDIXX',
+    'METERED DOSE INHALER',
+    NULL
+  ),
+  (
+    'MICRO',
+    'MICROCAPSULES FOR INJECTION SUSPENSION STERILE',
+    NULL
+  ),
+  (
+    'MICRX',
+    'MICRONIZED TABLET',
+    NULL
+  ),
+  (
+    'MINIO',
+    'MINI-OSMOTIC PUMP',
+    NULL
+  ),
+  ('MISCE', 'MISCELLANEOUS', NULL),
+  ('MOUTH', 'MOUTHWASH', NULL),
+  ('MUCIL', 'MUCILAGE', NULL),
+  (
+    'NAS01',
+    'NASAL AQUEOUS SOLUTION',
+    NULL
+  ),
+  (
+    'NDS01',
+    'NASAL DROPS SOLUTION',
+    NULL
+  ),
+  ('NOTAX', 'NOT APPLICABLE', NULL),
+  ('NS001', 'NASAL SPRAY', NULL),
+  ('OA001', 'ORAL ANTISEPTIC', NULL),
+  ('OD000', 'ORAL DROPS', NULL),
+  ('OILXX', 'OIL', NULL),
+  (
+    'OINTM',
+    'OINTMENT AUGMENTED',
+    NULL
+  ),
+  ('OINTX', 'OINTMENT', NULL),
+  (
+    'OPHTH',
+    'OPHTHALMIC CONTINUOUS RELEASE CORE UNIT',
+    NULL
+  ),
+  (
+    'OPS01',
+    'OPHTHALMIC SOLUTION',
+    NULL
+  ),
+  (
+    'OPS02',
+    'OPHTHALMIC SUSPENSION',
+    NULL
+  ),
+  ('OS001', 'ORAL SOLUTION', NULL),
+  ('OVULE', 'OVULE', NULL),
+  ('PACKI', 'PACKING', NULL),
+  ('PAI01', 'PAINT', NULL),
+  ('PAST1', 'PASTE', NULL),
+  ('PAST2', 'PASTILLE', NULL),
+  ('PASTE', 'PASTE DENTIFRICE', NULL),
+  (
+    'PATC1',
+    'PATCH ELECTRICALLY CONTROLLED',
+    NULL
+  ),
+  (
+    'PATC2',
+    'PATCH EXTENDED RELEASE ELECTRICALLY CONTROLLED',
+    NULL
+  ),
+  (
+    'PATC3',
+    'PATCH EXTENDED RELEASE',
+    NULL
+  ),
+  ('PATC4', 'PATCH', NULL),
+  (
+    'PATCH',
+    'PATCH CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'PELL1',
+    'PELLET IMPLANTABLE',
+    NULL
+  ),
+  ('PELL2', 'PELLET', NULL),
+  (
+    'PELL3',
+    'PELLETS COATED EXTENDED RELEASE',
+    NULL
+  ),
+  ('PELLE', 'PELLET IMPLANT', NULL),
+  ('PILLX', 'PILL', NULL),
+  ('PLAST', 'PLASTER', NULL),
+  ('POULT', 'POULTICE', NULL),
+  (
+    'POW10',
+    'POWDER FOR INJECTION SOLUTION LYOPHILIZED',
+    NULL
+  ),
+  (
+    'POW11',
+    'POWDER FOR INJECTION SOLUTION WITH ADDITIVES',
+    NULL
+  ),
+  (
+    'POW12',
+    'POWDER FOR INJECTION SOLUTION WITHOUT ADDITIVES',
+    NULL
+  ),
+  (
+    'POW13',
+    'POWDER FOR INJECTION SOLUTION',
+    NULL
+  ),
+  (
+    'POW14',
+    'POWDER FOR INJECTION SUSPENSION LYOPHILIZED SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'POW15',
+    'POWDER FOR INJECTION SUSPENSION LYOPHILIZED',
+    NULL
+  ),
+  (
+    'POW16',
+    'POWDER FOR INJECTION SUSPENSION SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'POW17',
+    'POWDER FOR INJECTION SUSPENSION',
+    NULL
+  ),
+  (
+    'POW18',
+    'POWDER FOR OPHTHALMIC SOLUTION',
+    NULL
+  ),
+  (
+    'POW19',
+    'POWDER FOR ORAL SOLUTION',
+    NULL
+  ),
+  (
+    'POW20',
+    'POWDER FOR ORAL SUSPENSION',
+    NULL
+  ),
+  (
+    'POW21',
+    'POWDER FOR RECONSTITUTION AEROSOL',
+    NULL
+  ),
+  (
+    'POW22',
+    'POWDER FOR RECONSTITUTION',
+    NULL
+  ),
+  (
+    'POW23',
+    'POWDER FOR SOLUTION',
+    NULL
+  ),
+  (
+    'POW24',
+    'POWDER FOR SUSPENSION',
+    NULL
+  ),
+  ('POW25', 'POWDER METERED', NULL),
+  ('POW26', 'POWDER SPRAY', NULL),
+  ('POW27', 'POWDER', NULL),
+  (
+    'POW28',
+    'POWDER FOR IV INFUSION',
+    NULL
+  ),
+  ('POWD1', 'POWDER AEROSOL', NULL),
+  (
+    'POWD2',
+    'POWDER BREATH ACTUATED INHALER',
+    NULL
+  ),
+  ('POWD3', 'POWDER BULK', NULL),
+  (
+    'POWD4',
+    'POWDER DENTIFRICE',
+    NULL
+  ),
+  ('POWD5', 'POWDER EXTRACT', NULL),
+  (
+    'POWD6',
+    'POWDER FOR INHALATION',
+    NULL
+  ),
+  (
+    'POWD7',
+    'POWDER FOR INJECTION SOLUTION LYOPHILIZED SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'POWD8',
+    'POWDER FOR INJECTION SOLUTION LYOPHILIZED WITH ADDITIVES',
+    NULL
+  ),
+  (
+    'POWD9',
+    'POWDER FOR INJECTION SOLUTION LYOPHILIZED WITHOUT ADDITIVES',
+    NULL
+  ),
+  (
+    'POWDE',
+    'POWDER AEROSOL FOR INHALATION',
+    NULL
+  ),
+  ('RESIN', 'RESIN', NULL),
+  ('RINGX', 'RING', NULL),
+  ('RINSE', 'RINSE', NULL),
+  ('RODXX', 'ROD', NULL),
+  ('ROTAC', 'ROTACAP', NULL),
+  (
+    'RSOLU',
+    'RESPIRATORY SOLUTION',
+    NULL
+  ),
+  ('RTU00', 'RECTAL', NULL),
+  ('SAC01', 'SACHET', NULL),
+  ('SALVE', 'SALVE', NULL),
+  (
+    'SHAMP',
+    'SHAMPOO SUSPENSION',
+    NULL
+  ),
+  ('SHAMX', 'SHAMPOO', NULL),
+  ('SOAPX', 'SOAP', NULL),
+  (
+    'SOL10',
+    'SOLUTION FOR MICROEMULSION',
+    NULL
+  ),
+  (
+    'SOL11',
+    'SOLUTION FOR SLUSH',
+    NULL
+  ),
+  (
+    'SOL12',
+    'SOLUTION GEL FORMING EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'SOL13',
+    'SOLUTION GEL FORMING/DROPS',
+    NULL
+  ),
+  (
+    'SOL14',
+    'SOLUTION FOR INJECTION',
+    NULL
+  ),
+  (
+    'SOL15',
+    'SOLUTION IRRIGATION',
+    NULL
+  ),
+  ('SOL16', 'SOLUTION JUICE', NULL),
+  (
+    'SOL17',
+    'SOLUTION LINIMENT',
+    NULL
+  ),
+  (
+    'SOL18',
+    'SOLUTION LIPOSOME INJECTION',
+    NULL
+  ),
+  (
+    'SOL19',
+    'SOLUTION LIQUID CONCENTRATE INJECTION',
+    NULL
+  ),
+  (
+    'SOL20',
+    'SOLUTION LIQUID CONCENTRATE ORAL',
+    NULL
+  ),
+  ('SOL21', 'SOLUTION LIQUID', NULL),
+  ('SOL22', 'SOLUTION LOTION', NULL),
+  (
+    'SOL23',
+    'SOLUTION MODIFIED',
+    NULL
+  ),
+  (
+    'SOL24',
+    'SOLUTION MOUTHWASH',
+    NULL
+  ),
+  ('SOL25', 'SOLUTION RINSE', NULL),
+  ('SOL26', 'SOLUTION SHAMPOO', NULL),
+  ('SOL27', 'SOLUTION SOAP', NULL),
+  (
+    'SOL28',
+    'SOLUTION SPRAY METERED PUMP',
+    NULL
+  ),
+  ('SOL29', 'SOLUTION SPRAY', NULL),
+  ('SOL30', 'SOLUTION SYRUP', NULL),
+  (
+    'SOL31',
+    'SOLUTION TINCTURE',
+    NULL
+  ),
+  ('SOL32', 'SOLUTION', NULL),
+  ('SOL33', 'SOLUTION/DROPS', NULL),
+  (
+    'SOL34',
+    'SOLUTION FOR NEBULIZATION',
+    NULL
+  ),
+  (
+    'SOL35',
+    'SOLUTION FOR INFUSION',
+    NULL
+  ),
+  (
+    'SOL36',
+    'SOLUTION OF LIDOCAINE',
+    NULL
+  ),
+  (
+    'SOL37',
+    'EAR DROPS SOLUTION',
+    NULL
+  ),
+  ('SOL38', 'POWDER SOLUTION', NULL),
+  ('SOL39', 'DEPOT SOLUTION', NULL),
+  (
+    'SOL40',
+    'COLLOIDAL SOLUTION',
+    NULL
+  ),
+  ('SOL41', 'TOPICAL SOLUTION', NULL),
+  ('SOLU1', 'SOLUTION AEROSOL', NULL),
+  (
+    'SOLU2',
+    'SOLUTION CONCENTRATE',
+    NULL
+  ),
+  (
+    'SOLU3',
+    'SOLUTION DENTIFRICE',
+    NULL
+  ),
+  ('SOLU4', 'SOLUTION DOUCHE', NULL),
+  ('SOLU5', 'SOLUTION DROPS', NULL),
+  ('SOLU6', 'SOLUTION ELIXIR', NULL),
+  ('SOLU7', 'SOLUTION ENEMA', NULL),
+  ('SOLU8', 'SOLUTION EXTRACT', NULL),
+  (
+    'SOLU9',
+    'SOLUTION FOR INHALATION',
+    NULL
+  ),
+  ('SOLUB', 'SOLUBLE OBLET', NULL),
+  (
+    'SOLUT',
+    'SOLUTION AEROSOL FOR INHALATION',
+    NULL
+  ),
+  ('SOLXX', 'SOL', NULL),
+  ('SPONG', 'SPONGE', NULL),
+  (
+    'SPRA1',
+    'SPRAY METERED PUMP',
+    NULL
+  ),
+  ('SPRA2', 'SPRAY SUSPENSION', NULL),
+  ('SPRA3', 'SPRAY', NULL),
+  ('SPRAY', 'SPRAY METERED', NULL),
+  (
+    'SSC01',
+    'SURGICAL SKIN CLEANSER',
+    NULL
+  ),
+  ('STICK', 'STICK', NULL),
+  ('STRI1', 'STRIPS', NULL),
+  ('STRIP', 'STRIP', NULL),
+  (
+    'SUPP1',
+    'SUPPOSITORY EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'SUPP2',
+    'SUPPOSITORY INSERT CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'SUPP3',
+    'SUPPOSITORY INSERT',
+    NULL
+  ),
+  ('SUPP4', 'SUPPOSITORY', NULL),
+  (
+    'SUPPO',
+    'SUPPOSITORY CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'SUS10',
+    'SUSPENSION SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'SUS11',
+    'SUSPENSION SYRUP SUSTAINED ACTION',
+    NULL
+  ),
+  ('SUS12', 'SUSPENSION SYRUP', NULL),
+  ('SUS13', 'SUSPENSION/DROPS', NULL),
+  ('SUS14', 'SUSPENSION', NULL),
+  (
+    'SUSP1',
+    'SUSPENSION AEROSOL',
+    NULL
+  ),
+  ('SUSP2', 'SUSPENSION DROPS', NULL),
+  ('SUSP3', 'SUSPENSION ENEMA', NULL),
+  (
+    'SUSP4',
+    'SUSPENSION EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'SUSP5',
+    'SUSPENSION FOR INHALATION',
+    NULL
+  ),
+  (
+    'SUSP6',
+    'SUSPENSION INJECTION SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'SUSP7',
+    'SUSPENSION INJECTION',
+    NULL
+  ),
+  (
+    'SUSP8',
+    'SUSPENSION LIQUID MIXTURE',
+    NULL
+  ),
+  (
+    'SUSP9',
+    'SUSPENSION LIQUID',
+    NULL
+  ),
+  (
+    'SUSPE',
+    'SUSPENSION AEROSOL FOR INHALATION',
+    NULL
+  ),
+  ('SUTUR', 'SUTURE', NULL),
+  ('SWABX', 'SWAB', NULL),
+  ('SYRUP', 'SYRUP', NULL),
+  ('TAB10', 'TABLET COATED', NULL),
+  (
+    'TAB11',
+    'TABLET COATED PARTICLES',
+    NULL
+  ),
+  (
+    'TAB12',
+    'TABLET CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'TAB13',
+    'TABLET DELAYED ACTION COATED',
+    NULL
+  ),
+  (
+    'TAB14',
+    'TABLET DELAYED ACTION ENTERIC COATED',
+    NULL
+  ),
+  (
+    'TAB15',
+    'TABLET DELAYED ACTION',
+    NULL
+  ),
+  (
+    'TAB16',
+    'TABLET DELAYED RELEASE',
+    NULL
+  ),
+  (
+    'TAB17',
+    'TABLET DELAYED RELEASE PARTICLES',
+    NULL
+  ),
+  (
+    'TAB18',
+    'TABLET DISPERSIBLE',
+    NULL
+  ),
+  (
+    'TAB19',
+    'TABLET EFFERVESCENT FOR SOLUTION',
+    NULL
+  ),
+  (
+    'TAB20',
+    'TABLET EFFERVESCENT',
+    NULL
+  ),
+  (
+    'TAB21',
+    'TABLET ENTERIC COATED PARTICLES',
+    NULL
+  ),
+  (
+    'TAB22',
+    'TABLET EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'TAB23',
+    'TABLET FILM COATED EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'TAB24',
+    'TABLET FILM COATED',
+    NULL
+  ),
+  (
+    'TAB25',
+    'TABLET FOR SOLUTION',
+    NULL
+  ),
+  (
+    'TAB26',
+    'TABLET FOR SUSPENSION',
+    NULL
+  ),
+  (
+    'TAB27',
+    'TABLET MULTILAYER COATED',
+    NULL
+  ),
+  (
+    'TAB28',
+    'TABLET MULTILAYER EXTENDED RELEASE',
+    NULL
+  ),
+  (
+    'TAB29',
+    'TABLET MULTILAYER FILM COATED',
+    NULL
+  ),
+  (
+    'TAB30',
+    'TABLET MULTILAYER',
+    NULL
+  ),
+  (
+    'TAB31',
+    'TABLET ORALLY DISINTEGRATING DELAYED RELEASE',
+    NULL
+  ),
+  (
+    'TAB32',
+    'TABLET ORALLY DISINTEGRATING',
+    NULL
+  ),
+  (
+    'TAB33',
+    'TABLET REPEAT ACTION COATED',
+    NULL
+  ),
+  (
+    'TAB34',
+    'TABLET REPEAT ACTION',
+    NULL
+  ),
+  ('TAB35', 'TABLET SOLUBLE', NULL),
+  (
+    'TAB36',
+    'TABLET SUGAR COATED',
+    NULL
+  ),
+  (
+    'TAB37',
+    'TABLET SUSTAINED ACTION COATED',
+    NULL
+  ),
+  (
+    'TAB38',
+    'TABLET SUSTAINED ACTION FILM COATED',
+    NULL
+  ),
+  (
+    'TAB39',
+    'TABLET SUSTAINED ACTION MEMBRANE CONTROLLED',
+    NULL
+  ),
+  (
+    'TAB40',
+    'TABLET SUSTAINED ACTION MULTILAYER COATED',
+    NULL
+  ),
+  (
+    'TAB41',
+    'TABLET SUSTAINED ACTION MULTILAYER FILM COATED',
+    NULL
+  ),
+  (
+    'TAB42',
+    'TABLET SUSTAINED ACTION MULTILAYER',
+    NULL
+  ),
+  (
+    'TAB43',
+    'TABLET SUSTAINED ACTION UNCOATED',
+    NULL
+  ),
+  (
+    'TAB44',
+    'TABLET SUSTAINED ACTION',
+    NULL
+  ),
+  (
+    'TAB45',
+    'TABLET SUSTAINED RELEASE FILM COATED',
+    NULL
+  ),
+  (
+    'TAB46',
+    'TABLET UNCOATED LOZENGE LYOPHILIZED',
+    NULL
+  ),
+  (
+    'TAB47',
+    'TABLET UNCOATED LOZENGE',
+    NULL
+  ),
+  (
+    'TAB48',
+    'TABLET UNCOATED TROCHE',
+    NULL
+  ),
+  ('TAB49', 'TABLET', NULL),
+  (
+    'TAB50',
+    'TABLET ENTERIC SUGAR COATED',
+    NULL
+  ),
+  (
+    'TAB51',
+    'TABLET FILM COATED CONTROLLED RELEASE',
+    NULL
+  ),
+  (
+    'TAB52',
+    'TABLET MODIFIED RELEASE',
+    NULL
+  ),
+  ('TAB53', 'VAGINAL TABLET', NULL),
+  (
+    'TABL1',
+    'TABLET (IMMED./COMP. RELEASE) FILM COATED COATED',
+    NULL
+  ),
+  (
+    'TABL2',
+    'TABLET (IMMED./COMP. RELEASE) MULTILAYER COATED',
+    NULL
+  ),
+  (
+    'TABL3',
+    'TABLET (IMMED./COMP. RELEASE) MULTILAYER',
+    NULL
+  ),
+  (
+    'TABL4',
+    'TABLET (IMMED./COMP. RELEASE) SUGAR COATED',
+    NULL
+  ),
+  (
+    'TABL5',
+    'TABLET (IMMED./COMP. RELEASE) UNCOATED BUCCAL',
+    NULL
+  ),
+  (
+    'TABL6',
+    'TABLET (IMMED./COMP. RELEASE) UNCOATED CHEWABLE',
+    NULL
+  ),
+  (
+    'TABL7',
+    'TABLET (IMMED./COMP. RELEASE) UNCOATED EFFERVESCENT',
+    NULL
+  ),
+  (
+    'TABL8',
+    'TABLET (IMMED./COMP. RELEASE) UNCOATED HYPODERMIC',
+    NULL
+  ),
+  ('TABL9', 'TABLET CHEWABLE', NULL),
+  (
+    'TABLE',
+    'TABLET (IMMED./COMP. RELEASE) COATED',
+    NULL
+  ),
+  ('TAMPO', 'TAMPON', NULL),
+  ('TAPEX', 'TAPE', NULL),
+  ('TEAXX', 'TEA', NULL),
+  ('TESTX', 'TEST', NULL),
+  ('TINCT', 'TINCTURE', NULL),
+  ('TROCH', 'TROCHE', NULL),
+  ('TROCX', 'TROCHE/LOZENGE', NULL),
+  ('USP01', 'USP GRADE', NULL),
+  ('WAFER', 'WAFER', NULL),
+  ('WAS01', 'WASH', NULL),
+  ('00000', NULL, NULL) ;
+

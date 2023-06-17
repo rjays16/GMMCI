@@ -1,0 +1,1 @@
+ALTER TABLE `gmmci041518`.`seg_cf4_vital_signs` CHANGE `bp` `systolic` VARCHAR(10) CHARSET utf8 COLLATE utf8_unicode_ci NULL, ADD COLUMN `diastolic` VARCHAR(10) NULL AFTER `systolic`, ADD COLUMN `height` VARCHAR(10) NULL AFTER `temperature`, ADD COLUMN `weight` VARCHAR(10) NULL AFTER `height`;

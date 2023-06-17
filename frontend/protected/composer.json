@@ -1,0 +1,18 @@
+{
+    "name": "segworks/hisgmmci",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Alvin Quinones",
+            "email": "ajmquinones@gmail.con"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "raveren/kint": "^1.0",
+        "phpoffice/phpexcel": "^1.8",
+        "fzaninotto/faker": "^1.6",
+        "michelf/php-markdown": "^1.6"
+    }
+}
