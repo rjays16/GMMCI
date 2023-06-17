@@ -1,0 +1,1 @@
+UPDATE `gmmci041518`.`care_config_global` SET `value` = 'csfp1,PHIC_CF1,ACR_2,eclaims_status_report,csfp2,csfFP,cf4,PHIC_CF1_REVISED,med_abstract' WHERE `type` = 'new_report_jrxml';
