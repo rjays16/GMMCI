@@ -1,0 +1,42 @@
+
+/* The CSS executes down on the browser so, for bandwidth, its to durned late! */
+/* sadly the information is not sent up to the server;  needs other techniques */
+#csstest {display:none;}
+
+@media all and (min-width: 1025px) {
+/* super wide screen */
+#sizesuper{font-weight:bold;color:red;}
+#sizeregular,#sizepda,#sizenice,#sizemicro {display:none;}
+/* unfortunately, wide and regular screens do not announce themselves */
+/* except in Opera */
+}
+@media all and (min-width: 701px) and (max-width: 1024px) {
+/* regular screen user */
+#sizeregular{font-weight:bold;color:red;}
+#sizesuper,#sizepda,#sizenice,#sizemicro {display:none;}
+/* unfortunately, wide and regular screens do not announce themselves */
+/* except in Opera */
+}
+@media all and (min-width: 481px) and (max-width: 700px) {
+/* blackberry or PDA */
+#sizepda {font-weight:bold;color:red;}
+#sizesuper,#sizeregular,#sizenice,#sizemicro {display:none;}
+}
+@media all and (min-width: 320px) and (max-width: 480px) {
+/* iPhone or nice phone */
+#sizenice {font-weight:bold;color:red;}
+#sizesuper,#sizeregular,#sizepda,#sizemicro {display:none;}
+}
+@media all and (max-width: 319px) {
+/* nasty phone */
+#sizemicro {font-weight:bold;color:red;}
+#sizesuper,#sizeregular,#sizepda,#sizenice {display:none;}
+}
+@media handheld {
+#handheld {font-weight:bold;color:red;}
+#screen {display:none;}
+}
+@media screen {
+#screen {font-weight:bold;color:red;}
+#handheld {display:none;}
+}
